@@ -1,0 +1,43 @@
+## PERSONAL
+RESOURCES.md
+
+## VIM
+[._]*.s[a-v][a-z]
+[._]*.sw[a-p]
+[._]s[a-rt-v][a-z]
+[._]ss[a-gi-z]
+[._]sw[a-p]
+Session.vim
+Sessionx.vim
+.netrwhist
+*~
+tags
+[._]*.un~
+
+
+## JETBRAINS
+.idea
+cmake-build-*/
+*.iws
+*.iml
+*.ipr
+.idea_modules/
+atlassian-ide-plugin.xml
+com_crashlytics_export_strings.xml
+crashlytics.properties
+crashlytics-build.properties
+fabric.properties
+
+
+## VSCODE
+.vscode
+*.code-workspace
+
+
+## MISC
+.DS_Store
+
+
+## NODE
+node_modules/
+.npm

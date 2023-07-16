@@ -4,17 +4,15 @@
   ...
 }: let
   home = config.home.homeDirectory;
-  gitignore_global = "${home}/.config/git/gitignore_global";
+  gitignore_global = "git/gitignore_global";
 in {
   home.packages = with pkgs; [
     _1password-gui
   ];
 
-  home.file = {
-    gitignore_global = {
-        source = ./gitignore_global;
-        target = "${gitignore_global}";
-    };
+  xdg = {
+    enable = true;
+    configFile."${gitignore_global}".source = ./gitignore_global;
   };
 
   programs.git = {
@@ -34,7 +32,7 @@ in {
     extraConfig = {
       gpg.format = "ssh";
       gpg.ssh.program = "${pkgs._1password-gui}/bin/op-ssh-sign";
-      core.excludefiles = "${gitignore_global}";
+      core.excludefiles = "${config.xdg.configHome}/${gitignore_global}";
     };
   };
 }

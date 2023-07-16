@@ -4,10 +4,6 @@
   ...
 }: let
 in {
-  home.packages = with pkgs; [
-    _1password-gui
-  ];
-
   programs.alacritty = {
     enable = true;
     settings = {

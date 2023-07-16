@@ -6,9 +6,7 @@
   home = config.home.homeDirectory;
   gitignore_global = "git/gitignore_global";
 in {
-  home.packages = with pkgs; [
-    _1password-gui
-  ];
+  # TODO: add dependency over 1password.nix?
 
   xdg = {
     enable = true;
@@ -31,7 +29,7 @@ in {
     };
     extraConfig = {
       gpg.format = "ssh";
-      gpg.ssh.program = "${pkgs._1password-gui}/bin/op-ssh-sign";
+      gpg.ssh.program = "/opt/1Password/op-ssh-sign";
       core.excludefiles = "${config.xdg.configHome}/${gitignore_global}";
     };
   };

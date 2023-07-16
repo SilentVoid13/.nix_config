@@ -14,5 +14,6 @@
     jq
     topgrade
     trashy
+    just
   ];
 }

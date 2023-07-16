@@ -17,10 +17,13 @@
     wappalyzer = "gppongmhjkpfnbhagpmjfkannfbllamg";
     blocksite = "bjcnpgekponkjpincbcoflgkdomldlnl";
     sponsorblock = "mnjggcdmjocbbbhaepdhchncahnbgone";
-    cookieautodelete = "fhcgjolkccmbidfldomjliifgaodjagh";
     clearurls = "lckanjgmijmafbedllaakclkaicjfmnk";
+    cookieautodelete = "fhcgjolkccmbidfldomjliifgaodjagh";
   };
 in {
+  # TODO: Switch to programs.chromium?
+  # https://github.com/nix-community/home-manager/blob/master/modules/programs/chromium.nix
+
   home.packages = with pkgs; [
     brave
   ];
@@ -36,6 +39,7 @@ in {
       "${extDir}/${extList.blocksite}.json".text = extText;
       "${extDir}/${extList.sponsorblock}.json".text = extText;
       "${extDir}/${extList.clearurls}.json".text = extText;
+      "${extDir}/${extList.cookieautodelete}.json".text = extText;
     };
   };
 }

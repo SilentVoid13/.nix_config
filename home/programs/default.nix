@@ -1,8 +1,12 @@
 [
   ./common_terminal.nix
+  ./common_gui.nix
   ./1password.nix
   ./git
   ./brave.nix
   ./alacritty.nix
   ./foot.nix
+  ./sway
+  ./wofi.nix
+  ./waybar.nix
 ]

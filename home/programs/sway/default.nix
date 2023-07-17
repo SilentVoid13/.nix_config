@@ -24,10 +24,11 @@
   ws10 = "10";
 in {
   # TODO: xkb-qwerty-fr
+  # TODO: polkit-gnome
   # TODO: dunst dependency?
 
   home.packages = with pkgs; [
-    polkit_gnome
+    #polkit_gnome
     brightnessctl
     playerctl
     grim
@@ -206,15 +207,26 @@ in {
         }
       ];
 
-      floating.criteria = [
-        {title = "Steam - Update News";}
-        {app_id = "pavucontrol";}
-        {app_id = "qalculate-gtk";}
-        {app_id = "imv";}
-      ];
+      output = {
+        "${mon1}" = {
+          pos = "0 0";
+          res = "1920 1080";
+          #scale = "1.2";
+        };
+        "${mon2}" = {
+          pos = "1900 0";
+          res = "2240 1400";
+          #scale = "1.2";
+        };
+      };
     };
     extraConfig = ''
       default_border none
+      focus output ${mon1}
+
+      for_window [app_id="pavucontrol"] floating enable, border normal
+      for_window [app_id="qalculate-gtk"] floating enable, border normal
+      for_window [app_id="imv"] floating enable, border normal
     '';
   };
 }

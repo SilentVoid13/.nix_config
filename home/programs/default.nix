@@ -1,9 +1,11 @@
 [
   ./common_terminal.nix
   ./common_gui.nix
+  ./common_toolchain.nix
   ./1password.nix
   ./git
   ./brave.nix
+  ./firefox.nix
   ./alacritty.nix
   ./foot.nix
   ./sway

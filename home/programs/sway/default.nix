@@ -29,11 +29,16 @@ in {
 
   home.packages = with pkgs; [
     #polkit_gnome
+    xwayland
+    wl-clipboard
     brightnessctl
     playerctl
     grim
     slurp
     wbg
+    wdisplays
+    xdg-utils
+    pavucontrol
   ];
 
   services.swayidle = {
@@ -48,7 +53,20 @@ in {
     enable = true;
     dataFile."${wallpaper_switcher}".source = ./wallpaper_switcher.sh;
     dataFile."${reboot_wallpaper}".source = ./reboot_wallpaper.sh;
+    # TODO: portal
+    #portal = {
+    #  enable = true;
+    #  wlr.enable = true;
+    #  extraPortals = [pkgs.xdg-desktop-portal-wlr pkgs.xdg-desktop-portal-gtk];
+    #};
   };
+
+  # TODO: audio, bluetooth
+  #services.pipewire = {
+  #  enable = true;
+  #  alsa.enable = true;
+  #  pulse.enable = true;
+  #};
 
   wayland.windowManager.sway = {
     enable = true;
@@ -221,9 +239,9 @@ in {
       };
     };
     extraConfig = ''
-      default_border none
       focus output ${mon1}
 
+      default_border none
       for_window [app_id="pavucontrol"] floating enable, border normal
       for_window [app_id="qalculate-gtk"] floating enable, border normal
       for_window [app_id="imv"] floating enable, border normal

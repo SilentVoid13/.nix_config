@@ -18,7 +18,6 @@ in {
 
         "sway/workspaces" = {
           disable-scroll = true;
-          all-outputs = true;
         };
         "custom/hello-from-waybar" = {
           format = "hello {}";

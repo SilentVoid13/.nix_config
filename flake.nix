@@ -4,6 +4,8 @@
   inputs = {
     nixpkgs.url = "nixpkgs/nixos-unstable";
 
+    nurpkgs.url = "github:nix-community/NUR";
+
     home-manager = {
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -22,6 +24,11 @@
   in {
     homeConfigurations.laptop = home-manager.lib.homeManagerConfiguration {
       inherit pkgs;
+      extraSpecialArgs = {
+        nur = inputs.nurpkgs;
+        inherit inputs;
+      };
+
       modules = [
         {
           home.username = "sv";

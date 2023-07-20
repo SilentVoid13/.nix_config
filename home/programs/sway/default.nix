@@ -161,7 +161,7 @@ in {
           "${m}+r" = "mode \"resize\"";
           "${m}+Print" = "mode \"system\"";
           "Print" = "mode \"screenshot\"";
-          "${m}+b" = "exec brave";
+          "${m}+b" = "exec firefox";
           "${m}+d" = "exec ${config.wayland.windowManager.sway.config.menu}";
           "${m}+Return" = "exec ${config.wayland.windowManager.sway.config.terminal} tmux new -As0";
           "${m}+Shift+w" = "exec ${reboot_wallpaper_path}";

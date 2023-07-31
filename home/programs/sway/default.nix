@@ -39,15 +39,19 @@ in {
     wdisplays
     xdg-utils
     pavucontrol
+    darkman
+    gsettings-qt
   ];
 
   services.swayidle = {
     enable = true;
   };
 
-  programs.swaylock = {
-    enable = true;
-  };
+  # TODO: fix PAM problem
+  # https://nixos.wiki/wiki/Sway#Swaylock_cannot_unlock_with_correct_password
+  #programs.swaylock = {
+  #  enable = true;
+  #};
 
   xdg = {
     enable = true;
@@ -59,6 +63,23 @@ in {
     #  wlr.enable = true;
     #  extraPortals = [pkgs.xdg-desktop-portal-wlr pkgs.xdg-desktop-portal-gtk];
     #};
+
+    dataFile."dark-mode.d/gtk-theme.sh" = {
+      executable = true;
+      text = ''gsettings set org.gnome.desktop.interface gtk-theme Adwaita-dark'';
+    };
+    dataFile."dark-mode.d/desktop-notif.sh" = {
+      executable = true;
+      text = ''notify-send --app-name="darkman" --urgency=low --icon=weather-clear-night "switching to dark mode"'';
+    };
+    dataFile."light-mode.d/gtk-theme.sh" = {
+      executable = true;
+      text = ''gsettings set org.gnome.desktop.interface gtk-theme Adwaita'';
+    };
+    dataFile."light-mode.d/desktop-notif.sh" = {
+      executable = true;
+      text = ''notify-send --app-name="darkman" --urgency=low --icon=weather-clear-night "switching to dark mode"'';
+    };
   };
 
   # TODO: audio, bluetooth
@@ -91,6 +112,14 @@ in {
         };
       };
       startup = [
+        {
+          command = ''
+            swayidle -w \
+            timeout 300 'swaylock -f -c 000000' \
+            timeout 600 'swaymsg "output * dpms off"' resume 'swaymsg "output * dpms on"' \
+            before-sleep 'swaylock -f -c 000000'
+          '';
+        }
         {command = "nm-applet --indicator";}
         {command = "${wallpaper_switcher_path}";}
         {command = "/usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1";}

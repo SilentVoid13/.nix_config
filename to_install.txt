@@ -1,0 +1,7 @@
+1password
+xdg-portal
+xkb-qwerty-fr
+polkit-gnome
+swaylock
+pipewire (alsa, pulse, ...)
+bluetooth (bluez, ...)

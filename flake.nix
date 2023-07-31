@@ -10,16 +10,23 @@
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    nixgl = {
+      url = "github:guibou/nixGL";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs = {
     self,
     nixpkgs,
     home-manager,
+    nixgl,
     ...
   } @ inputs: let
     pkgs = import nixpkgs {
       config.allowUnfree = true;
+      overlays = [ nixgl.overlay ];
     };
   in {
     homeConfigurations.laptop = home-manager.lib.homeManagerConfiguration {
@@ -27,6 +34,7 @@
       extraSpecialArgs = {
         nur = inputs.nurpkgs;
         inherit inputs;
+        wrapGl = cmd: pkgs.writeShellScriptBin "${cmd}" ''nix
       };
 
       modules = [

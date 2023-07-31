@@ -73,7 +73,7 @@ in {
     config = {
       modifier = "Mod4";
       terminal = "${pkgs.foot}/bin/foot";
-      menu = "${pkgs.wofi}/bin/wofi -S drun -I | xargs swaymsg exec -- ";
+      menu = "${pkgs.fuzzel}";
       fonts = {
         names = ["Pango" "Monospace"];
         size = 8.0;

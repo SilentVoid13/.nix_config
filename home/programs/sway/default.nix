@@ -2,6 +2,7 @@
   config,
   pkgs,
   lib,
+  specialArgs,
   ...
 }: let
   wallpaper_switcher = "sway/wallpaper_switcher.sh";
@@ -27,6 +28,10 @@ in {
   # TODO: polkit-gnome
   # TODO: dunst dependency?
 
+  #imports = import [
+  #  ../fuzzel.nix
+  #];
+
   home.packages = with pkgs; [
     #polkit_gnome
     xwayland
@@ -36,8 +41,9 @@ in {
     grim
     slurp
     wbg
-    wdisplays
+    (specialArgs.nixGLWrap wdisplays)
     xdg-utils
+    networkmanagerapplet
     pavucontrol
     darkman
     gsettings-qt
@@ -66,7 +72,10 @@ in {
 
     dataFile."dark-mode.d/gtk-theme.sh" = {
       executable = true;
-      text = ''gsettings set org.gnome.desktop.interface gtk-theme Adwaita-dark'';
+      text = ''
+        gsettings set org.gnome.desktop.interface gtk-theme Adwaita-dark
+        gsettings set org.gnome.desktop.interface color-scheme 'prefer-dark'
+      '';
     };
     dataFile."dark-mode.d/desktop-notif.sh" = {
       executable = true;
@@ -74,11 +83,14 @@ in {
     };
     dataFile."light-mode.d/gtk-theme.sh" = {
       executable = true;
-      text = ''gsettings set org.gnome.desktop.interface gtk-theme Adwaita'';
+      text = ''
+        gsettings set org.gnome.desktop.interface gtk-theme Adwaita
+        gsettings set org.gnome.desktop.interface color-scheme 'prefer-light'
+      '';
     };
     dataFile."light-mode.d/desktop-notif.sh" = {
       executable = true;
-      text = ''notify-send --app-name="darkman" --urgency=low --icon=weather-clear-night "switching to dark mode"'';
+      text = ''notify-send --app-name="darkman" --urgency=low --icon=weather-clear-night "switching to light mode"'';
     };
   };
 
@@ -94,7 +106,7 @@ in {
     config = {
       modifier = "Mod4";
       terminal = "${pkgs.foot}/bin/foot";
-      menu = "${pkgs.fuzzel}";
+      menu = "${pkgs.fuzzel}/bin/fuzzel";
       fonts = {
         names = ["Pango" "Monospace"];
         size = 8.0;
@@ -114,7 +126,7 @@ in {
       startup = [
         {
           command = ''
-            swayidle -w \
+            ${pkgs.swayidle}/bin/swayidle -w \
             timeout 300 'swaylock -f -c 000000' \
             timeout 600 'swaymsg "output * dpms off"' resume 'swaymsg "output * dpms on"' \
             before-sleep 'swaylock -f -c 000000'
@@ -123,7 +135,8 @@ in {
         {command = "nm-applet --indicator";}
         {command = "${wallpaper_switcher_path}";}
         {command = "/usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1";}
-        {command = "waybar";}
+        {command = "${pkgs.waybar}/bin/waybar";}
+        {command = "${pkgs.darkman}/bin/darkman run";}
       ];
 
       keybindings = let

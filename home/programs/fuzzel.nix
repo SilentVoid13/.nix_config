@@ -4,12 +4,16 @@
   ...
 }: let
 in {
+    home.packages = with pkgs; [
+        papirus-icon-theme
+    ];
+
     programs.fuzzel = {
         enable = true;
         settings = {
             main = {
                 icon-theme = "Papirus-Dark";
-            }
+            };
             colors = {
                 background="282a36dd";
                 text="f8f8f2ff";

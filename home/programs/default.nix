@@ -9,7 +9,10 @@
   ./alacritty.nix
   ./foot.nix
   ./sway
-  #./wofi.nix
+  ./wofi.nix
   ./fuzzel.nix
   ./waybar.nix
+  ./binaryninja
+  ./gdb.nix
+  ./mpv.nix
 ]

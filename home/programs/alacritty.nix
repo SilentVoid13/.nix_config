@@ -1,11 +1,14 @@
 {
   config,
   pkgs,
+  specialArgs,
   ...
 }: let
+    nixGLWrap = specialArgs.nixGLWrap;
 in {
   programs.alacritty = {
     enable = true;
+    package = nixGLWrap pkgs.alacritty;
     settings = {
       window.opacity = 0.9;
       font = {

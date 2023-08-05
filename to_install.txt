@@ -1,3 +1,4 @@
+sway (too much errors with nixGL)
 yay / paru
 1password
 xdg-portal

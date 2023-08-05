@@ -15,4 +15,5 @@
   ./binaryninja
   ./gdb.nix
   ./mpv.nix
+  ./zsh.nix
 ]

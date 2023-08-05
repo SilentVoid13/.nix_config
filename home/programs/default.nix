@@ -16,4 +16,5 @@
   ./gdb.nix
   ./mpv.nix
   ./zsh.nix
+  ./nvim
 ]

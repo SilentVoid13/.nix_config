@@ -12,5 +12,6 @@ in {
     (nixGLWrap okular)
     (nixGLWrap obsidian)
     onlyoffice-bin
+    _1password-gui
   ];
 }

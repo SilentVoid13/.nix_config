@@ -6,6 +6,8 @@
 in {
   programs.waybar = {
     enable = true;
+    # TODO: try to nixGL wrap?
+    #package = 
     settings = {
       mainBar = {
         layer = "bottom";

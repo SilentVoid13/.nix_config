@@ -1,5 +1,7 @@
 audio_wayland
 audio_xorg
-mpv
-npm
 nvidia
+python
+rofi
+rust
+setup_hacking

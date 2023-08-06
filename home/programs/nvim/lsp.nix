@@ -33,6 +33,7 @@ in {
           };
           tsserver = {enable = true;};
           ruff-lsp = {enable = true;};
+          pylsp = {enable = true;};
           lua-ls = {enable = true;};
         };
       };

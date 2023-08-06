@@ -53,7 +53,7 @@ in {
     enable = true;
   };
 
-  # TODO: fix PAM problem
+  # TODO: PAM problem, requires /etc/pam.d/swaylock which requires nixOS
   # https://nixos.wiki/wiki/Sway#Swaylock_cannot_unlock_with_correct_password
   #programs.swaylock = {
   #  enable = true;

@@ -7,7 +7,7 @@
 }: {
   imports = [
     inputs.nixvim.homeManagerModules.nixvim
-    ./services/dunst.nix
+
     ./programs/common_terminal.nix
     ./programs/common_gui.nix
     ./programs/common_toolchain.nix
@@ -26,5 +26,8 @@
     ./programs/mpv.nix
     ./programs/zsh.nix
     ./programs/nvim
+    ./programs/nodejs.nix
+
+    ./services/dunst.nix
   ];
 }

@@ -45,6 +45,12 @@ in {
       zettel = "date +%Y%m%d%H%M";
     };
 
+    initExtra = ''
+        export PYENV_ROOT="$HOME/.pyenv"
+        command -v pyenv >/dev/null || export PATH="$PYENV_ROOT/bin:$PATH"
+        eval "$(pyenv init -)"
+    '';
+
     envExtra = ''
       # Preferred editor for local and remote sessions
       export EDITOR='nvim'
@@ -71,10 +77,6 @@ in {
       export NODE_PATH=$NODE_PATH:$NPM_PACKAGES/lib/node_modules
       export PATH=$PATH:$NPM_PACKAGES/bin
       export MANPATH="$MANPATH:$NPM_PACKAGES/share/man"
-
-      # pyenv
-      export PYENV_ROOT="$HOME/.pyenv"
-      export PATH="$PYENV_ROOT/bin:$PATH"
     '';
 
     profileExtra = ''

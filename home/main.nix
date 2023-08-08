@@ -11,6 +11,7 @@
     ./programs/common_terminal.nix
     ./programs/common_gui.nix
     ./programs/common_toolchain.nix
+    ./programs/common_hacking.nix
     ./programs/1password.nix
     ./programs/git
     ./programs/brave.nix

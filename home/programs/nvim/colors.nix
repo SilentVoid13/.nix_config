@@ -17,7 +17,6 @@ in {
     highlight = {
       ColorColumn = {
         bg = "#555555";
-        ctermbg = 0;
       };
       SignColumn = {
         bg = "none";
@@ -29,13 +28,11 @@ in {
         bg = "none";
       };
       Todo = {
-        ctermbg = 196;
         ctermfg = "white";
         bg = "#FF1010";
         fg = "white";
       };
       Done = {
-        ctermbg = 28;
         ctermfg = "white";
         bg = "#57BA37";
         fg = "white";

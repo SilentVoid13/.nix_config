@@ -1,7 +1,8 @@
 sway (too much errors with nixGL)
 yay / paru
 1password
-xdg-portal
+xdg-desktop-portal
+xdg-desktop-portal-wlr
 xkb-qwerty-fr
 polkit-gnome
 swaylock

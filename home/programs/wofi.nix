@@ -5,7 +5,7 @@
 }: let
 in {
     programs.wofi = {
-        enable = false;
+        enable = true;
         settings = {
             gtk_dark = true;
             insensitive = true;

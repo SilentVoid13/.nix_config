@@ -20,6 +20,7 @@
     ./programs/firefox.nix
     ./programs/binaryninja
     ./programs/mpv.nix
+    ./programs/steam.nix
 
     ##  Terminal
     ./programs/git

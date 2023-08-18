@@ -34,7 +34,7 @@ in {
 
   home.packages = with pkgs; [
     #polkit_gnome
-    xwayland
+    #xwayland
     wl-clipboard
     brightnessctl
     playerctl

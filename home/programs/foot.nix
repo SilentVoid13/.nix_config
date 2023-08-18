@@ -8,7 +8,8 @@ in {
     enable = true;
     settings = {
       main = {
-        font = "terminus:size=12";
+        #font = "terminus:size=12";
+        font = "Iosevka Nerd Font Mono:size=12";
         selection-target = "clipboard";
       };
       colors = {

@@ -1,4 +1,4 @@
-{inputs, ...}: let
+{inputs, myconf, ...}: let
   nixpkgs = inputs.nixpkgs;
 in {
   dell = nixpkgs.lib.nixosSystem {
@@ -7,14 +7,17 @@ in {
       ../nixos/configuration.nix
       ../nixos/dell
     ];
+    specialArgs = { inherit myconf; };
   };
 
+  # Used to test a nixos config in a QEMU VM
   vm = nixpkgs.lib.nixosSystem {
     system = "x86_64-linux";
     modules = [
       ../nixos/configuration.nix
       ../nixos/vm
     ];
+    specialArgs = { inherit myconf; };
   };
 }
 

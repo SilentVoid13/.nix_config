@@ -29,7 +29,7 @@ in {
   users.users."${myconf.username}" = {
     isNormalUser = true;
     extraGroups = ["wheel" "docker"];
-    # todo: replace with secret manager
+    # todo: replace with hash / secret manager
     initialPassword = "test";
   };
 

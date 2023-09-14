@@ -5,7 +5,6 @@
   specialArgs,
   ...
 }: let
-    nurpkgs = specialArgs.nurpkgs;
 in {
   programs.firefox = {
     enable = true;

@@ -1,3 +1,4 @@
-{...}: {
+{...}: let
+in  {
     username = "silent";
 }

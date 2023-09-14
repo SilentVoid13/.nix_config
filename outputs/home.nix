@@ -42,6 +42,7 @@
       extraSpecialArgs = {
         inherit inputs;
         inherit nixGLWrap;
+        inherit myconf;
       };
       modules =
         [

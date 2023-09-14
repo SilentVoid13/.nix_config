@@ -2,6 +2,7 @@
   inputs,
   system,
   pkgs,
+  myconf,
   ...
 }: let
 in {
@@ -20,7 +21,7 @@ in {
       enable = true;
       # Certain features, including CLI integration and system authentication support,
       # require enabling PolKit integration on some desktop environments (e.g. Plasma).
-      polkitPolicyOwners = ["yourUsernameHere"];
+      polkitPolicyOwners = ["${myconf.username}"];
     };
   };
 

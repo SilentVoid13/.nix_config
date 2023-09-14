@@ -6,7 +6,7 @@
   home.packages = with pkgs; [
     htop
     grc
-    exa
+    eza
     bat
     procs
     ripgrep

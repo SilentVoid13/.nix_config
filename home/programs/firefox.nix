@@ -5,10 +5,7 @@
   specialArgs,
   ...
 }: let
-  nur = import specialArgs.nur {
-    inherit pkgs;
-    nurpkgs = pkgs;
-  };
+    nurpkgs = specialArgs.nurpkgs;
 in {
   programs.firefox = {
     enable = true;
@@ -18,7 +15,7 @@ in {
         id = 0;
         isDefault = true;
         name = "0";
-        extensions = with nur.repos.rycee.firefox-addons; [
+        extensions = with pkgs.nur.repos.rycee.firefox-addons; [
           onepassword-password-manager
           ublock-origin
           sponsorblock

@@ -20,4 +20,15 @@ in {
       efi.canTouchEfiVariables = true;
     };
   };
+
+  # Install home-manager config
+  imports = [
+      {
+        home-manager.useGlobalPkgs = true;
+        home-manager.useUserPackages = true;
+        home-manager.users.jdoe = import ../../home/full.nix;
+        # Optionally, use home-manager.extraSpecialArgs to pass
+        # arguments to home.nix
+      }
+  ];
 }

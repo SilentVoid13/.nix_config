@@ -20,3 +20,4 @@ fonts
   - ttf-symbola
 clang
 gcc
+wdisplays

@@ -1,5 +1,7 @@
-home:
-    home-manager switch --flake .#nonix_full --impure
+non_nixos_full:
+    home-manager switch --flake .#non_nixos_full --impure
+nixos_full:
+    home-manager switch --flake .#nixos_full
 update:
     nix flake update
     just home

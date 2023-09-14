@@ -30,9 +30,9 @@ in {
     };
 
     shellAliases = {
-      ll = "exa -lah --icons --color=always --group-directories-first";
+      ll = "eza -lah --icons --color=always --group-directories-first";
       ls = "ll";
-      "l." = "exa -a --group-directories-first | rg '^\.'";
+      "l." = "eza -a --group-directories-first | rg '^\.'";
       rt = "trash put";
       cat = "bat --paging=never -p";
       grep = "rg";

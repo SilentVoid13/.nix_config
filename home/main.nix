@@ -6,7 +6,6 @@
   ...
 }: {
   imports = [
-    inputs.nixvim.homeManagerModules.nixvim
 
     ## Common
     ./programs/common_terminal.nix
@@ -26,6 +25,7 @@
     ./programs/git
     #./programs/alacritty.nix
     ./programs/foot.nix
+    inputs.nixvim.homeManagerModules.nixvim
     ./programs/nvim
     ./programs/gdb.nix
     ./programs/zsh.nix

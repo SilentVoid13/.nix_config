@@ -4,7 +4,8 @@
   ...
 }: {
   home.packages = with pkgs; [
-    clang
+    # This causes compilation problem for apps looking for /usr/lib/libclang*
+    #clang
     rustup
     lua
   ];

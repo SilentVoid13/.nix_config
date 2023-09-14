@@ -53,8 +53,6 @@ in {
             modes = ["i" "c"];
             action = "cmp.mapping.complete()";
           };
-          "<C-y>" = "cmp.config.disable";
-          "<C-e>" = "cmp.mapping({ i = cmp.mapping.abort(), c = cmp.mapping.close() })";
           "<C-n>" = {
             modes = ["i" "c"];
             action = "cmp.mapping.select_next_item()";
@@ -63,7 +61,6 @@ in {
             modes = ["i" "c"];
             action = "cmp.mapping.select_prev_item()";
           };
-          "<CR>" = "cmp.mapping.confirm({ select = true })";
           "<C-k>" = {
             modes = ["i"];
             action = ''
@@ -94,6 +91,9 @@ in {
               end
             '';
           };
+          "<CR>" = "cmp.mapping.confirm({ select = true })";
+          "<C-y>" = "cmp.config.disable";
+          "<C-e>" = "cmp.mapping({ i = cmp.mapping.abort(), c = cmp.mapping.close() })";
         };
         sources = [
           {name = "nvim_lsp";}

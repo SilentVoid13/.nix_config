@@ -43,6 +43,7 @@ in {
       mvp = "rsync -aP --remove-source-files";
       clip = "wl-copy";
       zettel = "date +%Y%m%d%H%M";
+      crr = "cargo run --release";
     };
 
     initExtra = ''

@@ -18,3 +18,5 @@ fonts
   - awesome-terminal-fonts
   - terminus-font
   - ttf-symbola
+clang
+gcc

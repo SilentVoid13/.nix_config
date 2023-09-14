@@ -2,4 +2,4 @@
 
 pkill -TERM -f wbg
 pkill -TERM -f wallpaper_switcher
-~/.config/sway/scripts/wallpaper_switcher.sh &
+~/.local/share/sway/wallpaper_switcher.sh &

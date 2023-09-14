@@ -24,5 +24,9 @@
     homeConfigurations = import ./outputs/home.nix {
       inherit inputs;
     };
+
+    nixosConfigurations = import ./outputs/nixos.nix {
+      inherit inputs;
+    };
   };
 }

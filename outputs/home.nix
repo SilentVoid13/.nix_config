@@ -18,7 +18,7 @@ with inputs; let
       done
     '';
 in {
-  laptop = home-manager.lib.homeManagerConfiguration {
+  nonix_full = home-manager.lib.homeManagerConfiguration {
     inherit pkgs;
     extraSpecialArgs = {
       nur = inputs.nurpkgs;

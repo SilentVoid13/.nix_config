@@ -33,8 +33,6 @@ in {
   #];
 
   home.packages = with pkgs; [
-    #polkit_gnome
-    #xwayland
     wl-clipboard
     brightnessctl
     playerctl
@@ -53,23 +51,10 @@ in {
     enable = true;
   };
 
-  # TODO: PAM problem, requires /etc/pam.d/swaylock which requires nixOS
-  # https://nixos.wiki/wiki/Sway#Swaylock_cannot_unlock_with_correct_password
-  #programs.swaylock = {
-  #  enable = true;
-  #};
-
   xdg = {
     enable = true;
     dataFile."${wallpaper_switcher}".source = ./wallpaper_switcher.sh;
     dataFile."${reboot_wallpaper}".source = ./reboot_wallpaper.sh;
-    # TODO: portal
-    #portal = {
-    #  enable = true;
-    #  wlr.enable = true;
-    #  extraPortals = [pkgs.xdg-desktop-portal-wlr pkgs.xdg-desktop-portal-gtk];
-    #};
-
     dataFile."dark-mode.d/gtk-theme.sh" = {
       executable = true;
       text = ''
@@ -93,13 +78,6 @@ in {
       text = ''notify-send --app-name="darkman" --urgency=low --icon=weather-clear-night "switching to light mode"'';
     };
   };
-
-  # TODO: audio, bluetooth
-  #services.pipewire = {
-  #  enable = true;
-  #  alsa.enable = true;
-  #  pulse.enable = true;
-  #};
 
   wayland.windowManager.sway = {
     enable = true;

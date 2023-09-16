@@ -19,12 +19,12 @@ in {
 
   networking = {
     hostName = "jet";
-    wireless.enable = true;
-    useDHCP = true;
   };
 
   nix = {
     package = pkgs.nixUnstable;
+    # todo: check what allowed-users is
+    settings.allowed-users = [ "${myconf.username}" ];
     extraOptions = ''
       experimental-features = nix-command flakes
     '';
@@ -34,7 +34,7 @@ in {
     polkit.enable = true;
     # For swaylock
     # https://nixos.wiki/wiki/Sway#Swaylock_cannot_unlock_with_correct_password
-    security.pam.services.swaylock.text = ''
+    pam.services.swaylock.text = ''
       # PAM configuration file for the swaylock screen locker. By default, it includes
       # the 'login' configuration file (see /etc/pam.d/login)
       auth include login
@@ -47,8 +47,9 @@ in {
     pulse.enable = true;
   };
 
+  # todo: install swaylock?
+
   xdg = {
-    enable = true;
     portal = {
       enable = true;
       wlr.enable = true;
@@ -61,8 +62,13 @@ in {
       enable = true;
       polkitPolicyOwners = ["${myconf.username}"];
     };
-    swaylock = {
-      enable = true;
-    };
+    #swaylock = {
+    #  enable = true;
+    #};
   };
+
+  environment.systemPackages = with pkgs; [
+    vim
+    git
+  ];
 }

@@ -26,11 +26,16 @@ in {
     networkmanager.enable = true;
   };
 
+  programs = {
+    zsh.enable = true;
+  };
+
   users.users."${myconf.username}" = {
     isNormalUser = true;
     extraGroups = ["wheel" "docker"];
     # todo: replace with hash / secret manager
     initialPassword = "test";
+    shell = pkgs.zsh;
   };
 
   system.stateVersion = "23.05";

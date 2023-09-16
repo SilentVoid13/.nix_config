@@ -24,7 +24,6 @@
   ws9 = "9";
   ws10 = "10";
 in {
-  # TODO: xkb-qwerty-fr
   # TODO: polkit-gnome
   # TODO: dunst dependency?
 
@@ -33,6 +32,7 @@ in {
   #];
 
   home.packages = with pkgs; [
+    polkit_gnome
     wl-clipboard
     brightnessctl
     playerctl
@@ -92,10 +92,11 @@ in {
       bars = [];
       defaultWorkspace = "workspace number ${ws1}";
       input = {
-        "type:keyboard" = {
-          xkb_layout = "us";
-          xkb_variant = "qwerty-fr";
-        };
+        # TODO: xkb-qwerty-fr
+        #"type:keyboard" = {
+        #  xkb_layout = "us";
+        #  xkb_variant = "qwerty-fr";
+        #};
         "type:touchpad" = {
           tap = "enabled";
           natural_scroll = "enabled";
@@ -112,7 +113,9 @@ in {
         }
         {command = "nm-applet --indicator";}
         {command = "${wallpaper_switcher_path}";}
-        {command = "/usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1";}
+        # TODO: does this work on non-nixos?
+        {command = "${pkgs.polkit_gnome}/libexec/polkit-gnome-authentication-agent-1";}
+        #{command = "/usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1";}
         {command = "${pkgs.waybar}/bin/waybar";}
         {command = "${pkgs.darkman}/bin/darkman run";}
       ];

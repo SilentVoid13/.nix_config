@@ -29,7 +29,7 @@ in {
     };
     extraConfig = {
       gpg.format = "ssh";
-      gpg.ssh.program = "/opt/1Password/op-ssh-sign";
+      gpg.ssh.program = "op-ssh-sign";
       core.excludefiles = "${config.xdg.configHome}/${gitignore_global}";
     };
   };

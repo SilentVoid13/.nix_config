@@ -66,14 +66,14 @@
 in {
   non_nixos_full = mkHomeConfig {
     system = "x86_64-linux";
-    username = "sv";
+    username = "${myconf.username}";
     isNixOs = false;
     modules = [../home/full.nix];
   };
 
   nixos_full = mkHomeConfig {
     system = "x86_64-linux";
-    username = "sv";
+    username = "${myconf.username}";
     isNixOs = true;
     modules = [../home/full.nix];
   };

@@ -46,22 +46,21 @@ in {
       crr = "cargo run --release";
     };
 
-    initExtra = ''
-        export PYENV_ROOT="$HOME/.pyenv"
-        command -v pyenv >/dev/null || export PATH="$PYENV_ROOT/bin:$PATH"
-        eval "$(pyenv init -)"
-    '';
+    # todo: pyenv stuff
+    #initExtra = ''
+    #    export PYENV_ROOT="$HOME/.pyenv"
+    #    command -v pyenv >/dev/null || export PATH="$PYENV_ROOT/bin:$PATH"
+    #    eval "$(pyenv init -)"
+    #'';
+
+    # todo: .cargo/env stuff
 
     envExtra = ''
       # Preferred editor for local and remote sessions
       export EDITOR='nvim'
 
-      # Sets bat as manpager
-      export MANPAGER="sh -c 'col -bx | bat -l man -p'"
-      export MANPATH="/usr/local/man:$MANPATH"
-
       # Sourcing cargo env
-      . "$HOME/.cargo/env"
+      #. "$HOME/.cargo/env"
 
       # GEM binaries
       export GEM_HOME=$HOME/.gem/
@@ -80,6 +79,7 @@ in {
       export MANPATH="$MANPATH:$NPM_PACKAGES/share/man"
     '';
 
+    # todo: move to /usr/bin/sway thing on non-nixos
     profileExtra = ''
       if [ -z $DISPLAY ] && [ "$(tty)" = "/dev/tty1" ]; then
           export XDG_CURRENT_DESKTOP="sway"
@@ -89,7 +89,7 @@ in {
           export NIXOS_OZONE_WL=1
           export LOCALE_ARCHIVE=/usr/lib/locale/locale-archive
 
-          exec /usr/bin/sway --unsupported-gpu
+          exec sway --unsupported-gpu
       fi
     '';
   };

@@ -5,9 +5,7 @@ nixos_full:
 update:
     nix flake update
     just home
-install:
-    nixos-install --flake
 rebuild:
-    nixos-rebuild --flake
+    sudo nixos-rebuild switch --flake .#dell
 vm:
     nix build .#nixosConfigurations.vm.config.system.build.vm

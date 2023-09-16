@@ -5,3 +5,6 @@ fonts
 nvidia
 polkit
 printer?
+
+- automate the whole disk formatting and partition part
+- automate home-manager installation

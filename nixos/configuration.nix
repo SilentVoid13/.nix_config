@@ -20,6 +20,7 @@ in {
     # Custom fonts
     terminus_font
     iosevka
+    ubuntu_font_family
   ];
 
   networking = {

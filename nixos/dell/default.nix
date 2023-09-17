@@ -24,7 +24,7 @@ in {
   nix = {
     package = pkgs.nixUnstable;
     # todo: check what allowed-users is
-    settings.allowed-users = [ "${myconf.username}" ];
+    settings.allowed-users = ["${myconf.username}"];
     extraOptions = ''
       experimental-features = nix-command flakes
     '';
@@ -41,10 +41,15 @@ in {
     '';
   };
 
-  services.pipewire = {
-    enable = true;
-    alsa.enable = true;
-    pulse.enable = true;
+  services = {
+    pipewire = {
+      enable = true;
+      alsa.enable = true;
+      pulse.enable = true;
+    };
+    gnome.gnome-keyring.enable = true;
+    # Yubikey
+    pcscd.enable = true;
   };
 
   # todo: install swaylock?
@@ -58,6 +63,9 @@ in {
   };
 
   programs = {
+    _1password = {
+      enable = true;
+    };
     _1password-gui = {
       enable = true;
       polkitPolicyOwners = ["${myconf.username}"];

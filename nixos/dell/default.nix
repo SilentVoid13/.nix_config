@@ -2,6 +2,7 @@
   inputs,
   system,
   pkgs,
+  lib,
   myconf,
   ...
 }: let
@@ -10,16 +11,34 @@ in {
     ./hardware-configuration.nix
   ];
 
+  #boot = {
+  #  loader = {
+  #    systemd-boot.enable = true;
+  #    efi.canTouchEfiVariables = true;
+  #  };
+  #};
+
+  # lanzaboote currently replaces the systemd-boot module
   boot = {
-    loader = {
-      systemd-boot.enable = true;
-      efi.canTouchEfiVariables = true;
+    lanzaboote = {
+      enable = true;
+      pkiBundle = "/etc/secureboot";
+    };
+    loader.systemd-boot.enable = lib.mkForce false;
+  };
+
+  boot.initrd.luks.devices = {
+    root = {
+      device = "/dev/disk/by-uuid/d79de524-1db9-4e58-a318-ff80db3ea5c3";
+      preLVM = true;
     };
   };
 
   networking = {
     hostName = "jet";
   };
+
+  hardware.opengl.enable = true;
 
   nix = {
     package = pkgs.nixUnstable;
@@ -52,8 +71,6 @@ in {
     pcscd.enable = true;
   };
 
-  # todo: install swaylock?
-
   xdg = {
     portal = {
       enable = true;
@@ -68,15 +85,18 @@ in {
     };
     _1password-gui = {
       enable = true;
+      package = pkgs._1password-gui-beta;
       polkitPolicyOwners = ["${myconf.username}"];
     };
-    #swaylock = {
-    #  enable = true;
-    #};
+    adb.enable = true;
   };
 
   environment.systemPackages = with pkgs; [
     vim
     git
+    just
+    sbctl
+    yubioath-flutter
+    swaylock
   ];
 }

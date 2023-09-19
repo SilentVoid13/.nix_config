@@ -7,11 +7,13 @@
     nixGLWrap = specialArgs.nixGLWrap;
 in {
   home.packages = with pkgs; [
-    webcord
+    discord
     qalculate-gtk
     (nixGLWrap okular)
     (nixGLWrap obsidian)
     onlyoffice-bin
     spotify
+    transmission-gtk
+    chromium
   ];
 }

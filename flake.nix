@@ -17,12 +17,16 @@
     };
 
     nixvim.url = "github:nix-community/nixvim";
+
+    lanzaboote = {
+      url = "github:nix-community/lanzaboote/v0.3.0";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs = {self, ...} @ inputs: let
     myconf = import ./common/myconf.nix {};
   in {
-
     homeConfigurations = import ./outputs/home.nix {
       inherit inputs;
       inherit myconf;

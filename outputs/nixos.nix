@@ -4,6 +4,7 @@ in {
   dell = nixpkgs.lib.nixosSystem {
     system = "x86_64-linux";
     modules = [
+      inputs.lanzaboote.nixosModules.lanzaboote
       ../nixos/configuration.nix
       ../nixos/dell
     ];

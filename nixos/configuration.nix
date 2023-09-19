@@ -33,7 +33,7 @@ in {
 
   users.users."${myconf.username}" = {
     isNormalUser = true;
-    extraGroups = ["wheel" "docker"];
+    extraGroups = ["wheel" "docker" "adbusers"];
     # todo: replace with hash / secret manager
     initialPassword = "test";
     shell = pkgs.zsh;

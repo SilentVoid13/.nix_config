@@ -9,22 +9,22 @@
     ];
 
   boot.initrd.availableKernelModules = [ "xhci_pci" "thunderbolt" "vmd" "nvme" "usb_storage" "usbhid" "sd_mod" ];
-  boot.initrd.kernelModules = [ ];
+  boot.initrd.kernelModules = [ "dm-snapshot" ];
   boot.kernelModules = [ "kvm-intel" ];
   boot.extraModulePackages = [ ];
 
   fileSystems."/" =
-    { device = "/dev/disk/by-uuid/20789864-70d2-4656-84a4-6c5913bab851";
+    { device = "/dev/disk/by-uuid/f6b29706-ee56-4f4e-895f-b292887bbbb1";
       fsType = "ext4";
     };
 
   fileSystems."/boot" =
-    { device = "/dev/disk/by-uuid/97DD-1554";
+    { device = "/dev/disk/by-uuid/8F6C-6BFF";
       fsType = "vfat";
     };
 
   swapDevices =
-    [ { device = "/dev/disk/by-uuid/13c90582-7da3-404e-a7ff-51a156a44203"; }
+    [ { device = "/dev/disk/by-uuid/b02b57fe-67c4-4b75-9f34-848484a1abe3"; }
     ];
 
   # Enables DHCP on each ethernet and wireless interface. In case of scripted networking
@@ -37,7 +37,4 @@
   nixpkgs.hostPlatform = lib.mkDefault "x86_64-linux";
   powerManagement.cpuFreqGovernor = lib.mkDefault "powersave";
   hardware.cpu.intel.updateMicrocode = lib.mkDefault config.hardware.enableRedistributableFirmware;
-
-  # Start of my personal config
-  hardware.opengl.enable = true;
 }

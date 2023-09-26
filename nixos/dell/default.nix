@@ -90,6 +90,7 @@ in {
     };
     adb.enable = true;
     noisetorch.enable = true;
+    dconf.enable = true;
   };
 
   environment.systemPackages = with pkgs; [

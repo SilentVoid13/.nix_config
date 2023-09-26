@@ -38,5 +38,6 @@
     ./programs/fuzzel.nix
     ./programs/waybar.nix
     ./services/dunst.nix
+    ./programs/darkman.nix
   ];
 }

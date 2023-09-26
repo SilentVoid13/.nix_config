@@ -26,9 +26,13 @@
 in {
   # TODO: dunst dependency?
   # TODO: fuzzel dependency?
+  # TODO: darkman dependency?
 
   home.packages = with pkgs; [
     polkit_gnome
+    libnotify
+    glib
+    gsettings-desktop-schemas
     wl-clipboard
     brightnessctl
     playerctl
@@ -39,8 +43,6 @@ in {
     xdg-utils
     networkmanagerapplet
     pavucontrol
-    darkman
-    gsettings-qt
   ];
 
   services.swayidle = {
@@ -51,28 +53,6 @@ in {
     enable = true;
     dataFile."${wallpaper_switcher}".source = ./wallpaper_switcher.sh;
     dataFile."${reboot_wallpaper}".source = ./reboot_wallpaper.sh;
-    dataFile."dark-mode.d/gtk-theme.sh" = {
-      executable = true;
-      text = ''
-        gsettings set org.gnome.desktop.interface gtk-theme Adwaita-dark
-        gsettings set org.gnome.desktop.interface color-scheme 'prefer-dark'
-      '';
-    };
-    dataFile."dark-mode.d/desktop-notif.sh" = {
-      executable = true;
-      text = ''notify-send --app-name="darkman" --urgency=low --icon=weather-clear-night "switching to dark mode"'';
-    };
-    dataFile."light-mode.d/gtk-theme.sh" = {
-      executable = true;
-      text = ''
-        gsettings set org.gnome.desktop.interface gtk-theme Adwaita
-        gsettings set org.gnome.desktop.interface color-scheme 'prefer-light'
-      '';
-    };
-    dataFile."light-mode.d/desktop-notif.sh" = {
-      executable = true;
-      text = ''notify-send --app-name="darkman" --urgency=low --icon=weather-clear-night "switching to light mode"'';
-    };
   };
 
   home.file.".xkb/symbols/qwerty_fr" = {

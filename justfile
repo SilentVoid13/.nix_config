@@ -4,7 +4,8 @@ nixos_full:
     home-manager switch --flake .#nixos_full
 update:
     nix flake update
-    just home
+    just nixos_full
+    just rebuild
 rebuild:
     sudo nixos-rebuild switch --flake .#dell
 vm:

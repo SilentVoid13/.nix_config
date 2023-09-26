@@ -24,12 +24,8 @@
   ws9 = "9";
   ws10 = "10";
 in {
-  # TODO: polkit-gnome
   # TODO: dunst dependency?
-
-  #imports = import [
-  #  ../fuzzel.nix
-  #];
+  # TODO: fuzzel dependency?
 
   home.packages = with pkgs; [
     polkit_gnome
@@ -79,6 +75,10 @@ in {
     };
   };
 
+  home.file.".xkb/symbols/qwerty_fr" = {
+    source = ./qwerty_fr.xkb;
+  };
+
   wayland.windowManager.sway = {
     enable = true;
     config = {
@@ -92,11 +92,9 @@ in {
       bars = [];
       defaultWorkspace = "workspace number ${ws1}";
       input = {
-        # TODO: xkb-qwerty-fr
-        #"type:keyboard" = {
-        #  xkb_layout = "us";
-        #  xkb_variant = "qwerty-fr";
-        #};
+        "type:keyboard" = {
+          xkb_layout = "qwerty_fr";
+        };
         "type:touchpad" = {
           tap = "enabled";
           natural_scroll = "enabled";

@@ -89,6 +89,7 @@ in {
       polkitPolicyOwners = ["${myconf.username}"];
     };
     adb.enable = true;
+    noisetorch.enable = true;
   };
 
   environment.systemPackages = with pkgs; [

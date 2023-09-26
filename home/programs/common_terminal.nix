@@ -15,5 +15,7 @@
     topgrade
     trashy
     just
+    peazip
+    unzip
   ];
 }

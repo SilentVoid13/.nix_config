@@ -60,6 +60,14 @@ in {
     '';
   };
 
+  xdg = {
+    portal = {
+      enable = true;
+      wlr.enable = true;
+      extraPortals = [pkgs.xdg-desktop-portal-wlr pkgs.xdg-desktop-portal-gtk];
+    };
+  };
+
   services = {
     pipewire = {
       enable = true;
@@ -69,14 +77,12 @@ in {
     gnome.gnome-keyring.enable = true;
     # Yubikey
     pcscd.enable = true;
-  };
-
-  xdg = {
-    portal = {
-      enable = true;
-      wlr.enable = true;
-      extraPortals = [pkgs.xdg-desktop-portal-wlr pkgs.xdg-desktop-portal-gtk];
-    };
+    # Mount, trash, and other functionalities
+    gvfs.enable = true;
+    # Thumbnail support for images
+    tumbler.enable = true;
+    # VPN
+    mullvad-vpn.enable = true;
   };
 
   programs = {
@@ -91,6 +97,8 @@ in {
     adb.enable = true;
     noisetorch.enable = true;
     dconf.enable = true;
+
+    thunar.enable = true;
   };
 
   environment.systemPackages = with pkgs; [

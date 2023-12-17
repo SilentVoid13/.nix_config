@@ -1,8 +1,6 @@
 {pkgs, ...}: {
   home.packages = with pkgs; [
     darkman
-    gnome-themes-extra
-    gnome.adwaita-icon-theme
   ];
 
   xdg = {

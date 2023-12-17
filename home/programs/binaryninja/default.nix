@@ -6,11 +6,18 @@
   home = config.home.homeDirectory;
   gitignore_global = "git/gitignore_global";
 in {
-    home.file.".binaryninja/keybindings.json" = {
-        source = ./keybindings.json;
-    };
+  #imports = [
+  #  ( import ./mypkg.nix { inherit pkgs; } )
+  #];
+  home.packages = [
+    ( import ./mypkg.nix { inherit pkgs; } )
+  ];
 
-    home.file.".binaryninja/settings.json" = {
-        source = ./settings.json;
-    };
+  home.file.".binaryninja/keybindings.json" = {
+    source = ./keybindings.json;
+  };
+
+  home.file.".binaryninja/settings.json" = {
+    source = ./settings.json;
+  };
 }

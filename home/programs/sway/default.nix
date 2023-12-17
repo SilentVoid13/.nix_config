@@ -31,8 +31,6 @@ in {
   home.packages = with pkgs; [
     polkit_gnome
     libnotify
-    glib
-    gsettings-desktop-schemas
     wl-clipboard
     brightnessctl
     playerctl
@@ -42,7 +40,13 @@ in {
     (specialArgs.nixGLWrap wdisplays)
     xdg-utils
     networkmanagerapplet
+    pulseaudio
     pavucontrol
+    # GTK stuff
+    glib
+    gsettings-desktop-schemas
+    gnome-themes-extra
+    gnome.adwaita-icon-theme
   ];
 
   services.swayidle = {

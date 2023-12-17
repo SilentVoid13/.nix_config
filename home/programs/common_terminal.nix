@@ -4,6 +4,7 @@
   ...
 }: {
   home.packages = with pkgs; [
+    file
     htop
     grc
     eza
@@ -17,5 +18,6 @@
     just
     peazip
     unzip
+    usbutils
   ];
 }

@@ -3,6 +3,7 @@ non_nixos_full:
 nixos_full:
     home-manager switch --flake .#nixos_full
 update:
+    nix-channel --update
     nix flake update
     just nixos_full
     just rebuild

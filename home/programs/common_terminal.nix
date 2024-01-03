@@ -16,8 +16,10 @@
     topgrade
     trashy
     just
-    peazip
+    p7zip
     unzip
     usbutils
+    lshw
+    openvpn
   ];
 }

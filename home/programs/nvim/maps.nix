@@ -8,11 +8,13 @@ in {
   programs.nixvim = {
     enable = true;
 
-    maps = {
-      visual = {
+    keymaps = [
+      {
         # Copy to clipboard
-        "<leader>cp" = "\"+y<CR>";
-      };
-    };
+        mode = "v";
+        key = "<leader>cp";
+        action = "\"+y<CR>";
+      }
+    ];
   };
 }

@@ -9,11 +9,27 @@ in {
       enable = true;
     };
 
-    maps.normal = {
-      "<leader>gs" = "<cmd>Git";
-      "<leader>gp" = "<cmd>Git('push')";
-      "<leader>gl" = "<cmd>Git({'pull', '--rebase')";
-      "<leader>gt" = "<cmd>Git({'push', '-u', 'origin')";
-    };
+    keymaps = [
+      {
+        mode = "n";
+        key = "<leader>gs";
+        action = "<cmd>Git";
+      }
+      {
+        mode = "n";
+        key = "<leader>gp";
+        action = "<cmd>Git('push')";
+      }
+      {
+        mode = "n";
+        key = "<leader>gl";
+        action = "<cmd>Git({'pull', '--rebase')";
+      }
+      {
+        mode = "n";
+        key = "<leader>gt";
+        action = "<cmd>Git({'push', '-u', 'origin')";
+      }
+    ];
   };
 }

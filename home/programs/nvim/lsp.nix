@@ -133,12 +133,22 @@ in {
       friendly-snippets
     ];
 
-    maps = {
-      normal = {
-        "<leader>dj" = "<cmd>lua vim.diagnostic.goto_next()<CR>";
-        "<leader>dk" = "<cmd>lua vim.diagnostic.goto_prev()<CR>";
-        "<leader>dl" = "<cmd>Telescope diagnostics<CR>";
-      };
-    };
+    keymaps = [
+      {
+        mode = "n";
+        key = "<leader>dj";
+        action = "<cmd>lua vim.diagnostic.goto_next()<CR>";
+      }
+      {
+        mode = "n";
+        key = "<leader>dk";
+        action = "<cmd>lua vim.diagnostic.goto_prev()<CR>";
+      }
+      {
+        mode = "n";
+        key = "<leader>dl";
+        action = "<cmd>Telescope diagnostics<CR>";
+      }
+    ];
   };
 }

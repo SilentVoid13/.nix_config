@@ -70,8 +70,12 @@ in {
       };
     };
 
-    maps.normal = {
-      "<leader>nf" = "<cmd>FormatWrite<CR>";
-    };
+    keymaps = [
+      {
+        mode = "n";
+        key = "<leader>nf";
+        action = "<cmd>FormatWrite<CR>";
+      }
+    ];
   };
 }

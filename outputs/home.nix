@@ -11,7 +11,13 @@
   }: let
     pkgs = import inputs.nixpkgs {
       inherit system;
-      config.allowUnfree = true;
+      config = {
+        allowUnfree = true;
+        # TODO: Remove this
+        permittedInsecurePackages = [
+          "electron-25.9.0"
+        ];
+      };
       overlays =
         [inputs.nurpkgs.overlay]
         ++ (

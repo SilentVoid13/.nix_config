@@ -148,7 +148,6 @@ in {
     adb.enable = true;
     noisetorch.enable = true;
     dconf.enable = true;
-
     thunar.enable = true;
   };
 

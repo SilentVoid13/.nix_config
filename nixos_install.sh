@@ -42,4 +42,10 @@ swapon "/dev/${vol_grp_name}/swap"
 echo "[*] Generating minimal NixOS configuration"
 nixos-generate-config --root /mnt
 
-echo "[+] Install complete! Modify /mnt/etc/nixos/configuration.nix before rebooting"
+echo -e "[+] Install complete!\n" \
+    "1 - modify /mnt/etc/nixos/configuration.nix to install git and vim\n" \
+    "2 - git clone nixos config\n" \
+    "3 - reboot\n" \
+    "4 - create new machine profile under nixos/ and add it to the flake\n" \
+    "5 - copy hardware-configuration.nix\n" \
+    "6 - customize everything\n"

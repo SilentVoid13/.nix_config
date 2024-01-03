@@ -5,7 +5,9 @@
 }: {
   home.packages = with pkgs; [
     # This causes compilation problem for apps looking for /usr/lib/libclang*
+    # on non-nixos systems
     #clang
+
     rustup
     lua
   ];

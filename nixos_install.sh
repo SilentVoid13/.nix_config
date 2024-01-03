@@ -1,11 +1,18 @@
 #!/usr/bin/env bash
 
-set -xe
-
-echo "[*] Parititioning disk $disk_name"
-disk_name="nvme0n1"
+disk_name=""
 boot_part="/dev/${disk_name}p1"
 root_part="/dev/${disk_name}p2"
+
+set -xe
+
+if [ -z "${disk_name}" ]
+then
+    echo "[-] Please set the \$disk_name to format and check the \$boot_part and \$root_part variants"
+    exit 1
+fi
+
+echo "[*] Parititioning disk $disk_name"
 parted "/dev/${disk_name}" -- mklabel gpt
 parted "/dev/${disk_name}" -- mkpart ESP fat32 1MB 512MB
 parted "/dev/${disk_name}" -- mkpart primary 512MB 100%

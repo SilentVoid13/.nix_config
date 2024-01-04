@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-disk_name=""
+disk_name="nvme0n1"
 boot_part="/dev/${disk_name}p1"
 root_part="/dev/${disk_name}p2"
 
@@ -36,6 +36,7 @@ mkswap "/dev/${vol_grp_name}/swap"
 
 echo "[*] Mounting file systems"
 mount "/dev/${vol_grp_name}/root" /mnt
+mkdir /mnt/boot
 mount /dev/disk/by-label/boot /mnt/boot
 swapon "/dev/${vol_grp_name}/swap"
 
@@ -43,7 +44,7 @@ echo "[*] Generating minimal NixOS configuration"
 nixos-generate-config --root /mnt
 
 echo -e "[+] Install complete!\n" \
-    "1 - modify /mnt/etc/nixos/configuration.nix to install git and vim\n" \
+    "1 - modify /mnt/etc/nixos/configuration.nix to setup LUKS, install git and vim and enable NetworkManager\n" \
     "2 - git clone nixos config\n" \
     "3 - reboot\n" \
     "4 - create new machine profile under nixos/ and add it to the flake\n" \

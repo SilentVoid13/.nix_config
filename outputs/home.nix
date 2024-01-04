@@ -83,4 +83,11 @@ in {
     isNixOs = true;
     modules = [../home/full.nix];
   };
+
+  nixos_work = mkHomeConfig {
+    system = "x86_64-linux";
+    username = "${myconf.username}";
+    isNixOs = true;
+    modules = [../home/work.nix];
+  };
 }

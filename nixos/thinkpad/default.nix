@@ -45,6 +45,7 @@ in {
     driSupport = true;
     driSupport32Bit = true;
   };
+  hardware.bluetooth.enable = true;
 
   nix = {
     package = pkgs.nixUnstable;
@@ -80,6 +81,9 @@ in {
       alsa.enable = true;
       pulse.enable = true;
     };
+    # Bluetooth
+    blueman.enable = true;
+    # Keyring
     gnome.gnome-keyring.enable = true;
     # Yubikey
     pcscd.enable = true;
@@ -116,5 +120,6 @@ in {
     yubioath-flutter
     swaylock
     docker-compose
+    clang
   ];
 }

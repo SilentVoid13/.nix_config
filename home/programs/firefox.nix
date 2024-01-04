@@ -20,6 +20,7 @@ in {
           sponsorblock
           cookie-autodelete
           tridactyl
+          omnivore
           #clearurls
           ublacklist
           (buildFirefoxXpiAddon {

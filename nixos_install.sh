@@ -45,8 +45,10 @@ nixos-generate-config --root /mnt
 
 echo -e "[+] Install complete!\n" \
     "1 - modify /mnt/etc/nixos/configuration.nix to setup LUKS, install git and vim and enable NetworkManager\n" \
-    "2 - git clone nixos config\n" \
-    "3 - reboot\n" \
-    "4 - create new machine profile under nixos/ and add it to the flake\n" \
-    "5 - copy hardware-configuration.nix\n" \
-    "6 - customize everything\n"
+    "2 - git clone nixos config in /mnt\n" \
+    "3 - nixos-install\n" \
+    "4 - reboot\n" \
+    "5 - create new machine profile under nixos/ and add it to the flake\n" \
+    "6 - copy hardware-configuration.nix\n" \
+    "7 - customize everything\n"
+    "8 - sudo nixos-rebuild switch --flake .#<machine>\n"

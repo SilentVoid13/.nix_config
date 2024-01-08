@@ -8,5 +8,6 @@
     sqlmap
     ffuf
     hashcat
+    apktool
   ];
 }

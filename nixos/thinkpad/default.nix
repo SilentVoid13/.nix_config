@@ -93,6 +93,8 @@ in {
     tumbler.enable = true;
     # VPN
     mullvad-vpn.enable = true;
+    # Flatpak
+    flatpak.enable = true;
   };
 
   virtualisation.docker.enable = true;

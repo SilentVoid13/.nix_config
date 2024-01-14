@@ -33,7 +33,17 @@ in {
           };
           tsserver = {enable = true;};
           ruff-lsp = {enable = true;};
-          pylsp = {enable = true;};
+          pylsp = {
+            enable = true;
+            settings.plugins = {
+              jedi = {
+                extra_paths = [
+                  "/home/silent/binaryninja/python"
+                  "/home/silent/binaryninja/python3"
+                ];
+              };
+            };
+          };
           lua-ls = {enable = true;};
         };
       };

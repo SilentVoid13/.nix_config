@@ -6,6 +6,7 @@
 in {
     home.packages = with pkgs; [
         steam
+        steam-run
         mangohud
         gamescope
         gamemode

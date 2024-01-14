@@ -38,8 +38,8 @@ in {
             settings.plugins = {
               jedi = {
                 extra_paths = [
-                  "/home/silent/binaryninja/python"
-                  "/home/silent/binaryninja/python3"
+                  "${config.home.homeDirectory}/binaryninja/python"
+                  "${config.home.homeDirectory}/binaryninja/python3"
                 ];
               };
             };

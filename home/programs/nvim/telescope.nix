@@ -8,7 +8,11 @@
 
   # find_command doesn't support pipe so we create a tmp script as a bypass
   file_lister = pkgs.writeShellScriptBin "file_lister" ''
-    rg --files | proximity-sort $1
+    folder=$1
+    if [[ -z $1 ]]; then
+        folder="."
+    fi
+    rg --files | proximity-sort $folder
   '';
 
   find_command = ''

@@ -107,9 +107,10 @@ in {
         };
         sources = [
           {name = "nvim_lsp";}
-          {name = "copilot";}
           {name = "luasnip";}
           {name = "buffer";}
+          {name = "path";}
+          {name = "copilot";}
         ];
         snippet.expand = "luasnip";
       };
@@ -126,12 +127,13 @@ in {
 
       luasnip = {
         enable = true;
-        fromVscode = [
-          {
-            lazyLoad = true;
-            paths = "${pkgs.vimPlugins.friendly-snippets}";
-          }
-        ];
+        # snippets are not that great
+        #fromVscode = [
+        #  {
+        #    lazyLoad = true;
+        #    paths = "${pkgs.vimPlugins.friendly-snippets}";
+        #  }
+        #];
       };
 
       cmp_luasnip = {

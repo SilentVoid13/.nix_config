@@ -22,7 +22,7 @@ in {
 
       linespace = 0;
 
-      textwidth = 78;
+      #textwidth = 78;
       colorcolumn = "80";
       shiftwidth = 4;
       tabstop = 4;

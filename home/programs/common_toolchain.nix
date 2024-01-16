@@ -8,6 +8,7 @@
     # on non-nixos systems
     #clang
 
+    pkg-config
     rustup
     lua
   ];

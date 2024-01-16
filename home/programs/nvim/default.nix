@@ -15,5 +15,6 @@ in {
     ./treesitter.nix
     ./formatter.nix
     ./fugitive.nix
+    ./debugprint.nix
   ];
 }

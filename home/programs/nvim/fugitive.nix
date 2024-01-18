@@ -13,22 +13,22 @@ in {
       {
         mode = "n";
         key = "<leader>gs";
-        action = "<cmd>Git<CR>";
+        action = "<cmd>tab Git<CR>";
       }
       {
         mode = "n";
         key = "<leader>gp";
-        action = "<cmd>Git('push')<CR>";
+        action = "<cmd>tab Git push<CR>";
       }
       {
         mode = "n";
         key = "<leader>gl";
-        action = "<cmd>Git({'pull', '--rebase')<CR>";
+        action = "<cmd>tab Git pull --rebase<CR>";
       }
       {
         mode = "n";
         key = "<leader>gt";
-        action = "<cmd>Git({'push', '-u', 'origin')<CR>";
+        action = "<cmd>tab Git push -u origin<CR>";
       }
     ];
   };

@@ -29,6 +29,7 @@
     ./programs/nvim
     ./programs/gdb.nix
     ./programs/zsh.nix
+    #./programs/fish.nix
     ./programs/tmux.nix
     ./programs/nodejs.nix
 

@@ -4,6 +4,17 @@
   ...
 }: let
 in {
+  home.sessionVariables = {
+    EDITOR = "nvim";
+    GEM_HOME = "$HOME/.gem/";
+    GO111MODULE = "on";
+    NPM_PACKAGES = "$HOME/npm_packages";
+    NODE_PATH = "$NODE_PATH:$NPM_PACKAGES/lib/node_modules";
+    MANPATH = "$MANPATH:$NPM_PACKAGES/share/man";
+  };
+
+  home.sessionPath = ["$HOME/.local/bin" "$HOME/go/bin" "$HOME/npm_packages/bin"];
+
   programs.zsh = {
     enable = true;
 
@@ -13,7 +24,7 @@ in {
 
     oh-my-zsh = {
       enable = true;
-      plugins = [ "z" "tmux" "git"];
+      plugins = ["z" "tmux" "git"];
       theme = "robbyrussell";
     };
 
@@ -45,39 +56,6 @@ in {
       zettel = "date +%Y%m%d%H%M";
       crr = "cargo run --release";
     };
-
-    # todo: pyenv stuff
-    #initExtra = ''
-    #    export PYENV_ROOT="$HOME/.pyenv"
-    #    command -v pyenv >/dev/null || export PATH="$PYENV_ROOT/bin:$PATH"
-    #    eval "$(pyenv init -)"
-    #'';
-
-    # todo: .cargo/env stuff
-
-    envExtra = ''
-      # Preferred editor for local and remote sessions
-      export EDITOR='nvim'
-
-      # Sourcing cargo env
-      #. "$HOME/.cargo/env"
-
-      # GEM binaries
-      export GEM_HOME=$HOME/.gem/
-
-      # local user binaries
-      export PATH=$PATH:$HOME/.local/bin
-
-      # Go binaries
-      export PATH=$PATH:$HOME/go/bin
-      export GO111MODULE=on
-
-      # npm binaries
-      export NPM_PACKAGES=$HOME/npm_packages
-      export NODE_PATH=$NODE_PATH:$NPM_PACKAGES/lib/node_modules
-      export PATH=$PATH:$NPM_PACKAGES/bin
-      export MANPATH="$MANPATH:$NPM_PACKAGES/share/man"
-    '';
 
     # todo: move to /usr/bin/sway thing on non-nixos
     profileExtra = ''

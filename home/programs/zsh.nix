@@ -30,7 +30,7 @@ in {
 
     dirHashes = {
       h = "$HOME/H";
-      dot = "$HOME/.dotfiles_nix";
+      dot = "$HOME/.nix_config";
       r = "$HOME/.resources";
     };
 

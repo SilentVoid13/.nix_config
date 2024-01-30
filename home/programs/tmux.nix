@@ -24,6 +24,10 @@ in {
             bind -r j select-pane -D
             bind -r h select-pane -L
             bind -r l select-pane -R
+            bind -r K resize-pane -U 5
+            bind -r J resize-pane -D 5
+            bind -r L resize-pane -R 5
+            bind -r H resize-pane -L 5
 
             bind -T copy-mode-vi v send -X begin-selection
             bind -T copy-mode-vi y send -X copy-selection-and-cancel

@@ -115,6 +115,7 @@ in {
           "XF86AudioPrev" = "exec playerctl previous";
           "XF86MonBrightnessDown" = "exec brightnessctl s 5%-";
           "XF86MonBrightnessUp" = "exec brightnessctl s 5%+";
+          "Next" = "exec pactl set-source-mute @DEFAULT_SOURCE@ toggle";
           "${m}+Shift+q" = "kill";
           "${m}+Left" = "focus left";
           "${m}+Right" = "focus right";
@@ -132,8 +133,8 @@ in {
           "${m}+Shift+l" = "move right";
           "${m}+Shift+k" = "move up";
           "${m}+Shift+j" = "move down";
-          "${m}+m" = "split h";
           "${m}+v" = "split v";
+          "${m}+Shift+v" = "split h";
           "${m}+f" = "fullscreen toggle";
           "${m}+s" = "layout stacking";
           "${m}+t" = "layout tabbed";

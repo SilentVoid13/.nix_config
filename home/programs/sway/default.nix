@@ -5,12 +5,26 @@
   specialArgs,
   ...
 }: let
+  configure-gtk = pkgs.writeTextFile {
+    name = "configure-gtk";
+    destination = "/bin/configure-gtk";
+    executable = true;
+    text = let
+      schema = pkgs.gsettings-desktop-schemas;
+      datadir = "${schema}/share/gsettings-schemas/${schema.name}";
+    in ''
+      export XDG_DATA_DIRS=${datadir}:$XDG_DATA_DIRS
+      gnome_schema=org.gnome.desktop.interface
+    '';
+  };
+
   wallpaper_switcher = "sway/wallpaper_switcher.sh";
   wallpaper_switcher_path = "${config.xdg.dataHome}/${wallpaper_switcher}";
   reboot_wallpaper = "sway/reboot_wallpaper.sh";
   reboot_wallpaper_path = "${config.xdg.dataHome}/${reboot_wallpaper}";
 
-  mon1 = "HDMI-A-1";
+  #mon1 = "HDMI-A-1";
+  mon1 = "DP-2";
   mon2 = "eDP-1";
 
   ws1 = "1";
@@ -29,6 +43,7 @@ in {
   # TODO: darkman dependency?
 
   home.packages = with pkgs; [
+    configure-gtk
     polkit_gnome
     libnotify
     wl-clipboard
@@ -234,12 +249,13 @@ in {
       output = {
         "${mon1}" = {
           pos = "0 0";
-          res = "1920 1080";
-          #scale = "1.2";
+          res = "3840x2160@120.000Hz";
+          scale = "1.5";
         };
         "${mon2}" = {
-          pos = "1900 0";
-          res = "2240 1400";
+          pos = "2560 0";
+          res = "1920x1080";
+          #res = "2240 1400";
           #scale = "1.2";
         };
       };

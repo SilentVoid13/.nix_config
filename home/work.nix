@@ -28,9 +28,9 @@
     inputs.nixvim.homeManagerModules.nixvim
     ./programs/nvim
     ./programs/gdb.nix
-    ./programs/zsh.nix
+    ./programs/zsh
     #./programs/fish.nix
-    ./programs/tmux.nix
+    ./programs/tmux
     ./programs/nodejs.nix
 
     ## OS

@@ -3,6 +3,7 @@
   pkgs,
   ...
 }: let
+  omz_dir = "zsh/oh-my-zsh/";
 in {
   home.sessionVariables = {
     EDITOR = "nvim";
@@ -15,6 +16,11 @@ in {
 
   home.sessionPath = ["$HOME/.local/bin" "$HOME/go/bin" "$HOME/npm_packages/bin"];
 
+  xdg = {
+    enable = true;
+    configFile."${omz_dir}/themes/mytheme.zsh-theme".source = ./mytheme.zsh-theme;
+  };
+
   programs.zsh = {
     enable = true;
 
@@ -25,7 +31,8 @@ in {
     oh-my-zsh = {
       enable = true;
       plugins = ["z" "tmux" "git"];
-      theme = "robbyrussell";
+      custom = "${config.xdg.configHome}/${omz_dir}";
+      theme = "mytheme";
     };
 
     dirHashes = {
@@ -70,5 +77,10 @@ in {
           exec sway --unsupported-gpu
       fi
     '';
+  };
+
+  programs.direnv = {
+    enable = true;
+    enableZshIntegration = true;
   };
 }

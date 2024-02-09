@@ -60,8 +60,10 @@ in {
 
       gruvbox = {
         enable = false;
-        contrastDark = "hard";
-        invertSelection = false;
+        settings = {
+            contrast_dark = "hard";
+            invert_selection = false;
+        };
       };
     };
   };

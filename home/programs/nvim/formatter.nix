@@ -67,6 +67,9 @@ in {
         nix = [
           (ft "nix.alejandra")
         ];
+        graphql = [
+          (ft "graphql.prettier")
+        ];
       };
     };
 

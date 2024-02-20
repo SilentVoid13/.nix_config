@@ -1,7 +1,0 @@
-bluetooth
-nvidia
-printer?
-
-- [x] automate the whole disk formatting and partition part
-- [x] automate home-manager installation
-- [ ] automate git repos cloning (.resources, .wallpapers, ...)

@@ -3,15 +3,7 @@
   pkgs,
   ...
 }: {
-  home.packages = with pkgs; [
-    # This causes compilation problem for apps looking for /usr/lib/libclang*
-    # on non-nixos systems
-    #clang
-
-    pkg-config
-    rustup
-    lua
-  ];
+  home.packages = with pkgs; [];
 
   xdg = {
     enable = true;
@@ -19,6 +11,4 @@
         edition = "2021"
     '';
   };
-
-  # TODO: install cargo-expand?
 }

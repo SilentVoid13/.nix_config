@@ -30,7 +30,18 @@ in {
     extraConfig = {
       gpg.format = "ssh";
       gpg.ssh.program = "op-ssh-sign";
+
+      # global gitignore with common patterns
       core.excludefiles = "${config.xdg.configHome}/${gitignore_global}";
+
+      # sort branches by last commit date descending
+      branch.sort = "-committerdate";
+
+      # auto setup remote branch
+      push.autosetupremote = "true";
+
+      # rebase when pulling
+      pull.rebase = "true";
     };
   };
 }

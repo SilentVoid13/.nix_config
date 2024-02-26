@@ -34,6 +34,12 @@
         lua = true;
         options = { expr = true; };
       }
+      {
+        mode = "n";
+        key = "<leader>pc";
+        action = "function() require('debugprint').deleteprints(opts) end";
+        options = { range = true; };
+      }
     ];
   };
 }

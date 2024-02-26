@@ -38,7 +38,7 @@
         mode = "n";
         key = "<leader>pc";
         action = "function() require('debugprint').deleteprints(opts) end";
-        options = { range = true; };
+        #options = { range = true; };
       }
     ];
   };

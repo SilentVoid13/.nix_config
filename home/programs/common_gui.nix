@@ -7,7 +7,6 @@
     nixGLWrap = specialArgs.nixGLWrap;
 in {
   home.packages = with pkgs; [
-    discord
     qalculate-gtk
     (nixGLWrap okular)
     (nixGLWrap obsidian)
@@ -16,5 +15,8 @@ in {
     spotify
     transmission-gtk
     chromium
+
+    #discord
+    vesktop
   ];
 }

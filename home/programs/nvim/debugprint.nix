@@ -37,7 +37,8 @@
       {
         mode = "n";
         key = "<leader>pc";
-        action = "function() require('debugprint').deleteprints(opts) end";
+        action = "function(opts) require('debugprint').deleteprints(opts) end";
+        lua = true;
         #options = { range = true; };
       }
     ];

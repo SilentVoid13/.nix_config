@@ -41,6 +41,8 @@ in {
       errorbells = false;
 
       guicursor = "";
+
+      conceallevel = 1;
     };
 
     globals = {

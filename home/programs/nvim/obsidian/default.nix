@@ -6,8 +6,13 @@
 }: let
 in {
   programs.nixvim = {
+    extraFiles = {"lua/my_obsidian.lua" = builtins.readFile ./my_obsidian.lua;};
+
     plugins.obsidian = {
       enable = true;
+      # For now, we use our custom version
+      package = pkgs.emptyFile;
+
       workspaces = [
         {
           name = "resources";
@@ -21,14 +26,6 @@ in {
         template = "Resources/Templates/TEMPLATE Daily Note.md";
       };
       mappings = {
-        gf = {
-          action = "require('obsidian').util.gf_passthrough";
-          opts = {
-            noremap = false;
-            expr = true;
-            buffer = true;
-          };
-        };
         gl = {
           action = "require('obsidian').util.toggle_checkbox";
           opts.buffer = true;
@@ -42,6 +39,12 @@ in {
     };
 
     keymaps = [
+      {
+        mode = "n";
+        key = "gf";
+        action = "function() require('my_obsidian').follow_closest_link() end";
+        lua = true;
+      }
       {
         mode = "n";
         key = "go";

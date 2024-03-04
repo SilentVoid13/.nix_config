@@ -16,7 +16,7 @@ in {
     ./formatter.nix
     ./fugitive.nix
     ./debugprint.nix
-    ./obsidian.nix
     ./oil.nix
+    ./obsidian
   ];
 }

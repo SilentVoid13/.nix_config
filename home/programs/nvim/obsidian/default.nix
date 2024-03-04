@@ -26,7 +26,7 @@ in {
         template = "Resources/Templates/TEMPLATE Daily Note.md";
       };
       mappings = {
-        gl = {
+        fl = {
           action = "require('obsidian').util.toggle_checkbox";
           opts.buffer = true;
         };
@@ -41,18 +41,29 @@ in {
     keymaps = [
       {
         mode = "n";
-        key = "gf";
+        key = "ff";
         action = "function() require('my_obsidian').follow_closest_link() end";
         lua = true;
       }
       {
         mode = "n";
-        key = "go";
+        key = "ft";
+        action = "function() require('my_obsidian').create_new_note() end";
+        lua = true;
+      }
+      {
+        mode = "n";
+        key = "fo";
         action = "<cmd>ObsidianQuickSwitch<CR>";
       }
       {
         mode = "n";
-        key = "gD";
+        key = "fs";
+        action = "<cmd>ObsidianSearch<CR>";
+      }
+      {
+        mode = "n";
+        key = "fD";
         action = "<cmd>ObsidianToday<CR>";
       }
     ];

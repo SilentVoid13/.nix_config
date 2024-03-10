@@ -1,5 +1,6 @@
 {
   config,
+  myconf,
   pkgs,
   lib,
   ...
@@ -15,8 +16,8 @@ in {
 
       workspaces = [
         {
-          name = "resources";
-          path = "${config.home.homeDirectory}/.resources";
+          name = "knowledge_base";
+          path = "${myconf.knowledge_base}";
         }
       ];
       disableFrontmatter = true;
@@ -41,7 +42,7 @@ in {
     keymaps = [
       {
         mode = "n";
-        key = "ff";
+        key = "fd";
         action = "function() require('my_obsidian').follow_closest_link() end";
         lua = true;
       }

@@ -34,7 +34,7 @@ in {
     plugins.telescope = {
       enable = true;
       keymaps = {
-        "<leader>fd" = {
+        "<leader>fO" = {
           action = "git_files";
         };
         "<leader>fs" = {
@@ -61,7 +61,7 @@ in {
     keymaps = [
       {
         mode = "n";
-        key = "<leader>ff";
+        key = "<leader>fo";
         action = "<cmd>lua require('telescope.builtin').find_files({ tiebreak = ${tiebreak_index_fn}, })<CR>";
       }
     ];

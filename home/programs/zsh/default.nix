@@ -1,6 +1,7 @@
 {
   config,
   pkgs,
+  myconf,
   ...
 }: let
   omz_dir = "zsh/oh-my-zsh/";
@@ -38,7 +39,7 @@ in {
     dirHashes = {
       h = "$HOME/H";
       dot = "$HOME/.nix_config";
-      r = "$HOME/.resources";
+      k = "${myconf.knowledge_base}";
     };
 
     history = {
@@ -82,5 +83,6 @@ in {
   programs.direnv = {
     enable = true;
     enableZshIntegration = true;
+    nix-direnv.enable = true;
   };
 }

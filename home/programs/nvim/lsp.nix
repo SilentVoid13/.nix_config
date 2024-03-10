@@ -50,83 +50,44 @@ in {
         };
       };
 
-      nvim-cmp = {
+      cmp = {
         enable = true;
-        mapping = {
-          "<C-b>" = {
-            modes = ["i" "c"];
-            action = "cmp.mapping.scroll_docs(-4)";
+        settings = {
+          mapping = {
+            "<C-b>" = "cmp.mapping.scroll_docs(-4)";
+            "<C-f>" = "cmp.mapping.scroll_docs(4)";
+            "<C-Space>" = "cmp.mapping.complete()";
+            "<C-n>" = "cmp.mapping(cmp.mapping.select_next_item(), {'i', 's'})";
+            "<C-p>" = "cmp.mapping(cmp.mapping.select_prev_item(), {'i', 's'})";
+            #"<C-k>" = ''function() if require("luasnip").expand_or_jumpable() then require("luasnip").expand_or_jump() end end'';
+            #"<C-j>" = ''function() if require("luasnip").jumpable(-1) then require("luasnip").jump(-1) end end'';
+            #"<C-l>" = ''function() if require("luasnip").choice_active() then require("luasnip").change_choice(1) end end'';
+            "<CR>" = "cmp.mapping.confirm({ select = true })";
+            "<C-y>" = "cmp.config.disable";
+            "<C-e>" = "cmp.mapping({ i = cmp.mapping.abort(), c = cmp.mapping.close() })";
           };
-          "<C-f>" = {
-            modes = ["i" "c"];
-            action = "cmp.mapping.scroll_docs(4)";
-          };
-          "<C-Space>" = {
-            modes = ["i" "c"];
-            action = "cmp.mapping.complete()";
-          };
-          "<C-n>" = {
-            modes = ["i" "c"];
-            action = "cmp.mapping.select_next_item()";
-          };
-          "<C-p>" = {
-            modes = ["i" "c"];
-            action = "cmp.mapping.select_prev_item()";
-          };
-          "<C-k>" = {
-            modes = ["i"];
-            action = ''
-              function()
-                  if require("luasnip").expand_or_jumpable() then
-                      require("luasnip").expand_or_jump()
-                  end
-              end
-            '';
-          };
-          "<C-j>" = {
-            modes = ["i"];
-            action = ''
-              function()
-                  if require("luasnip").jumpable(-1) then
-                      require("luasnip").jump(-1)
-                  end
-              end
-            '';
-          };
-          "<C-l>" = {
-            modes = ["i"];
-            action = ''
-              function()
-                  if require("luasnip").choice_active() then
-                      require("luasnip").change_choice(1)
-                  end
-              end
-            '';
-          };
-          "<CR>" = "cmp.mapping.confirm({ select = true })";
-          "<C-y>" = "cmp.config.disable";
-          "<C-e>" = "cmp.mapping({ i = cmp.mapping.abort(), c = cmp.mapping.close() })";
+          sources = [
+            {name = "nvim_lsp";}
+            {name = "buffer";}
+            {name = "path";}
+            {name = "luasnip";}
+            {name = "copilot";}
+          ];
         };
-        sources = [
-          {name = "nvim_lsp";}
-          {name = "luasnip";}
-          {name = "buffer";}
-          {name = "path";}
-          {name = "copilot";}
-        ];
-        snippet.expand = "luasnip";
       };
 
+      cmp-nvim-lsp.enable = true;
+      cmp-buffer.enable = true;
+      cmp-path.enable = true;
+
+      copilot-cmp.enable = true;
       copilot-lua = {
         enable = true;
         panel.enabled = false;
         suggestion.enabled = false;
       };
 
-      copilot-cmp = {
-        enable = true;
-      };
-
+      cmp_luasnip.enable = true;
       luasnip = {
         enable = true;
         # snippets are not that great
@@ -136,10 +97,6 @@ in {
         #    paths = "${pkgs.vimPlugins.friendly-snippets}";
         #  }
         #];
-      };
-
-      cmp_luasnip = {
-        enable = true;
       };
     };
 

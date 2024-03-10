@@ -30,21 +30,6 @@ in {
       (nerdfonts.override {fonts = ["Iosevka"];})
       ubuntu_font_family
     ];
-
-    #enableDefaultFonts = true;
-    #fontDir.enable = true;
-    #fontconfig = {
-    #defaultFonts = {
-    #emoji = [ "Noto Color Emoji" ];
-    #};
-    #  # from https://christitus.com/emoji/
-    #  localConf = ''
-    #    <match target="pattern">
-    #      <test qual="any" name="family"><string>Segoe UI Emoji</string></test>
-    #      <edit name="family" mode="assign" binding="same"><string>Noto Color Emoji</string></edit>
-    #    </match>
-    #  '';
-    #};
   };
 
   networking = {

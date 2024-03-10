@@ -25,7 +25,7 @@
   };
 
   outputs = {self, ...} @ inputs: let
-    myconf = import ./common/myconf.nix {};
+    myconf = import ./utils/myconf.nix {};
   in {
     homeConfigurations = import ./outputs/home.nix {
       inherit inputs;

@@ -1,4 +1,0 @@
-{...}: let
-in  {
-    username = "silent";
-}

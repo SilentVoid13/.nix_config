@@ -17,6 +17,6 @@ in {
     ./fugitive.nix
     ./debugprint.nix
     ./oil.nix
-    ./obsidian
+    #./obsidian
   ];
 }

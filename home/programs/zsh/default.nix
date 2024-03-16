@@ -27,7 +27,7 @@ in {
 
     dotDir = ".config/zsh";
     autocd = true;
-    enableAutosuggestions = true;
+    autosuggestion.enable = true;
 
     oh-my-zsh = {
       enable = true;

@@ -1,13 +1,18 @@
 {
   config,
   pkgs,
+  lib,
   ...
 }: let
+  helpers = import ./helpers.nix {inherit lib;};
+  md_link_pattern = helpers.mkRaw ''[[\(\k\| \|\/\|#\|-\)\+]]'';
 in {
   programs.nixvim = {
     plugins = {
       lsp = {
         enable = true;
+        capabilities = ''
+        '';
         keymaps = {
           silent = true;
           lspBuf = {
@@ -67,7 +72,14 @@ in {
             "<C-e>" = "cmp.mapping({ i = cmp.mapping.abort(), c = cmp.mapping.close() })";
           };
           sources = [
-            {name = "nvim_lsp";}
+            {
+              name = "nvim_lsp";
+              option = {
+                zk.keyword_pattern = md_link_pattern;
+                sov.keyword_pattern = md_link_pattern;
+                markdown_oxide.keyword_pattern = md_link_pattern;
+              };
+            }
             {name = "buffer";}
             {name = "path";}
             {name = "luasnip";}
@@ -81,19 +93,17 @@ in {
           };
         };
       };
-
       cmp-nvim-lsp.enable = true;
       cmp-buffer.enable = true;
       cmp-path.enable = true;
-
       copilot-cmp.enable = true;
       copilot-lua = {
         enable = true;
         panel.enabled = false;
         suggestion.enabled = false;
       };
-
       cmp_luasnip.enable = true;
+
       luasnip = {
         enable = true;
         # snippets are not that great
@@ -104,10 +114,18 @@ in {
         #  }
         #];
       };
+
+      /*
+      coq-nvim = {
+        enable = true;
+        #installArtifacts = true;
+        autoStart = true;
+      };
+      */
     };
 
     extraPlugins = with pkgs.vimPlugins; [
-      friendly-snippets
+      #friendly-snippets
     ];
 
     keymaps = [
@@ -127,5 +145,9 @@ in {
         action = "<cmd>Telescope diagnostics<CR>";
       }
     ];
+    extraConfigLua = ''
+      -- require("lspconfig").markdown_oxide.setup({})
+      -- require("sov").setup({})
+    '';
   };
 }

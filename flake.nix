@@ -36,5 +36,9 @@
       inherit inputs;
       inherit myconf;
     };
+
+    iso = import ./outputs/iso.nix {
+      inherit inputs;
+    };
   };
 }

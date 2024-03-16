@@ -24,7 +24,7 @@
   reboot_wallpaper_path = "${config.xdg.dataHome}/${reboot_wallpaper}";
 
   #mon1 = "HDMI-A-1";
-  mon1 = "*";
+  mon1 = "DP-2";
   mon2 = "eDP-1";
 
   ws1 = "1";

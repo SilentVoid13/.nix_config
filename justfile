@@ -10,6 +10,8 @@ nixos_thinkpad:
     sudo nixos-rebuild switch --flake .#thinkpad
 nixos_vm:
     nix build .#nixosConfigurations.vm.config.system.build.vm
+nixos_iso:
+    nix build .#nixosConfigurations.iso.config.system.build.isoImage
 update:
     nix-channel --update
     nix flake update

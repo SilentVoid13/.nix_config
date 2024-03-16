@@ -1,22 +1,25 @@
 {
   inputs,
   pkgs,
+  modulesPath,
   ...
 }: let
 in {
   nixpkgs.config.allowUnfree = true;
 
   imports = [
-    <nixpkgs/nixos/modules/installer/cd-dvd/installation-cd-minimal.nix>
+    "${modulesPath}/installer/cd-dvd/installation-cd-minimal.nix"
     # Provide an initial copy of the NixOS channel so that the user
     # doesn't need to run "nix-channel --update" first.
-    <nixpkgs/nixos/modules/installer/cd-dvd/channel.nix>
+    "${modulesPath}/installer/cd-dvd/channel.nix"
   ];
 
   i18n.defaultLocale = "en_US.UTF-8";
   time.timeZone = "Europe/Paris";
 
   networking = {
+    # incompatible with networkmanager
+    wireless.enable = false;
     networkmanager.enable = true;
   };
 
@@ -26,6 +29,6 @@ in {
 
   environment.systemPackages = with pkgs; [
     git
-    nvim
+    neovim
   ];
 }

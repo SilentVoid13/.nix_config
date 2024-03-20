@@ -36,6 +36,7 @@ in {
               procMacro = {
                 enable = true;
               };
+              check.command = "clippy";
             };
           };
           tsserver = {enable = true;};

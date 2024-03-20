@@ -52,6 +52,7 @@ in {
             };
           };
           lua-ls = {enable = true;};
+          nil_ls = {enable = true;};
         };
       };
 
@@ -124,9 +125,9 @@ in {
       */
     };
 
-    extraPlugins = with pkgs.vimPlugins; [
-      #friendly-snippets
-    ];
+    #extraPlugins = with pkgs.vimPlugins; [
+    #  friendly-snippets
+    #];
 
     keymaps = [
       {

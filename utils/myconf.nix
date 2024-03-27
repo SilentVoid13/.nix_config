@@ -1,5 +1,7 @@
 {...}: let
-in  {
     username = "silent";
-    knowledge_base = "~/quark";
+    knowledge_base = "/home/${username}/quark";
+in  {
+    inherit username;
+    inherit knowledge_base;
 }

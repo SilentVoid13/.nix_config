@@ -12,7 +12,7 @@
     if [[ -z $1 ]]; then
         folder="."
     fi
-    rg --files | proximity-sort $folder
+    rg --files | proximity-sort "''${folder}"
   '';
 
   find_command = ''

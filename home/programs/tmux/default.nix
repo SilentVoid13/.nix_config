@@ -55,9 +55,14 @@ in {
       bind % split-window -h -c "#{pane_current_path}"
       bind c new-window -c "#{pane_current_path}"
 
+      # quick style
       set -g status-style 'bg=#333333 fg=#5eacd3'
 
+      # no gap between numbers when a window is closed
       set -g renumber-windows on
+
+      # auto-switch to another active session after exiting
+      set-option -g detach-on-destroy off
     '';
   };
 }

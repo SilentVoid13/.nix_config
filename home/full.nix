@@ -23,7 +23,6 @@
     ./programs/zsh
     #./programs/fish.nix
     ./programs/tmux
-    ./programs/nodejs.nix
 
     ## OS
     ./programs/sway

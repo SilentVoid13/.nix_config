@@ -17,5 +17,6 @@
     usbutils
     lshw
     openvpn
+    cloc
   ];
 }

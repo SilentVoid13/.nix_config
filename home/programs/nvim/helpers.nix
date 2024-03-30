@@ -1,6 +1,5 @@
 {lib, ...}:
-with lib; let
-in rec {
+with lib; rec {
   toLuaObject = args:
     if builtins.isAttrs args
     then

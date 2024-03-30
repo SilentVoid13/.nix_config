@@ -1,10 +1,4 @@
-{
-  lib,
-  config,
-  pkgs,
-  ...
-}: let
-in {
+{...}: {
   programs.nixvim = {
     enable = true;
 

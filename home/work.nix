@@ -1,12 +1,5 @@
-{
-  inputs,
-  config,
-  lib,
-  pkgs,
-  ...
-}: {
+{...}: {
   imports = [
-
     ## Common
     ./programs/common_terminal.nix
     ./programs/common_gui.nix
@@ -25,7 +18,6 @@
     ./programs/git
     #./programs/alacritty.nix
     ./programs/foot.nix
-    inputs.nixvim.homeManagerModules.nixvim
     ./programs/nvim
     ./programs/gdb.nix
     ./programs/zsh

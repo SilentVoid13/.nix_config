@@ -1,11 +1,4 @@
-{
-  inputs,
-  config,
-  pkgs,
-  specialArgs,
-  ...
-}: let
-in {
+{pkgs, ...}: {
   programs.firefox = {
     enable = true;
     package = pkgs.firefox-wayland;

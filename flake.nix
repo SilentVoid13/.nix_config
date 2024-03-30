@@ -2,7 +2,8 @@
   description = "Nix system configuration";
 
   inputs = {
-    nixpkgs.url = "nixpkgs/nixos-unstable";
+    #nixpkgs.url = "nixpkgs/nixos-unstable";
+    nixpkgs.url = "github:nixos/nixpkgs?ref=9a9dae8f6319600fa9aebde37f340975cab4b8c0";
 
     nurpkgs.url = "github:nix-community/NUR";
 
@@ -24,21 +25,30 @@
     };
   };
 
-  outputs = {self, ...} @ inputs: let
+  outputs = {
+    self,
+    nixpkgs,
+    nurpkgs,
+    home-manager,
+    nixgl,
+    nixvim,
+    lanzaboote,
+  } : let
     myconf = import ./utils/myconf.nix {};
   in {
     homeConfigurations = import ./outputs/home.nix {
-      inherit inputs;
+      inherit nixpkgs;
       inherit myconf;
+      inherit nurpkgs;
+      inherit home-manager;
+      inherit nixgl;
+      inherit nixvim;
     };
 
     nixosConfigurations = import ./outputs/nixos.nix {
-      inherit inputs;
+      inherit nixpkgs;
       inherit myconf;
-    };
-
-    iso = import ./outputs/iso.nix {
-      inherit inputs;
+      inherit lanzaboote;
     };
   };
 }

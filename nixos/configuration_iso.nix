@@ -1,10 +1,8 @@
 {
-  inputs,
   pkgs,
   modulesPath,
   ...
-}: let
-in {
+}: {
   nixpkgs.config.allowUnfree = true;
 
   imports = [

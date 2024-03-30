@@ -2,7 +2,7 @@
   config,
   pkgs,
   lib,
-  specialArgs,
+  nixGLWrap,
   ...
 }: let
   configure-gtk = pkgs.writeTextFile {
@@ -52,7 +52,7 @@ in {
     grim
     slurp
     wbg
-    (specialArgs.nixGLWrap wdisplays)
+    (nixGLWrap wdisplays)
     xdg-utils
     networkmanagerapplet
     pulseaudio

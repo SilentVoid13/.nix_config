@@ -1,9 +1,7 @@
 {
   config,
-  pkgs,
   ...
 }: let
-  home = config.home.homeDirectory;
   gitignore_global = "git/gitignore_global";
 in {
   # TODO: add dependency over 1password.nix?

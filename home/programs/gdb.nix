@@ -1,11 +1,6 @@
-{
-  config,
-  pkgs,
-  ...
-}: let
-in {
+{pkgs, ...}: {
   home.packages = with pkgs; [
     #gdb
-    pwndbg
+    #pwndbg
   ];
 }

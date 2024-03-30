@@ -1,13 +1,8 @@
-{
-  config,
-  pkgs,
-  ...
-}: let
-in {
+{pkgs, ...}: {
   programs.waybar = {
     enable = true;
     # TODO: try to nixGL wrap?
-    #package = 
+    #package =
     settings = {
       mainBar = {
         layer = "bottom";

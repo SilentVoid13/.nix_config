@@ -1,16 +1,11 @@
-{
-  config,
-  pkgs,
-  ...
-}: let
-in {
+{...}: {
   programs.nixvim = {
     options = {
       background = "dark";
     };
 
     match = {
-      Todo = "\\cTODO";
+      #Todo = "\\cTODO";
       Done = "\\cDONE";
     };
 
@@ -27,11 +22,11 @@ in {
       Normal = {
         bg = "none";
       };
-      Todo = {
-        ctermfg = "white";
-        bg = "#FF1010";
-        fg = "white";
-      };
+      #Todo = {
+      #  ctermfg = "white";
+      #  bg = "#FF1010";
+      #  fg = "white";
+      #};
       Done = {
         ctermfg = "white";
         bg = "#57BA37";
@@ -61,8 +56,8 @@ in {
       gruvbox = {
         enable = false;
         settings = {
-            contrast_dark = "hard";
-            invert_selection = false;
+          contrast_dark = "hard";
+          invert_selection = false;
         };
       };
     };

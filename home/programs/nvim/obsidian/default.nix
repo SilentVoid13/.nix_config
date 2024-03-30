@@ -1,11 +1,8 @@
 {
-  config,
   myconf,
   pkgs,
-  lib,
   ...
-}: let
-in {
+}: {
   programs.nixvim = {
     extraFiles = {"lua/my_obsidian.lua" = builtins.readFile ./my_obsidian.lua;};
 

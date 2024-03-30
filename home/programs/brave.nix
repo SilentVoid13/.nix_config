@@ -1,9 +1,4 @@
-{
-  config,
-  pkgs,
-  ...
-}: let
-  home = config.home.homeDirectory;
+{pkgs, ...}: let
   extText = builtins.toJSON {
     external_update_url = "https://clients2.google.com/service/update2/crx";
   };

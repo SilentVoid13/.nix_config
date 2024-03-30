@@ -1,14 +1,13 @@
 {
-  inputs,
   myconf,
+  nixpkgs,
+  lanzaboote,
   ...
-}: let
-  nixpkgs = inputs.nixpkgs;
-in {
+}: {
   dell = nixpkgs.lib.nixosSystem {
     system = "x86_64-linux";
     modules = [
-      inputs.lanzaboote.nixosModules.lanzaboote
+      lanzaboote.nixosModules.lanzaboote
       ../nixos/configuration.nix
       ../nixos/dell
     ];
@@ -18,7 +17,7 @@ in {
   thinkpad = nixpkgs.lib.nixosSystem {
     system = "x86_64-linux";
     modules = [
-      inputs.lanzaboote.nixosModules.lanzaboote
+      lanzaboote.nixosModules.lanzaboote
       ../nixos/configuration.nix
       ../nixos/thinkpad
     ];

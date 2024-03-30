@@ -1,4 +1,4 @@
-{ pkgs, }:
+{pkgs}:
 pkgs.buildFHSEnv {
   name = "binaryninja";
   targetPkgs = pkgs:

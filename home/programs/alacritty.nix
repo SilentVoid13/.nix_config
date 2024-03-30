@@ -1,11 +1,8 @@
 {
-  config,
   pkgs,
-  specialArgs,
+  nixGLWrap,
   ...
-}: let
-    nixGLWrap = specialArgs.nixGLWrap;
-in {
+}: {
   programs.alacritty = {
     enable = true;
     package = nixGLWrap pkgs.alacritty;

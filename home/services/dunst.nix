@@ -1,9 +1,4 @@
-{
-  config,
-  pkgs,
-  ...
-}: let
-in {
+{pkgs, ...}: {
   services.dunst = {
     enable = true;
     iconTheme = {

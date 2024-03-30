@@ -1,8 +1,4 @@
-{
-  config,
-  pkgs,
-  ...
-}: let
+{...}: let
 in {
   programs.nixvim = {
     plugins.harpoon = {

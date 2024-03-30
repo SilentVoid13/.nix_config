@@ -1,6 +1,10 @@
 {
-  inputs,
+  nixpkgs,
   myconf,
+  nurpkgs,
+  home-manager,
+  nixgl,
+  nixvim,
   ...
 }: let
   mkHomeConfig = {
@@ -9,20 +13,16 @@
     isNixOs,
     modules,
   }: let
-    pkgs = import inputs.nixpkgs {
+    pkgs = import nixpkgs {
       inherit system;
       config = {
         allowUnfree = true;
-        # TODO: Remove this
-        permittedInsecurePackages = [
-          "electron-25.9.0"
-        ];
       };
       overlays =
-        [inputs.nurpkgs.overlay]
+        [nurpkgs.overlay]
         ++ (
           if !isNixOs
-          then [inputs.nixgl.overlay]
+          then [nixgl.overlay]
           else []
         );
     };
@@ -43,12 +43,13 @@
         ''
       else pkg;
   in
-    inputs.home-manager.lib.homeManagerConfiguration {
+    home-manager.lib.homeManagerConfiguration {
       inherit pkgs;
+
       extraSpecialArgs = {
-        inherit inputs;
         inherit nixGLWrap;
         inherit myconf;
+        inherit nixvim;
       };
       modules =
         [

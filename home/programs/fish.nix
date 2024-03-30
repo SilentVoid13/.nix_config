@@ -1,4 +1,4 @@
-{pkgs, ...}: {
+{...}: {
   home.sessionVariables = {
     EDITOR = "nvim";
     GEM_HOME = "$HOME/.gem/";

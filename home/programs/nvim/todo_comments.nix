@@ -1,14 +1,13 @@
 {...}: {
   programs.nixvim = {
-    plugins.oil = {
+    plugins.todo-comments = {
       enable = true;
     };
-
     keymaps = [
       {
         mode = "n";
-        key = "<leader>e";
-        action = "<cmd>Oil<CR>";
+        key = "<leader>dt";
+        action = "<cmd>TodoTelescope<CR>";
       }
     ];
   };

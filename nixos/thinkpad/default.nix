@@ -1,13 +1,9 @@
 {
-  inputs,
-  system,
   pkgs,
   lib,
   myconf,
-  config,
   ...
-}: let
-in {
+}: {
   imports = [
     ./hardware-configuration.nix
   ];
@@ -128,6 +124,5 @@ in {
     yubioath-flutter
     swaylock
     docker-compose
-    clang
   ];
 }

@@ -1,6 +1,5 @@
 {
   config,
-  pkgs,
   ...
 }: let
   # TODO: improve that

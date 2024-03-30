@@ -1,9 +1,4 @@
-{
-  config,
-  pkgs,
-  ...
-}: let
-in {
+{...}: {
   programs.nixvim = {
     plugins = {
       treesitter = {

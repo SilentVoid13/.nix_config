@@ -1,11 +1,6 @@
-{
-  lib,
-  config,
-  pkgs,
-  ...
-}: let
-in {
+{nixvim, ...}: {
   imports = [
+    nixvim.homeManagerModules.nixvim
     ./sets.nix
     ./maps.nix
     ./colors.nix
@@ -17,6 +12,7 @@ in {
     ./fugitive.nix
     ./debugprint.nix
     ./oil.nix
+    ./todo_comments.nix
     #./obsidian
   ];
 }

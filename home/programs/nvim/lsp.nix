@@ -1,6 +1,5 @@
 {
-  config,
-  pkgs,
+  myconf,
   lib,
   ...
 }: let
@@ -40,6 +39,7 @@ in {
             };
           };
           tsserver = {enable = true;};
+          /*
           ruff-lsp = {enable = true;};
           pylsp = {
             enable = true;
@@ -50,8 +50,17 @@ in {
                   "${config.home.homeDirectory}/binaryninja/python3"
                 ];
               };
+              rope.enabled = true;
             };
           };
+          pylyzer = {
+            enable = true;
+            # TODO: remove this
+            # https://github.com/NixOS/nixpkgs/issues/295735
+            package = pkgs.emptyFile;
+          };
+          pyright = { enable = true; };
+          */
           lua-ls = {enable = true;};
           nil_ls = {enable = true;};
         };
@@ -146,10 +155,22 @@ in {
         key = "<leader>dl";
         action = "<cmd>Telescope diagnostics<CR>";
       }
+      {
+        mode = "n";
+        key = "<leader>ro";
+        action = "<cmd>SovFindFiles<CR>";
+      }
+      {
+        mode = "n";
+        key = "<leader>rs";
+        action = "<cmd>SovFuzzySearch<CR>";
+      }
     ];
     extraConfigLua = ''
       -- require("lspconfig").markdown_oxide.setup({})
-      -- require("sov").setup({})
+      -- require("sov").setup({
+      --   root_dir = '${myconf.knowledge_base}'
+      -- })
     '';
   };
 }

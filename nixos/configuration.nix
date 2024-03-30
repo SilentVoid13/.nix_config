@@ -1,11 +1,8 @@
 {
-  inputs,
   myconf,
-  system,
   pkgs,
   ...
-}: let
-in {
+}: {
   nixpkgs.config.allowUnfree = true;
 
   i18n.defaultLocale = "en_US.UTF-8";

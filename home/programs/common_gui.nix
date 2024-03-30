@@ -1,11 +1,8 @@
 {
-  config,
   pkgs,
-  specialArgs,
+  nixGLWrap,
   ...
-}: let 
-    nixGLWrap = specialArgs.nixGLWrap;
-in {
+}: {
   home.packages = with pkgs; [
     qalculate-gtk
     (nixGLWrap okular)

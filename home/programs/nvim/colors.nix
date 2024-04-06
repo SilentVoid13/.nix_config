@@ -1,6 +1,6 @@
 {...}: {
   programs.nixvim = {
-    options = {
+    opts = {
       background = "dark";
     };
 

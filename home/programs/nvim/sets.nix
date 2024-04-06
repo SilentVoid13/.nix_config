@@ -2,7 +2,7 @@
   programs.nixvim = {
     enable = true;
 
-    options = {
+    opts = {
       encoding = "utf-8";
       laststatus = 2;
       updatetime = 300;

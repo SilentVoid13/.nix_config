@@ -1,6 +1,8 @@
 {
   myconf,
+  config,
   lib,
+  pkgs,
   ...
 }: let
   helpers = import ./helpers.nix {inherit lib;};
@@ -39,7 +41,6 @@ in {
             };
           };
           tsserver = {enable = true;};
-          /*
           ruff-lsp = {enable = true;};
           pylsp = {
             enable = true;
@@ -53,6 +54,7 @@ in {
               rope.enabled = true;
             };
           };
+          /*
           pylyzer = {
             enable = true;
             # TODO: remove this
@@ -135,9 +137,10 @@ in {
       */
     };
 
-    #extraPlugins = with pkgs.vimPlugins; [
-    #  friendly-snippets
-    #];
+    extraPlugins = with pkgs.vimPlugins; [
+      #friendly-snippets
+      plenary-nvim
+    ];
 
     keymaps = [
       {
@@ -155,22 +158,9 @@ in {
         key = "<leader>dl";
         action = "<cmd>Telescope diagnostics<CR>";
       }
-      {
-        mode = "n";
-        key = "<leader>ro";
-        action = "<cmd>SovFindFiles<CR>";
-      }
-      {
-        mode = "n";
-        key = "<leader>rs";
-        action = "<cmd>SovFuzzySearch<CR>";
-      }
     ];
     extraConfigLua = ''
       -- require("lspconfig").markdown_oxide.setup({})
-      -- require("sov").setup({
-      --   root_dir = '${myconf.knowledge_base}'
-      -- })
     '';
   };
 }

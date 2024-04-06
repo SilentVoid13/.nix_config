@@ -13,6 +13,7 @@
     ./debugprint.nix
     ./oil.nix
     ./todo_comments.nix
+    ./sov
     #./obsidian
   ];
 }

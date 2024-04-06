@@ -2,8 +2,9 @@
   description = "Nix system configuration";
 
   inputs = {
-    #nixpkgs.url = "nixpkgs/nixos-unstable";
-    nixpkgs.url = "github:nixos/nixpkgs?ref=9a9dae8f6319600fa9aebde37f340975cab4b8c0";
+    nixpkgs.url = "nixpkgs/nixos-unstable";
+    nixpkgs-stable.url = "nixpkgs/nixos-23.11";
+    nixpkgs-staging.url = "nixpkgs/staging-next";
 
     nurpkgs.url = "github:nix-community/NUR";
 
@@ -26,14 +27,14 @@
   };
 
   outputs = {
-    self,
     nixpkgs,
     nurpkgs,
     home-manager,
     nixgl,
     nixvim,
     lanzaboote,
-  } : let
+    ...
+  }: let
     myconf = import ./utils/myconf.nix {};
   in {
     homeConfigurations = import ./outputs/home.nix {

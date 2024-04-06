@@ -368,18 +368,17 @@
     },
     "nixpkgs": {
       "locked": {
-        "lastModified": 1708815994,
-        "narHash": "sha256-hL7N/ut2Xu0NaDxDMsw2HagAjgDskToGiyZOWriiLYM=",
-        "owner": "nixos",
+        "lastModified": 1712163089,
+        "narHash": "sha256-Um+8kTIrC19vD4/lUCN9/cU9kcOsD1O1m+axJqQPyMM=",
+        "owner": "NixOS",
         "repo": "nixpkgs",
-        "rev": "9a9dae8f6319600fa9aebde37f340975cab4b8c0",
+        "rev": "fd281bd6b7d3e32ddfa399853946f782553163b5",
         "type": "github"
       },
       "original": {
-        "owner": "nixos",
-        "ref": "9a9dae8f6319600fa9aebde37f340975cab4b8c0",
-        "repo": "nixpkgs",
-        "type": "github"
+        "id": "nixpkgs",
+        "ref": "nixos-unstable",
+        "type": "indirect"
       }
     },
     "nixpkgs-stable": {
@@ -396,6 +395,36 @@
         "ref": "nixos-22.11",
         "repo": "nixpkgs",
         "type": "github"
+      }
+    },
+    "nixpkgs-stable_2": {
+      "locked": {
+        "lastModified": 1712310679,
+        "narHash": "sha256-XgC/a/giEeNkhme/AV1ToipoZ/IVm1MV2ntiK4Tm+pw=",
+        "owner": "NixOS",
+        "repo": "nixpkgs",
+        "rev": "72da83d9515b43550436891f538ff41d68eecc7f",
+        "type": "github"
+      },
+      "original": {
+        "id": "nixpkgs",
+        "ref": "nixos-23.11",
+        "type": "indirect"
+      }
+    },
+    "nixpkgs-staging": {
+      "locked": {
+        "lastModified": 1712404870,
+        "narHash": "sha256-qfzi4WRq1lzi27AD9jSCMpqcPt4aQeMETu43HtvAHwI=",
+        "owner": "NixOS",
+        "repo": "nixpkgs",
+        "rev": "b2c1e06ad0867e51ea4fc4b4e7294fd6cb9d791b",
+        "type": "github"
+      },
+      "original": {
+        "id": "nixpkgs",
+        "ref": "staging-next",
+        "type": "indirect"
       }
     },
     "nixpkgs_2": {
@@ -518,6 +547,8 @@
         "lanzaboote": "lanzaboote",
         "nixgl": "nixgl",
         "nixpkgs": "nixpkgs",
+        "nixpkgs-stable": "nixpkgs-stable_2",
+        "nixpkgs-staging": "nixpkgs-staging",
         "nixvim": "nixvim",
         "nurpkgs": "nurpkgs"
       }

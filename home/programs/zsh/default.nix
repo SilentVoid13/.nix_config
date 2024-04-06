@@ -53,7 +53,7 @@ in {
       "l." = "eza -a --group-directories-first | rg '^\.'";
       rt = "trash put";
       cat = "bat --paging=never -p";
-      grep = "rg";
+      #grep = "rg";
       rgi = "rg -i -. --no-ignore";
       cp = "cp -i";
       mv = "mv -i";

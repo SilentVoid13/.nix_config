@@ -72,6 +72,12 @@
   xdg = {
     portal = {
       enable = true;
+      config.common = {
+        # https://github.com/emersion/xdg-desktop-portal-wlr?tab=readme-ov-file#running
+        default = ["gtk"];
+        "org.freedesktop.impl.portal.Screenshot" = ["wlr"];
+        "org.freedesktop.impl.portal.Screencast" = ["wlr"];
+      };
       wlr.enable = true;
       extraPortals = [pkgs.xdg-desktop-portal-wlr pkgs.xdg-desktop-portal-gtk];
     };

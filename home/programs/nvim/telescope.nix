@@ -43,7 +43,7 @@ in {
           action = "buffers";
         };
       };
-      extraOptions = {
+      settings = {
         pickers.find_files = {
           find_command = helpers.mkRaw find_command;
         };
@@ -51,8 +51,10 @@ in {
       extensions = {
         fzf-native = {
           enable = true;
-          overrideFileSorter = true;
-          overrideGenericSorter = true;
+          settings = {
+            override_file_sorter = true;
+            override_generic_sorter = true;
+          };
         };
       };
     };

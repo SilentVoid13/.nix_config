@@ -2,7 +2,9 @@
   programs.nixvim = {
     plugins.debugprint = {
       enable = true;
-      displayCounter = true;
+      settings = {
+        display_counter = true;
+      };
     };
 
     keymaps = [

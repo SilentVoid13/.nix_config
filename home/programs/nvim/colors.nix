@@ -37,19 +37,21 @@
     colorschemes = {
       tokyonight = {
         enable = true;
-        style = "night";
-        dimInactive = false;
-        lualineBold = false;
-        transparent = true;
-        styles = {
-          comments = {
-            italic = true;
+        settings = {
+          style = "night";
+          dim_nactive = false;
+          lualine_bold = false;
+          transparent = true;
+          styles = {
+            comments = {
+              italic = true;
+            };
+            keywords = {
+              italic = true;
+            };
+            sidebars = "transparent";
+            floats = "transparent";
           };
-          keywords = {
-            italic = true;
-          };
-          sidebars = "transparent";
-          floats = "transparent";
         };
       };
 

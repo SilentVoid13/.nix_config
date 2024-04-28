@@ -17,6 +17,12 @@ pkgs.buildFHSEnv {
       xorg.xcbutilwm
       wayland
       zlib
+
+      # useful headers
+      openssl.dev
+      linuxHeaders
+      stdenv
+      glibc.dev
     ];
   runScript = pkgs.writeScript "binaryninja.sh" ''
     set -e

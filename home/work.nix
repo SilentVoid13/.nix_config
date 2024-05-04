@@ -13,6 +13,7 @@
     ./programs/binaryninja
     ./programs/mpv.nix
     #./programs/steam.nix
+    ./programs/superprod.nix
 
     ##  Terminal
     ./programs/git

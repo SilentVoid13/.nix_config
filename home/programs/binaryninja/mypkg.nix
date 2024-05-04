@@ -26,7 +26,7 @@ pkgs.buildFHSEnv {
     ];
   runScript = pkgs.writeScript "binaryninja.sh" ''
     set -e
-    exec "$HOME/binaryninja/binaryninja" -platform wayland
+    exec "$HOME/binaryninja/binaryninja"
   '';
   meta = {
     description = "BinaryNinja";

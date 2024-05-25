@@ -68,6 +68,12 @@ in {
         };
       };
 
+      nvim-jdtls = {
+        enable = true;
+        data = "${config.home.homeDirectory}/.cache/jdtls/workspace";
+        configuration = "${config.home.homeDirectory}/.cache/jdtls/workspace";
+      };
+
       cmp = {
         enable = true;
         settings = {

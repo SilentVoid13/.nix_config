@@ -93,7 +93,7 @@
   };
 
   nix = {
-    package = pkgs.nixUnstable;
+    package = pkgs.nixVersions.latest;
     # todo: check what allowed-users is
     settings.allowed-users = ["${myconf.username}"];
     extraOptions = ''

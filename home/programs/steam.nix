@@ -5,7 +5,7 @@
     mangohud
     gamescope
     gamemode
+    # proton-ge
+    protonup
   ];
-
-  # TODO: install proton-ge?
 }

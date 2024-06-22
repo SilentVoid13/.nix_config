@@ -80,6 +80,8 @@ in {
 
   wayland.windowManager.sway = {
     enable = true;
+    # https://github.com/nix-community/home-manager/issues/5311
+    checkConfig = false;
     config = {
       modifier = "Mod4";
       terminal = "${pkgs.foot}/bin/foot";
@@ -94,10 +96,10 @@ in {
         "type:keyboard" = {
           xkb_layout = "qwerty_fr";
         };
-        "type:touchpad" = {
-          tap = "enabled";
-          natural_scroll = "enabled";
-        };
+        #"type:touchpad" = {
+        #  tap = "enabled";
+        #  natural_scroll = "enabled";
+        #};
       };
       startup = [
         {

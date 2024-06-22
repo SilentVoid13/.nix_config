@@ -40,14 +40,12 @@
       {
         mode = "n";
         key = "fd";
-        action = "function() require('my_obsidian').follow_closest_link() end";
-        lua = true;
+        action.__raw = "function() require('my_obsidian').follow_closest_link() end";
       }
       {
         mode = "n";
         key = "ft";
-        action = "function() require('my_obsidian').create_new_note() end";
-        lua = true;
+        action.__raw = "function() require('my_obsidian').create_new_note() end";
       }
       {
         mode = "n";

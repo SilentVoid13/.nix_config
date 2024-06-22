@@ -11,37 +11,31 @@
       {
         mode = "n";
         key = "<leader>pd";
-        action = "function() return require('debugprint').debugprint() end";
-        lua = true;
+        action.__raw = "function() return require('debugprint').debugprint() end";
         options = {expr = true;};
       }
       {
         mode = "n";
         key = "<leader>pD";
-        action = "function() return require('debugprint').debugprint({ above = true }) end";
-        lua = true;
+        action.__raw = "function() return require('debugprint').debugprint({ above = true }) end";
         options = {expr = true;};
       }
       {
         mode = "n";
         key = "<leader>pq";
-        action = "function() return require('debugprint').debugprint({ variable = true }) end";
-        lua = true;
+        action.__raw = "function() return require('debugprint').debugprint({ variable = true }) end";
         options = {expr = true;};
       }
       {
         mode = "n";
         key = "<leader>pQ";
-        action = "function() return require('debugprint').debugprint({ above = true, variable = true }) end";
-        lua = true;
+        action.__raw = "function() return require('debugprint').debugprint({ above = true, variable = true }) end";
         options = {expr = true;};
       }
       {
         mode = "n";
         key = "<leader>pc";
-        action = "function(opts) require('debugprint').deleteprints(opts) end";
-        lua = true;
-        #options = { range = true; };
+        action.__raw = "function(opts) require('debugprint').deleteprints(opts) end";
       }
     ];
   };

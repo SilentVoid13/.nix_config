@@ -14,8 +14,7 @@
       {
         mode = "n";
         key = "<leader>re";
-        action = "function() require('my_sov').new_note() end";
-        lua = true;
+        action.__raw = "function() require('my_sov').new_note() end";
       }
       {
         mode = "n";
@@ -36,32 +35,27 @@
       {
         mode = "n";
         key = "<leader>rl";
-        action = "function() require(\"markdown\").toggle_checkbox() end";
-        lua = true;
+        action.__raw = "function() require(\"markdown\").toggle_checkbox() end";
       }
       {
         mode = "n";
         key = "o";
-        action = "function() require(\"markdown\").new_line_below() end";
-        lua = true;
+        action.__raw = "function() require(\"markdown\").new_line_below() end";
       }
       {
         mode = "n";
         key = "O";
-        action = "function() require(\"markdown\").new_line_above() end";
-        lua = true;
+        action.__raw = "function() require(\"markdown\").new_line_above() end";
       }
       {
         mode = "i";
         key = "<Tab>";
-        action = "function() require(\"markdown\").jump() end";
-        lua = true;
+        action.__raw = "function() require(\"markdown\").jump() end";
       }
       {
         mode = "i";
         key = "<CR>";
-        action = "function() require(\"markdown\").new_line_below() end";
-        lua = true;
+        action.__raw = "function() require(\"markdown\").new_line_below() end";
       }
     ];
 

@@ -159,7 +159,10 @@
     adb.enable = true;
     noisetorch.enable = true;
     dconf.enable = true;
-    thunar.enable = true;
+    thunar = {
+      enable = true;
+      plugins = with pkgs.xfce; [thunar-volman];
+    };
   };
 
   environment.systemPackages = with pkgs; [

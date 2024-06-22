@@ -22,6 +22,7 @@
       pkiBundle = "/etc/secureboot";
     };
     loader.systemd-boot.enable = lib.mkForce false;
+    supportedFilesystems = [ "ntfs" ];
   };
 
   # LUKS partition
@@ -35,6 +36,8 @@
   networking = {
     hostName = "faye";
   };
+
+  zramSwap.enable = true;
 
   hardware.opengl = {
     enable = true;
@@ -113,13 +116,16 @@
     };
     _1password-gui = {
       enable = true;
-      package = pkgs._1password-gui-beta;
+      #package = pkgs._1password-gui-beta;
       polkitPolicyOwners = ["${myconf.username}"];
     };
     adb.enable = true;
     noisetorch.enable = true;
     dconf.enable = true;
-    thunar.enable = true;
+    thunar = {
+      enable = true;
+      plugins = with pkgs.xfce; [thunar-volman];
+    };
   };
 
   environment.systemPackages = with pkgs; [

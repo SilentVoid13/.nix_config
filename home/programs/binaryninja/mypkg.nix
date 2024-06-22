@@ -17,6 +17,7 @@ pkgs.buildFHSEnv {
       xorg.xcbutilwm
       wayland
       zlib
+      libxml2
 
       # useful headers
       openssl.dev

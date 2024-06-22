@@ -18,7 +18,7 @@
   xdg.desktopEntries = {
     "binaryninja" = {
       name = "Binary Ninja";
-      exec = "binaryninja -platform wayland %u";
+      exec = "env QT_QPA_PLATFORM=wayland binaryninja -platform wayland %u";
       icon = "${config.home.homeDirectory}/binaryninja/docs/img/logo.png";
       mimeType = ["application/x-binaryninja" "x-scheme-handler/binaryninja"];
       categories = ["Utility"];

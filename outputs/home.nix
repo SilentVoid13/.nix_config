@@ -5,6 +5,7 @@
   home-manager,
   nixgl,
   nixvim,
+  arkenfox,
   ...
 }: let
   mkHomeConfig = {
@@ -50,6 +51,7 @@
         inherit nixGLWrap;
         inherit myconf;
         inherit nixvim;
+        inherit arkenfox;
       };
       modules =
         [

@@ -20,6 +20,11 @@
 
     nixvim.url = "github:nix-community/nixvim";
 
+    arkenfox = {
+      url = "github:dwarfmaster/arkenfox-nixos";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
     lanzaboote = {
       url = "github:nix-community/lanzaboote/v0.3.0";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -32,6 +37,7 @@
     home-manager,
     nixgl,
     nixvim,
+    arkenfox,
     lanzaboote,
     ...
   }: let
@@ -44,6 +50,7 @@
       inherit home-manager;
       inherit nixgl;
       inherit nixvim;
+      inherit arkenfox;
     };
 
     nixosConfigurations = import ./outputs/nixos.nix {

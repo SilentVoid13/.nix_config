@@ -49,6 +49,7 @@ in {
                 extra_paths = [
                   "${config.home.homeDirectory}/binaryninja/python"
                   "${config.home.homeDirectory}/binaryninja/python3"
+                  "${pkgs.lldb.lib}/lib/python3.11/site-packages"
                 ];
               };
               rope.enabled = true;

@@ -21,6 +21,7 @@
     ./programs/foot.nix
     ./programs/nvim
     ./programs/gdb.nix
+    ./programs/lldb.nix
     ./programs/zsh
     #./programs/fish.nix
     ./programs/tmux

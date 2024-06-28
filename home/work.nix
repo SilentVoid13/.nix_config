@@ -32,6 +32,9 @@
     ./programs/fuzzel.nix
     ./programs/waybar.nix
     ./services/dunst.nix
-    ./programs/darkman.nix
+    ./services/darkman.nix
   ];
+
+  # TODO: remove this
+  home.sessionPath = ["$HOME/H/r/dojo_rs/target/release"];
 }

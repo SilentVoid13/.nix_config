@@ -34,7 +34,4 @@
     ./services/dunst.nix
     ./services/darkman.nix
   ];
-
-  # TODO: remove this
-  home.sessionPath = ["$HOME/H/r/dojo_rs/target/release"];
 }

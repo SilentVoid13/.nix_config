@@ -8,7 +8,10 @@ pkgs.buildFHSEnv {
       freetype
       libGL
       libxkbcommon
-      python3
+      (pkgs.python3.withPackages (python-pkgs: [
+        python-pkgs.pip
+        python-pkgs.lz4
+      ]))
       xorg.libX11
       xorg.libxcb
       xorg.xcbutilimage
@@ -26,6 +29,8 @@ pkgs.buildFHSEnv {
       glibc.dev
     ];
   runScript = pkgs.writeScript "binaryninja.sh" ''
+    #virtualenv ~/binja_venv
+    #source ~/binja_venv/bin/activate
     set -e
     exec "$HOME/binaryninja/binaryninja"
   '';

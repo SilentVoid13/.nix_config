@@ -8,7 +8,11 @@
     ./harpoon.nix
     ./telescope.nix
     ./treesitter.nix
-    ./formatter.nix
+
+    # formatter
+    #./formatter.nix
+    ./conform.nix
+
     ./fugitive.nix
     ./debugprint.nix
     ./oil.nix

@@ -1,6 +1,7 @@
 {pkgs, ...}: {
   home.packages = with pkgs; [
     file
+    binutils
     htop
     grc
     eza
@@ -9,8 +10,6 @@
     ripgrep
     dua
     jq
-    topgrade
-    trashy
     just
     p7zip
     unzip
@@ -18,5 +17,7 @@
     lshw
     openvpn
     cloc
+    trashy
+    appimage-run
   ];
 }

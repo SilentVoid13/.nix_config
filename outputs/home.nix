@@ -6,6 +6,7 @@
   nixgl,
   nixvim,
   arkenfox,
+  stylix,
   ...
 }: let
   mkHomeConfig = {
@@ -52,6 +53,7 @@
         inherit myconf;
         inherit nixvim;
         inherit arkenfox;
+        inherit stylix;
       };
       modules =
         [
@@ -91,6 +93,6 @@ in {
     system = "x86_64-linux";
     username = "${myconf.username}";
     isNixOs = true;
-    modules = [../home/work.nix];
+    modules = [../home/work.nix]; 
   };
 }

@@ -1,13 +1,24 @@
-{...}: {
+{lib, ...}: {
   programs.foot = {
     enable = true;
     settings = {
       main = {
+        # handled by stylix
         #font = "terminus:size=12";
-        font = "Iosevka Nerd Font Mono:size=12";
+        #font = "Iosevka Nerd Font Mono:size=12";
         #font = "Iosevka:size=12";
+
         selection-target = "clipboard";
       };
+
+
+      colors = lib.mkForce {
+        alpha = 0.9;
+        background = "000000";
+        foreground = "fce8c3";
+      };
+      # handled by stylix
+      /*
       colors = {
         alpha = 0.9;
         background = "000000";
@@ -67,6 +78,7 @@
         #bright6 = "7dcfff";
         #bright7 = "c0caf5";
       };
+      */
     };
   };
 }

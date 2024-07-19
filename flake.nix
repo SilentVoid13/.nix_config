@@ -29,6 +29,8 @@
       url = "github:nix-community/lanzaboote/v0.3.0";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    stylix.url = "github:danth/stylix";
   };
 
   outputs = {
@@ -39,6 +41,7 @@
     nixvim,
     arkenfox,
     lanzaboote,
+    stylix,
     ...
   }: let
     myconf = import ./utils/myconf.nix {};
@@ -51,6 +54,7 @@
       inherit nixgl;
       inherit nixvim;
       inherit arkenfox;
+      inherit stylix;
     };
 
     nixosConfigurations = import ./outputs/nixos.nix {

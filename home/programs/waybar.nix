@@ -82,10 +82,9 @@
       };
     };
     style = ''
-        * {
+      * {
           border: none;
           border-radius: 0;
-          font-family: "FontAwesome";
           min-height: 0;
       }
 
@@ -97,7 +96,6 @@
 
       #window {
           font-weight: bold;
-          font-family: "FontAwesome";
       }
 
       #workspaces button {

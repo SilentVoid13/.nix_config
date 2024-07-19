@@ -86,10 +86,13 @@ in {
       modifier = "Mod4";
       terminal = "${pkgs.foot}/bin/foot";
       menu = "${pkgs.fuzzel}/bin/fuzzel";
-      fonts = {
-        names = ["Pango" "Monospace"];
-        size = 8.0;
-      };
+
+      # handled by stylix
+      #fonts = {
+      #  names = ["Pango" "Monospace"];
+      #  size = 8.0;
+      #};
+
       bars = [];
       defaultWorkspace = "workspace number ${ws1}";
       input = {

@@ -9,6 +9,9 @@
       main = {
         icon-theme = "Papirus-Dark";
       };
+
+      # handled by stylix
+      /*
       colors = {
         background = "282a36dd";
         text = "f8f8f2ff";
@@ -18,6 +21,7 @@
         selection-text = "f8f8f2ff";
         border = "bd93f9ff";
       };
+      */
     };
   };
 }

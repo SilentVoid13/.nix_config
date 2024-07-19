@@ -33,7 +33,10 @@
         # disable signon.rememberSignons
         "5000"."5003".enable = true;
       };
-      search.default = "DuckDuckGo";
+      search = {
+        default = "DuckDuckGo";
+        force = true;
+      };
       extensions = with pkgs.nur.repos.rycee.firefox-addons; [
         onepassword-password-manager
         ublock-origin

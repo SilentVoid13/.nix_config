@@ -28,6 +28,7 @@
 
     ## OS
     ./programs/sway
+    ./programs/stylix.nix
     #./programs/wofi.nix
     ./programs/fuzzel.nix
     ./programs/waybar.nix

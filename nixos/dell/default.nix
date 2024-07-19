@@ -1,29 +1,12 @@
 {
   pkgs,
-  lib,
-  myconf,
   config,
   ...
 }: {
   imports = [
     ./hardware-configuration.nix
+    ../common_base.nix
   ];
-
-  #boot = {
-  #  loader = {
-  #    systemd-boot.enable = true;
-  #    efi.canTouchEfiVariables = true;
-  #  };
-  #};
-
-  # lanzaboote currently replaces the systemd-boot module
-  boot = {
-    lanzaboote = {
-      enable = true;
-      pkiBundle = "/etc/secureboot";
-    };
-    loader.systemd-boot.enable = lib.mkForce false;
-  };
 
   # LUKS partition
   boot.initrd.luks.devices = {
@@ -33,23 +16,15 @@
     };
   };
 
+  hardware.graphics.extraPackages = with pkgs; [
+    intel-media-driver
+    vaapiIntel
+    vaapiVdpau
+    libvdpau-va-gl
+  ];
+
   networking = {
     hostName = "jet";
-    extraHosts = ''
-      207.180.211.147 contabo
-      192.168.0.99 homeserver
-    '';
-  };
-
-  hardware.graphics = {
-    enable = true;
-    enable32Bit = true;
-    extraPackages = with pkgs; [
-      intel-media-driver
-      vaapiIntel
-      vaapiVdpau
-      libvdpau-va-gl
-    ];
   };
 
   services.xserver.videoDrivers = ["nvidia"];
@@ -90,87 +65,4 @@
       intelBusId = "PCI:0:2:0";
     };
   };
-
-  nix = {
-    package = pkgs.nixVersions.latest;
-    # todo: check what allowed-users is
-    settings.allowed-users = ["${myconf.username}"];
-    extraOptions = ''
-      experimental-features = nix-command flakes
-    '';
-  };
-
-  security = {
-    polkit.enable = true;
-    # For swaylock
-    # https://nixos.wiki/wiki/Sway#Swaylock_cannot_unlock_with_correct_password
-    pam.services.swaylock.text = ''
-      # PAM configuration file for the swaylock screen locker. By default, it includes
-      # the 'login' configuration file (see /etc/pam.d/login)
-      auth include login
-    '';
-  };
-
-  xdg = {
-    portal = {
-      enable = true;
-      config.common = {
-        # https://github.com/emersion/xdg-desktop-portal-wlr?tab=readme-ov-file#running
-        default = ["gtk"];
-        "org.freedesktop.impl.portal.Screenshot" = ["wlr"];
-        "org.freedesktop.impl.portal.Screencast" = ["wlr"];
-      };
-      wlr.enable = true;
-      extraPortals = [pkgs.xdg-desktop-portal-wlr pkgs.xdg-desktop-portal-gtk];
-    };
-  };
-
-  services = {
-    pipewire = {
-      enable = true;
-      alsa.enable = true;
-      pulse.enable = true;
-    };
-    gnome.gnome-keyring.enable = true;
-    # Yubikey
-    pcscd.enable = true;
-    # Mount, trash, and other functionalities
-    gvfs.enable = true;
-    # Thumbnail support for images
-    tumbler.enable = true;
-    # VPN
-    mullvad-vpn.enable = true;
-    # Flatpak
-    flatpak.enable = true;
-  };
-
-  virtualisation.docker.enable = true;
-
-  programs = {
-    _1password = {
-      enable = true;
-    };
-    _1password-gui = {
-      enable = true;
-      package = pkgs._1password-gui-beta;
-      polkitPolicyOwners = ["${myconf.username}"];
-    };
-    adb.enable = true;
-    noisetorch.enable = true;
-    dconf.enable = true;
-    thunar = {
-      enable = true;
-      plugins = with pkgs.xfce; [thunar-volman];
-    };
-  };
-
-  environment.systemPackages = with pkgs; [
-    vim
-    git
-    just
-    sbctl
-    yubioath-flutter
-    swaylock
-    docker-compose
-  ];
 }

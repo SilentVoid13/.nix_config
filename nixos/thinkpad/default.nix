@@ -22,7 +22,7 @@
       pkiBundle = "/etc/secureboot";
     };
     loader.systemd-boot.enable = lib.mkForce false;
-    supportedFilesystems = [ "ntfs" ];
+    supportedFilesystems = ["ntfs"];
   };
 
   # LUKS partition
@@ -35,14 +35,14 @@
 
   networking = {
     hostName = "faye";
+    hosts = {};
   };
 
   zramSwap.enable = true;
 
-  hardware.opengl = {
+  hardware.graphics = {
     enable = true;
-    driSupport = true;
-    driSupport32Bit = true;
+    enable32Bit = true;
     extraPackages = with pkgs; [
       intel-media-driver
       vaapiIntel

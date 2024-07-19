@@ -2,7 +2,7 @@
   home.sessionPath = ["$HOME/H/p/sov/target/debug"];
 
   programs.nixvim = {
-    extraFiles = {"lua/my_sov.lua" = builtins.readFile ./my_sov.lua;};
+    extraFiles."lua/my_sov.lua".source = ./my_sov.lua;
 
     keymaps = [
       # https://github.com/SilentVoid13/sov
@@ -60,14 +60,14 @@
     ];
 
     extraConfigLua = ''
-        -- Disable default key mappings
-        vim.g.vim_markdown_no_default_key_mappings = 1
-        -- LaTeX math
-        vim.g.vim_markdown_math = 1
+      -- Disable default key mappings
+      vim.g.vim_markdown_no_default_key_mappings = 1
+      -- LaTeX math
+      vim.g.vim_markdown_math = 1
 
-        require("sov").setup({
-          root_dir = '${myconf.knowledge_base}'
-        })
+      require("sov").setup({
+        root_dir = '${myconf.knowledge_base}'
+      })
     '';
   };
 }

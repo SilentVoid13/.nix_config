@@ -59,9 +59,9 @@ in {
     pavucontrol
     # GTK stuff
     glib
+    adwaita-icon-theme
     gsettings-desktop-schemas
     gnome-themes-extra
-    gnome.adwaita-icon-theme
   ];
 
   services.swayidle = {

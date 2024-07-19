@@ -4,7 +4,7 @@
   ...
 }: {
   programs.nixvim = {
-    extraFiles = {"lua/my_obsidian.lua" = builtins.readFile ./my_obsidian.lua;};
+    extraFiles."lua/my_obsidian.lua".source = ./my_obsidian.lua;
 
     plugins.obsidian = {
       enable = true;

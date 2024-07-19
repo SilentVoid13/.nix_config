@@ -29,7 +29,7 @@
           opts.buffer = true;
         };
       };
-      followUrlFunc = ''
+      followUrlFunc = /*lua*/ ''
         function(url)
               vim.fn.jobstart({"xdg-open", url})
         end

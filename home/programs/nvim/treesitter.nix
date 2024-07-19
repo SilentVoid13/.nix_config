@@ -4,7 +4,8 @@
       treesitter = {
         enable = true;
         settings = {
-          ensure_installed = ["c" "lua" "rust" "javascript" "typescript" "python" "markdown" "markdown_inline"];
+          ensure_installed = ["c" "lua" "rust" "javascript" "typescript" "python" "nix" "markdown" "markdown_inline"];
+          highlight.enable = true;
         };
       };
       treesitter-context = {

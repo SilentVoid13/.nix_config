@@ -106,7 +106,7 @@ in {
             {name = "copilot";}
           ];
           snippet = {
-            expand = ''
+            expand = /*lua*/ ''
               function(args)
                   require('luasnip').lsp_expand(args.body)
               end'';

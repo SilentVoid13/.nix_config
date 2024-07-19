@@ -64,8 +64,8 @@ in {
       crr = "cargo run --release";
     };
 
-    # todo: move to /usr/bin/sway thing on non-nixos
-    profileExtra = ''
+    # TODO: move to /usr/bin/sway thing on non-nixos
+    profileExtra = /*bash*/ ''
       if [ -z $DISPLAY ] && [ "$(tty)" = "/dev/tty1" ]; then
           export XDG_CURRENT_DESKTOP="sway"
           export MOZ_ENABLE_WAYLAND=1

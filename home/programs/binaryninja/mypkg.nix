@@ -28,7 +28,7 @@ pkgs.buildFHSEnv {
       stdenv
       glibc.dev
     ];
-  runScript = pkgs.writeScript "binaryninja.sh" ''
+  runScript = pkgs.writeShellScript "binaryninja.sh" ''
     #virtualenv ~/binja_venv
     #source ~/binja_venv/bin/activate
     set -e

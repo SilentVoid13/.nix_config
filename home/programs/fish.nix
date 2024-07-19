@@ -30,7 +30,7 @@
       crr = "cargo run --release";
     };
 
-    interactiveShellInit = ''
+    interactiveShellInit = /*fish*/ ''
       if [ -z $DISPLAY ] && [ "$(tty)" = "/dev/tty1" ]; then
           export XDG_CURRENT_DESKTOP="sway"
           export MOZ_ENABLE_WAYLAND=1

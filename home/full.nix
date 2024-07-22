@@ -11,6 +11,7 @@
     #./programs/brave.nix
     ./programs/firefox.nix
     ./programs/binaryninja
+    ./programs/caido
     ./programs/mpv.nix
     ./programs/steam.nix
     ./programs/superprod.nix

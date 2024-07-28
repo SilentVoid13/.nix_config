@@ -10,52 +10,29 @@
     shfmt
     yamlfmt
     taplo
+    google-java-format
+    ktfmt
   ];
 
   programs.nixvim = {
     plugins.conform-nvim = {
       enable = true;
       formattersByFt = {
-        rust = [
-          "rustfmt"
-        ];
-        python = [
-          "black"
-          "isort"
-        ];
-        typescript = [
-          "prettier"
-        ];
-        javascript = [
-          "prettier"
-        ];
-        c = [
-          "clang-format"
-        ];
-        cpp = [
-          "clang-format"
-        ];
-        lua = [
-          "stylua"
-        ];
-        sh = [
-          "shfmt"
-        ];
-        toml = [
-          "taplo"
-        ];
-        json = [
-          "jq"
-        ];
-        yaml = [
-          "yamlfmt"
-        ];
-        nix = [
-          "alejandra"
-        ];
-        graphql = [
-          "prettier"
-        ];
+        rust = ["rustfmt"];
+        python = ["black" "isort"];
+        typescript = ["prettier"];
+        javascript = ["prettier"];
+        c = ["clang-format"];
+        cpp = ["clang-format"];
+        java = ["google-java-format"];
+        kotlin = ["kfmt"];
+        lua = ["stylua"];
+        sh = ["shfmt"];
+        toml = ["taplo"];
+        json = ["jq"];
+        yaml = ["yamlfmt"];
+        nix = ["alejandra"];
+        graphql = ["prettier"];
       };
       formatters = {
         clang-format = {

@@ -18,6 +18,8 @@
     openvpn
     cloc
     trashy
+    quickemu
     appimage-run
+    steam-run
   ];
 }

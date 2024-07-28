@@ -2,6 +2,7 @@
   pkgs,
   lib,
   myconf,
+  nixpkgs,
   ...
 }: {
   #boot = {
@@ -42,6 +43,8 @@
       dates = "weekly";
       options = "--delete-older-than 15d";
     };
+    # use existing nixpkgs for commands like nix-shell
+    registry.nixpkgs.flake = nixpkgs;
   };
 
   security = {

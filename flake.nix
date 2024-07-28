@@ -6,7 +6,9 @@
     nixpkgs-stable.url = "nixpkgs/nixos-23.11";
     nixpkgs-staging.url = "nixpkgs/staging-next";
 
-    nurpkgs.url = "github:nix-community/NUR";
+    nurpkgs = {
+      url = "github:nix-community/NUR";
+    };
 
     home-manager = {
       url = "github:nix-community/home-manager";
@@ -18,7 +20,10 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    nixvim.url = "github:nix-community/nixvim";
+    nixvim = {
+      url = "github:nix-community/nixvim";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
 
     arkenfox = {
       url = "github:dwarfmaster/arkenfox-nixos";
@@ -30,7 +35,10 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    stylix.url = "github:danth/stylix";
+    stylix = {
+      url = "github:danth/stylix";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs = {

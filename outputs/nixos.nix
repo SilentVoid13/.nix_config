@@ -11,7 +11,7 @@
       ../nixos/configuration.nix
       ../nixos/dell
     ];
-    specialArgs = {inherit myconf;};
+    specialArgs = {inherit myconf nixpkgs;};
   };
 
   thinkpad = nixpkgs.lib.nixosSystem {
@@ -21,7 +21,7 @@
       ../nixos/configuration.nix
       ../nixos/thinkpad
     ];
-    specialArgs = {inherit myconf;};
+    specialArgs = {inherit myconf nixpkgs;};
   };
 
   # Used to test a nixos config in a QEMU VM

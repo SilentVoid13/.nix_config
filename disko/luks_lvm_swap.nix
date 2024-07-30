@@ -22,12 +22,11 @@
               content = {
                 type = "luks";
                 name = "crypted";
-                extraOpenArgs = [];
-                settings = {
-                  keyFile = "/tmp/secret.key";
-                  allowDiscards = true;
-                };
-                additionalKeyFiles = [];
+                askPassword = true;
+                #settings = {
+                #  keyFile = "/tmp/secret.key";
+                #  allowDiscards = true;
+                #};
                 content = {
                   type = "lvm_pv";
                   vg = "pool";

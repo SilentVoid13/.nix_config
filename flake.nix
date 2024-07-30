@@ -35,6 +35,11 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    disko = {
+      url = "github:nix-community/disko";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
     stylix = {
       url = "github:danth/stylix";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -49,6 +54,7 @@
     nixvim,
     arkenfox,
     lanzaboote,
+    disko,
     stylix,
     ...
   }: let
@@ -69,6 +75,7 @@
       inherit nixpkgs;
       inherit myconf;
       inherit lanzaboote;
+      inherit disko;
     };
   };
 }

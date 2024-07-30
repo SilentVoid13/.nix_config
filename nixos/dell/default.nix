@@ -8,14 +8,6 @@
     ../common_base.nix
   ];
 
-  # LUKS partition
-  boot.initrd.luks.devices = {
-    root = {
-      device = "/dev/disk/by-uuid/d79de524-1db9-4e58-a318-ff80db3ea5c3";
-      preLVM = true;
-    };
-  };
-
   hardware.graphics.extraPackages = with pkgs; [
     intel-media-driver
     vaapiIntel

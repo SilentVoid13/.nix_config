@@ -1,3 +1,5 @@
+home_init target:
+    nix run home-manager/master -- switch --flake "{{target}}"
 home_non_nixos_full:
     home-manager switch --flake .#non_nixos_full --impure
 home_nixos_full:

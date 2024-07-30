@@ -42,8 +42,8 @@
         ublock-origin
         sponsorblock
         cookie-autodelete
-        tridactyl
         omnivore
+        #tridactyl
         #clearurls
         ublacklist
         (buildFirefoxXpiAddon {

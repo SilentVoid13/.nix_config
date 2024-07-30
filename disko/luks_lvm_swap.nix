@@ -42,20 +42,20 @@
       pool = {
         type = "lvm_vg";
         lvs = {
+          swap = {
+            size = "16G";
+            content = {
+              type = "swap";
+              resumeDevice = true;
+            };
+          };
           root = {
-            end = "-16G";
+            size = "100%FREE";
             content = {
               type = "filesystem";
               format = "ext4";
               mountpoint = "/";
               mountOptions = ["defaults"];
-            };
-          };
-          swap = {
-            size = "100%";
-            content = {
-              type = "swap";
-              resumeDevice = true;
             };
           };
         };

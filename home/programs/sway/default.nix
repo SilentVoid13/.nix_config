@@ -45,6 +45,7 @@ in {
   home.packages = with pkgs; [
     configure-gtk
     polkit_gnome
+    qwerty-fr
     libnotify
     wl-clipboard
     brightnessctl
@@ -72,10 +73,6 @@ in {
     enable = true;
     dataFile."${wallpaper_switcher}".source = ./wallpaper_switcher.sh;
     dataFile."${reboot_wallpaper}".source = ./reboot_wallpaper.sh;
-  };
-
-  home.file.".xkb/symbols/qwerty_fr" = {
-    source = ./qwerty_fr.xkb;
   };
 
   wayland.windowManager.sway = {

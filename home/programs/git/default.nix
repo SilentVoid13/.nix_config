@@ -1,5 +1,6 @@
 {
   config,
+  myconf,
   ...
 }: let
   gitignore_global = "git/gitignore_global";
@@ -13,8 +14,8 @@ in {
 
   programs.git = {
     enable = true;
-    userName = "SilentVoid13";
-    userEmail = "51264226+SilentVoid13@users.noreply.github.com";
+    userName = myconf.git_user;
+    userEmail = myconf.git_email;
     delta = {
       enable = true;
     };
@@ -22,7 +23,7 @@ in {
       enable = true;
     };
     signing = {
-      key = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIE4upjUw/TdQOTnUSdhH6DAfdLyJE1VRd/ZvV4eBqjIY";
+      key = myconf.ssh_key;
       signByDefault = true;
     };
     extraConfig = {

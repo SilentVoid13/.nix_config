@@ -29,7 +29,7 @@
 
   networking.extraHosts = ''
     207.180.211.147 contabo
-    192.168.0.99 homeserver
+    192.168.0.99 homelab
   '';
 
   nix = {

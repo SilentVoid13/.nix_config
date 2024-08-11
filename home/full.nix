@@ -7,7 +7,6 @@
     ./programs/common_hacking.nix
 
     ## GUI
-    ./programs/1password.nix
     #./programs/brave.nix
     ./programs/firefox.nix
     ./programs/binaryninja
@@ -18,6 +17,7 @@
 
     ##  Terminal
     ./programs/git
+    ./programs/ssh.nix
     #./programs/alacritty.nix
     ./programs/foot.nix
     ./programs/nvim

@@ -13,6 +13,9 @@ in {
         user = "git";
         port = 2222;
       };
+      "homelab" = {
+        forwardAgent = true;
+      };
     };
   };
 

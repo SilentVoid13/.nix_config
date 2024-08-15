@@ -27,4 +27,6 @@
     vaapiVdpau
     libvdpau-va-gl
   ];
+
+  programs.firejail.enable = true;
 }

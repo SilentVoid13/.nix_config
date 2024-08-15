@@ -43,6 +43,7 @@
         sponsorblock
         cookie-autodelete
         omnivore
+        web-scrobbler
         #tridactyl
         #clearurls
         ublacklist

@@ -12,8 +12,10 @@
     spotify
     transmission-gtk
     chromium
-
     #discord
     vesktop
+    gnome-pomodoro
+    stremio
+    vlc
   ];
 }

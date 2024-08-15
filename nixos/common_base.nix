@@ -99,6 +99,7 @@
       #package = pkgs._1password-gui-beta;
       polkitPolicyOwners = ["${myconf.username}"];
     };
+    nix-ld.enable = true;
     adb.enable = true;
     noisetorch.enable = true;
     dconf.enable = true;

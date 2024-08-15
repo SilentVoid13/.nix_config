@@ -10,6 +10,7 @@
     #./programs/brave.nix
     ./programs/firefox.nix
     ./programs/binaryninja
+    ./programs/ida
     ./programs/caido
     ./programs/mpv.nix
     #./programs/steam.nix
@@ -28,6 +29,7 @@
     ./programs/tmux
 
     ## OS
+    ./programs/stylix.nix
     ./programs/sway
     #./programs/wofi.nix
     ./programs/fuzzel.nix

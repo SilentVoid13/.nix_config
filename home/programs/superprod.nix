@@ -1,6 +1,7 @@
 {pkgs, ...}: {
   home.packages = with pkgs; [
-    super-productivity
+    #super-productivity
+    (pkgs.callPackage ./superprod_pkg.nix {})
   ];
   xdg.desktopEntries = {
     "super-productivity" = {

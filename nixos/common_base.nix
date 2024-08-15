@@ -52,7 +52,9 @@
     pam.services.swaylock = {};
   };
 
+  # containers / virtualisation
   virtualisation.docker.enable = true;
+  programs.firejail.enable = true;
 
   xdg = {
     portal = {

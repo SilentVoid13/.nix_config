@@ -75,8 +75,13 @@ in {
     dataFile."${reboot_wallpaper}".source = ./reboot_wallpaper.sh;
   };
 
+  home.file.".xkb/symbols/qwerty_fr" = {
+    source = "${pkgs.qwerty-fr}/share/X11/xkb/symbols/us_qwerty-fr";
+  };
+
   wayland.windowManager.sway = {
     enable = true;
+    xwayland = true;
     # https://github.com/nix-community/home-manager/issues/5311
     checkConfig = false;
     config = {

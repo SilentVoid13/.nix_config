@@ -9,13 +9,16 @@
     (nixGLWrap obsidian)
     mullvad-vpn
     onlyoffice-bin
-    spotify
     transmission-gtk
     chromium
     #discord
     vesktop
     gnome-pomodoro
     stremio
+
+    # temp
+    spotify
     vlc
+    tidal-hifi
   ];
 }

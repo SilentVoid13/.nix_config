@@ -18,8 +18,11 @@
     openvpn
     cloc
     trashy
-    quickemu
+    python3
     appimage-run
     steam-run
+
+    ## temp
+    #quickemu
   ];
 }

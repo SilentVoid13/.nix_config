@@ -62,6 +62,7 @@ in {
       clip = "wl-copy";
       zettel = "date +%Y%m%d%H%M";
       crr = "cargo run --release";
+      sshp = "ssh -o PreferredAuthentications=password -o PubkeyAuthentication=no ";
     };
 
     # TODO: move to /usr/bin/sway thing on non-nixos

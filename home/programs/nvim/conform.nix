@@ -17,28 +17,30 @@
   programs.nixvim = {
     plugins.conform-nvim = {
       enable = true;
-      formattersByFt = {
-        rust = ["rustfmt"];
-        python = ["black" "isort"];
-        typescript = ["prettier"];
-        javascript = ["prettier"];
-        c = ["clang-format"];
-        cpp = ["clang-format"];
-        java = ["google-java-format"];
-        kotlin = ["kfmt"];
-        lua = ["stylua"];
-        sh = ["shfmt"];
-        toml = ["taplo"];
-        json = ["jq"];
-        yaml = ["yamlfmt"];
-        nix = ["alejandra"];
-        graphql = ["prettier"];
-      };
-      formatters = {
-        clang-format = {
-          prepend_args = [
-            "--fallback-style=webkit"
-          ];
+      settings = {
+        formatters_by_ft = {
+          rust = ["rustfmt"];
+          python = ["black" "isort"];
+          typescript = ["prettier"];
+          javascript = ["prettier"];
+          c = ["clang-format"];
+          cpp = ["clang-format"];
+          java = ["google-java-format"];
+          kotlin = ["kfmt"];
+          lua = ["stylua"];
+          sh = ["shfmt"];
+          toml = ["taplo"];
+          json = ["jq"];
+          yaml = ["yamlfmt"];
+          nix = ["alejandra"];
+          graphql = ["prettier"];
+        };
+        formatters = {
+          clang-format = {
+            prepend_args = [
+              "--fallback-style=webkit"
+            ];
+          };
         };
       };
     };

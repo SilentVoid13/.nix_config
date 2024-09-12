@@ -4,18 +4,23 @@
   ...
 }: let
   gitignore_global = "git/gitignore_global";
+  gitconfig_work = "git/gitconfig_work";
 in {
-  # TODO: add dependency over 1password.nix?
-
   xdg = {
     enable = true;
     configFile."${gitignore_global}".source = ./gitignore_global;
+    configFile."${gitconfig_work}".text = ''
+      [user]
+          name = ${myconf.git.work.name}
+          email = ${myconf.git.work.email}
+          signingKey = "${myconf.git.work.key}"
+    '';
   };
 
   programs.git = {
     enable = true;
-    userName = myconf.git_user;
-    userEmail = myconf.git_email;
+    userName = myconf.git.personal.name;
+    userEmail = myconf.git.personal.email;
     delta = {
       enable = true;
     };
@@ -23,7 +28,7 @@ in {
       enable = true;
     };
     signing = {
-      key = myconf.ssh_key;
+      key = myconf.git.personal.key;
       signByDefault = true;
     };
     extraConfig = {
@@ -42,5 +47,12 @@ in {
       # rebase when pulling
       pull.rebase = "true";
     };
+
+    includes = [
+      {
+        path = "${config.xdg.configHome}/${gitconfig_work}";
+        condition = "hasconfig:remote.*.url:git@${myconf.git.work.host}:*/**";
+      }
+    ];
   };
 }

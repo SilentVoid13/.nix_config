@@ -1,4 +1,4 @@
-{config, ...}: let
+{config, myconf, ...}: let
   # TODO: improve that
   home = config.home.homeDirectory;
   sockPath = "${home}/.1password/agent.sock";
@@ -9,7 +9,7 @@ in {
       IdentityAgent "${sockPath}"
     '';
     matchBlocks = {
-      "services.lab" = {
+      "${myconf.git.work.host}" = {
         user = "git";
         port = 2222;
       };

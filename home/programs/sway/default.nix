@@ -3,6 +3,7 @@
   pkgs,
   lib,
   nixGLWrap,
+  myconf,
   ...
 }: let
   configure-gtk = pkgs.writeTextFile {
@@ -23,9 +24,8 @@
   reboot_wallpaper = "sway/reboot_wallpaper.sh";
   reboot_wallpaper_path = "${config.xdg.dataHome}/${reboot_wallpaper}";
 
-  #mon1 = "HDMI-A-1";
-  mon1 = "DP-2";
-  mon2 = "eDP-1";
+  mon1 = myconf.monitor1;
+  mon2 = myconf.monitor2;
 
   ws1 = "1";
   ws2 = "2";

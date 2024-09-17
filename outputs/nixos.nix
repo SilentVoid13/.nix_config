@@ -24,10 +24,10 @@
     system = "x86_64-linux";
     modules = [
       lanzaboote.nixosModules.lanzaboote
-      #disko.nixosModules.disko
+      disko.nixosModules.disko
       ../nixos/configuration.nix
       ../nixos/thinkpad
-      #../disko/luks_lvm_swap.nix
+      ../disko/luks_lvm_swap.nix
     ];
     specialArgs = {
       inherit myconf nixpkgs;

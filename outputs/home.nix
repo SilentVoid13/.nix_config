@@ -75,21 +75,21 @@
         ++ modules;
     };
 in {
-  non_nixos_full = mkHomeConfig {
+  full_non_nixos = mkHomeConfig {
     system = "x86_64-linux";
     username = "${myconf.username}";
     isNixOs = false;
     modules = [../home/full.nix];
   };
 
-  nixos_full = mkHomeConfig {
+  full = mkHomeConfig {
     system = "x86_64-linux";
     username = "${myconf.username}";
     isNixOs = true;
     modules = [../home/full.nix];
   };
 
-  nixos_work = mkHomeConfig {
+  work = mkHomeConfig {
     system = "x86_64-linux";
     username = "${myconf.username}";
     isNixOs = true;

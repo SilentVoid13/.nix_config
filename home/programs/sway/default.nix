@@ -269,6 +269,8 @@ in {
     };
     extraConfig = ''
       focus output ${mon1}
+      bindswitch lid:on output ${mon2} disable
+      bindswitch lid:off output ${mon2} enable
 
       default_border none
       for_window [app_id="pavucontrol"] floating enable, border normal

@@ -7,6 +7,7 @@
   nixvim,
   arkenfox,
   stylix,
+  wayland-pipewire-idle-inhibit,
   ...
 }: let
   mkHomeConfig = {
@@ -54,6 +55,7 @@
         inherit nixvim;
         inherit arkenfox;
         inherit stylix;
+        inherit wayland-pipewire-idle-inhibit;
       };
       modules =
         [
@@ -93,6 +95,6 @@ in {
     system = "x86_64-linux";
     username = "${myconf.username}";
     isNixOs = true;
-    modules = [../home/work.nix]; 
+    modules = [../home/work.nix];
   };
 }

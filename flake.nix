@@ -30,6 +30,11 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    wayland-pipewire-idle-inhibit = {
+      url = "github:rafaelrc7/wayland-pipewire-idle-inhibit";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
     lanzaboote = {
       url = "github:nix-community/lanzaboote/v0.4.1";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -56,6 +61,7 @@
     lanzaboote,
     disko,
     stylix,
+    wayland-pipewire-idle-inhibit,
     ...
   }: let
     myconf = import ./utils/myconf.nix {};
@@ -69,6 +75,7 @@
       inherit nixvim;
       inherit arkenfox;
       inherit stylix;
+      inherit wayland-pipewire-idle-inhibit;
     };
 
     nixosConfigurations = import ./outputs/nixos.nix {

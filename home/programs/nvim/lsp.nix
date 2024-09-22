@@ -40,7 +40,7 @@ in {
               check.command = "clippy";
             };
           };
-          tsserver = {enable = true;};
+          ts-ls = {enable = true;};
           ruff-lsp = {enable = true;};
           pylsp = {
             enable = true;

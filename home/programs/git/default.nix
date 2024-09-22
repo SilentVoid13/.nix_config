@@ -53,6 +53,10 @@ in {
         path = "${config.xdg.configHome}/${gitconfig_work}";
         condition = "hasconfig:remote.*.url:git@${myconf.git.work.host}:*/**";
       }
+      {
+        path = "${config.xdg.configHome}/${gitconfig_work}";
+        condition = "hasconfig:remote.*.url:ssh://git@${myconf.git.work.host}:*/**";
+      }
     ];
   };
 }

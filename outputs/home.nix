@@ -22,7 +22,10 @@
         allowUnfree = true;
       };
       overlays =
-        [nurpkgs.overlay]
+        [
+            nurpkgs.overlay
+            (import ../pkgs/tmux-override.nix)
+        ]
         ++ (
           if !isNixOs
           then [nixgl.overlay]

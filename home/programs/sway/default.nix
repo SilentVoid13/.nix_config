@@ -127,16 +127,16 @@ in {
         {
           command = ''
             ${pkgs.swayidle}/bin/swayidle -w \
-            timeout 300 'swaylock -f -c 000000' \
-            timeout 600 'swaymsg "output * dpms off"' resume 'swaymsg "output * dpms on"' \
-            before-sleep 'swaylock -f -c 000000'
+                timeout 300 'swaylock -f -c 000000' \
+                timeout 600 'swaymsg "output * dpms off"' resume 'swaymsg "output * dpms on"' \
+                before-sleep 'swaylock -f -c 000000' \
+                lock 'swaylock --screenshots --grace 0'
           '';
         }
         {command = "nm-applet --indicator";}
         {command = "${wallpaper_switcher_path}";}
         # TODO: does this work on non-nixos?
         {command = "${pkgs.polkit_gnome}/libexec/polkit-gnome-authentication-agent-1";}
-        #{command = "/usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1";}
         {command = "${pkgs.waybar}/bin/waybar";}
         {command = "${pkgs.darkman}/bin/darkman run";}
       ];

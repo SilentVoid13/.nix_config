@@ -12,6 +12,7 @@
   };
 
   zramSwap.enable = true;
+  services.auto-cpufreq.enable = true;
 
   hardware.graphics.extraPackages = with pkgs; [
     intel-media-driver

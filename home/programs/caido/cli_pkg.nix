@@ -8,7 +8,7 @@ with pkgs;
     inherit version;
 
     src = fetchurl {
-      url = "https://storage.googleapis.com/caido-releases/v${version}/caido-cli-v${version}-linux-x86_64.tar.gz";
+      url = "https://caido.download/releases/v${version}/caido-cli-v${version}-linux-x86_64.tar.gz";
       hash = "sha256-I8UF2rzIKfpcrxyvDa4AReWDIHOKTCj3ERaWhG1xGG0=";
     };
 

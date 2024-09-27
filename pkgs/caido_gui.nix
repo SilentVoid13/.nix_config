@@ -5,7 +5,7 @@
   pname = "caido";
   src = pkgs.fetchurl {
     url = "https://storage.googleapis.com/caido-releases/v${version}/caido-desktop-v${version}-linux-x86_64.AppImage";
-    hash = "sha256-KYQck2+YYPLJN3L6qchacjyVyyXR3nmJDTX5GPB4WvI=";
+    hash = "sha256-DgXxOOWaLJG1h1nB+mkw77APh06WiJo9V9ZFCiWeha8=";
   };
   appimageContents = pkgs.appimageTools.extractType2 {inherit pname src version;};
 in

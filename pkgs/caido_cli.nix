@@ -9,7 +9,7 @@ with pkgs;
 
     src = fetchurl {
       url = "https://caido.download/releases/v${version}/caido-cli-v${version}-linux-x86_64.tar.gz";
-      hash = "sha256-I8UF2rzIKfpcrxyvDa4AReWDIHOKTCj3ERaWhG1xGG0=";
+      hash = "sha256-aQhax0efp5L3JNqGsOWsoO6z5pVVc/rxlz+5mvZoPNU=";
     };
 
     nativeBuildInputs = [

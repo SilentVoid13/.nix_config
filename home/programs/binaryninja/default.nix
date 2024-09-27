@@ -4,7 +4,7 @@
   ...
 }: {
   home.packages = [
-    (import ./mypkg.nix {inherit pkgs;})
+    (import ../../../pkgs/binja.nix {inherit pkgs;})
   ];
 
   home.file.".binaryninja/keybindings.json" = {

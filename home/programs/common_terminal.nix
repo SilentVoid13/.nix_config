@@ -13,14 +13,17 @@
     just
     p7zip
     unzip
-    usbutils
-    lshw
     openvpn
     cloc
     trashy
     python3
     appimage-run
     steam-run
+
+    ## hardware
+    lshw
+    dmidecode
+    usbutils
 
     ## temp
     #quickemu

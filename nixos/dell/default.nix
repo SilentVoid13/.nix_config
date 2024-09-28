@@ -19,7 +19,20 @@
     hostName = "jet";
   };
 
-  services.auto-cpufreq.enable = true;
+  powerManagement.cpuFreqGovernor = "performance";
+  #services.auto-cpufreq = {
+  #  enable = true;
+  #  settings = {
+  #    battery = {
+  #      governor = "powersave";
+  #      turbo = "auto";
+  #    };
+  #    charger = {
+  #      governor = "performance";
+  #      turbo = "auto";
+  #    };
+  #  };
+  #};
 
   services.xserver.videoDrivers = ["nvidia"];
 

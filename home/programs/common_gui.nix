@@ -20,5 +20,6 @@
     spotify
     vlc
     tidal-hifi
+    stretchly
   ];
 }

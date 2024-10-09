@@ -12,7 +12,7 @@
     package = pkgs.firefox-wayland;
     arkenfox = {
       enable = true;
-      version = "126.1";
+      version = "128.0";
     };
     profiles."0" = {
       id = 0;

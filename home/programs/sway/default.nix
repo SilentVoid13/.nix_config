@@ -208,6 +208,7 @@ in {
           "Print" = "mode \"screenshot\"";
           "${m}+b" = "exec firefox";
           "${m}+d" = "exec ${config.wayland.windowManager.sway.config.menu}";
+          "${m}+Shift+d" = "exec bemoji -t";
           "${m}+Return" = "exec ${config.wayland.windowManager.sway.config.terminal} tmux new -As0";
           "${m}+Shift+w" = "exec ${reboot_wallpaper_path}";
           "${m}+p" = "exec playerctl play-pause";

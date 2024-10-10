@@ -14,13 +14,21 @@
     rg --files | proximity-sort "''${folder}"
   '';
 
-  find_command = /*lua*/ ''
-    function()
-        return { "file_lister", vim.fn.expand('%')  }
-    end
-  '';
+  find_command =
+    /*
+    lua
+    */
+    ''
+      function()
+          return { "file_lister", vim.fn.expand('%')  }
+      end
+    '';
 
-  tiebreak_index_fn = /*lua*/ ''function(entry1, entry2, prompt) return entry1.index < entry2.index; end'';
+  tiebreak_index_fn =
+    /*
+    lua
+    */
+    ''function(entry1, entry2, prompt) return entry1.index < entry2.index; end'';
 in {
   home.packages = with pkgs; [
     # ripgrep is required for live_grep and grep_string
@@ -57,6 +65,9 @@ in {
           };
         };
       };
+    };
+    plugins.web-devicons = {
+      enable = true;
     };
 
     keymaps = [

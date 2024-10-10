@@ -1,5 +1,4 @@
 {
-  myconf,
   config,
   lib,
   pkgs,
@@ -29,7 +28,7 @@ in {
         };
         servers = {
           clangd = {enable = true;};
-          rust-analyzer = {
+          rust_analyzer = {
             enable = true;
             installCargo = false;
             installRustc = false;
@@ -40,8 +39,8 @@ in {
               check.command = "clippy";
             };
           };
-          ts-ls = {enable = true;};
-          ruff-lsp = {enable = true;};
+          ts_ls = {enable = true;};
+          ruff_lsp = {enable = true;};
           pylsp = {
             enable = true;
             settings.plugins = {
@@ -64,8 +63,8 @@ in {
           };
           pyright = { enable = true; };
           */
-          lua-ls = {enable = true;};
-          nil-ls = {enable = true;};
+          lua_ls = {enable = true;};
+          nil_ls = {enable = true;};
         };
       };
 

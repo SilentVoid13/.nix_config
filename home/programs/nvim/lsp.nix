@@ -33,9 +33,7 @@ in {
             installCargo = false;
             installRustc = false;
             settings = {
-              procMacro = {
-                enable = true;
-              };
+              procMacro.enable = true;
               check.command = "clippy";
             };
           };

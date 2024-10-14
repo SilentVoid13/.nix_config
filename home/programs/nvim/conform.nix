@@ -36,11 +36,8 @@
           graphql = ["prettier"];
         };
         formatters = {
-          clang-format = {
-            prepend_args = [
-              "--fallback-style=webkit"
-            ];
-          };
+          clang-format.prepend_args = ["--fallback-style=webkit"];
+          google-java-format.prepend_args = ["--aosp"];
         };
       };
     };

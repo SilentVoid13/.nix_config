@@ -21,6 +21,20 @@
       settings = {
         # prevent extension disabling
         "extensions.autoDisableScopes" = "0";
+
+        # hardware acceleration
+        "gfx.webrender.all" = true;
+        "gfx.webrender.enabled" = true;
+        "media.hardware-video-decoding.force-enabled" = true;
+        "media.ffmpeg.vaapi.enabled" = true;
+        "media.ffmpeg.encoder.enabled" = true;
+        "layers.acceleration.force-enabled" = true;
+
+        # from fastfox
+        "gfx.canvas.accelerated.cache-items" = 4096;
+        "gfx.canvas.accelerated.cache-size" = 512;
+        "gfx.content.skia-font-cache-size" = 20;
+        "media.memory_cache_max_size" = 65536;
       };
       arkenfox = {
         enable = true;

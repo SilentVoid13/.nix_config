@@ -18,8 +18,9 @@
 
     # temp
     spotify
-    vlc
     tidal-hifi
+    obs-studio
+    vlc
     stretchly
   ];
 }

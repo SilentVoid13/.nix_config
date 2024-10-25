@@ -37,7 +37,11 @@ in {
               check.command = "clippy";
             };
           };
-          ts_ls = {enable = true;};
+          lua_ls = {enable = true;};
+          #nil_ls = {enable = true;};
+          nixd = {enable = true;};
+
+          # python
           ruff_lsp = {enable = true;};
           pylsp = {
             enable = true;
@@ -61,8 +65,10 @@ in {
           };
           pyright = { enable = true; };
           */
-          lua_ls = {enable = true;};
-          nil_ls = {enable = true;};
+
+          # js/ts 
+          ts_ls = {enable = true;};
+          svelte = {enable = true;};
         };
       };
 

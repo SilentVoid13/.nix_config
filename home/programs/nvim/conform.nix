@@ -23,6 +23,7 @@
           python = ["black" "isort"];
           typescript = ["prettier"];
           javascript = ["prettier"];
+          svelte = ["prettier"];
           c = ["clang-format"];
           cpp = ["clang-format"];
           java = ["google-java-format"];

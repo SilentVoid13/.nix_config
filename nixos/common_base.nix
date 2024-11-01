@@ -19,6 +19,7 @@
       pkiBundle = "/etc/secureboot";
     };
     loader.systemd-boot.enable = lib.mkForce false;
+    supportedFilesystems = ["ntfs"];
   };
 
   hardware.graphics = {
@@ -91,6 +92,40 @@
     mullvad-vpn.enable = true;
     # Flatpak
     flatpak.enable = true;
+    kanata = {
+      enable = true;
+      keyboards.mykeebs = {
+        devices = [
+          "/dev/input/by-id/usb-Kinesis_Kinesis_Adv360_360555127546-if01-event-kbd"
+          "/dev/input/by-path/platform-i8042-serio-0-event-kbd"
+        ];
+        extraDefCfg = "process-unmapped-keys yes";
+
+        config = ''
+          (defsrc
+            caps a s d f j k l ;
+          )
+          (defvar
+            tap-time 150
+            hold-time 200
+          )
+          (defalias
+            escctrl (tap-hold 100 100 esc lctl)
+            a (tap-hold $tap-time $hold-time a lmet)
+            s (tap-hold $tap-time $hold-time s lalt)
+            d (tap-hold $tap-time $hold-time d lctl)
+            f (tap-hold $tap-time $hold-time f lsft)
+            j (tap-hold $tap-time $hold-time j rsft)
+            k (tap-hold $tap-time $hold-time k rctl)
+            l (tap-hold $tap-time $hold-time l ralt)
+            ; (tap-hold $tap-time $hold-time ; rmet)
+          )
+          (deflayer base
+            @escctrl @a @s @d @f @j @k @l @;
+          )
+        '';
+      };
+    };
   };
 
   programs = {

@@ -60,7 +60,6 @@
       #  ublock-origin
       #  sponsorblock
       #  cookie-autodelete
-      #  omnivore
       #  web-scrobbler
       #  #tridactyl
       #  #clearurls
@@ -119,13 +118,6 @@
         "sponsorBlocker@ajay.app" = {
           installation_mode = "normal_installed";
           install_url = "https://addons.mozilla.org/firefox/downloads/latest/sponsorblock/latest.xpi";
-          updates_disabled = false;
-          default_area = "navbar";
-        };
-        # omnivore
-        "save-extension@omnivore.app" = {
-          installation_mode = "normal_installed";
-          install_url = "https://addons.mozilla.org/firefox/downloads/latest/omnivore/latest.xpi";
           updates_disabled = false;
           default_area = "navbar";
         };

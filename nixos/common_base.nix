@@ -50,26 +50,11 @@
 
   security = {
     polkit.enable = true;
-    pam.services.swaylock = {};
   };
 
   # containers / virtualisation
   virtualisation.docker.enable = true;
   programs.firejail.enable = true;
-
-  xdg = {
-    portal = {
-      enable = true;
-      config.common = {
-        # https://github.com/emersion/xdg-desktop-portal-wlr?tab=readme-ov-file#running
-        default = ["gtk"];
-        "org.freedesktop.impl.portal.Screenshot" = ["wlr"];
-        "org.freedesktop.impl.portal.Screencast" = ["wlr"];
-      };
-      wlr.enable = true;
-      extraPortals = [pkgs.xdg-desktop-portal-wlr pkgs.xdg-desktop-portal-gtk];
-    };
-  };
 
   services = {
     pipewire = {
@@ -100,7 +85,6 @@
           "/dev/input/by-path/platform-i8042-serio-0-event-kbd"
         ];
         extraDefCfg = "process-unmapped-keys yes";
-
         config = ''
           (defsrc
             caps a s d f j k l ;
@@ -153,7 +137,33 @@
     just
     sbctl
     yubioath-flutter
-    swaylock
     docker-compose
   ];
+
+  ## wayland config
+
+  environment.sessionVariables = {
+    #XDG_CURRENT_DESKTOP = "sway";
+    #XDG_DATA_DIRS = "$HOME/.nix-profile/share:$XDG_DATA_DIRS";
+    MOZ_ENABLE_WAYLAND = 1;
+    _JAVA_AWT_WM_NONREPARENTING = 1;
+    NIXOS_OZONE_WL = 1;
+  };
+  # hyprland config
+  programs.hyprland.enable = true;
+  security.pam.services.hyprlock = {};
+
+  # sway config
+  #security.pam.services.swaylock = {};
+  #xdg.portal = {
+  #  enable = true;
+  #  config.common = {
+  #    # https://github.com/emersion/xdg-desktop-portal-wlr?tab=readme-ov-file#running
+  #    default = ["gtk"];
+  #    "org.freedesktop.impl.portal.Screenshot" = ["wlr"];
+  #    "org.freedesktop.impl.portal.Screencast" = ["wlr"];
+  #  };
+  #  wlr.enable = true;
+  #  extraPortals = [pkgs.xdg-desktop-portal-wlr pkgs.xdg-desktop-portal-gtk];
+  #};
 }

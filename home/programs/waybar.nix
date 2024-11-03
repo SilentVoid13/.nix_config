@@ -1,4 +1,4 @@
-{pkgs, ...}: {
+{...}: {
   programs.waybar = {
     enable = true;
     # TODO: try to nixGL wrap?
@@ -9,10 +9,13 @@
         position = "top";
         height = 30;
         spacing = 15;
-        modules-left = ["sway/workspaces" "sway/mode"];
-        modules-center = ["sway/window"];
+        modules-left = ["hyprland/workspaces" "hyprland/submap"];
+        modules-center = ["hyprland/window"];
+        #modules-left = ["sway/workspaces" "sway/mode"];
+        #modules-center = ["sway/window"];
         modules-right = ["idle_inhibitor" "pulseaudio" "disk" "memory" "cpu" "battery" "clock" "tray"];
 
+    
         "sway/workspaces" = {
           disable-scroll = true;
         };
@@ -44,8 +47,10 @@
         };
         "pulseaudio" = {
           "scroll-step" = 5;
-          "format" = "{volume}% {icon}";
+          "format" = "{volume}% {icon}  {format_source}";
           "format-bluetooth" = "{volume}% {icon}";
+          "format-source" = "Mic ON";
+          "format-source-muted" = "Mic OFF";
           "format-muted" = "";
           "format-icons" = {
             "headphone" = "";
@@ -64,7 +69,7 @@
           "path" = "/";
         };
         "idle_inhibitor" = {
-          "format" = "{icon}";
+          "format" = "{icon} ";
           "format-icons" = {
             "activated" = "";
             "deactivated" = "";

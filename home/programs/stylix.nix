@@ -48,15 +48,22 @@
       name = "Bibata-Modern-Classic";
       size = 24;
     };
-    fonts.monospace = {
-      name = "Iosevka Nerd Font Mono";
-      package = pkgs.nerdfonts.override {fonts = ["Iosevka"];};
-    };
-    fonts.sizes = {
-      terminal = 14;
+    fonts = {
+      sizes = {
+        terminal = 14;
+      };
+      monospace = {
+        name = "Iosevka Nerd Font Mono";
+        package = pkgs.nerdfonts.override {fonts = ["Iosevka"];};
+      };
+      sansSerif = {
+        name = "DejaVuSansM Nerd Font";
+        package = pkgs.nerdfonts.override {fonts = ["DejaVuSansMono"];};
+      };
     };
 
     targets = {
+      waybar.enable = true;
       nixvim.enable = false;
       foot.enable = false;
     };

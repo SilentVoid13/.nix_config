@@ -2,7 +2,6 @@
   config,
   pkgs,
   lib,
-  nixGLWrap,
   myconf,
   wayland-pipewire-idle-inhibit,
   ...
@@ -54,7 +53,6 @@ in {
     grim
     slurp
     wbg
-    (nixGLWrap wdisplays)
     xdg-utils
     networkmanagerapplet
     pulseaudio
@@ -71,6 +69,30 @@ in {
   ];
   services.swayidle = {
     enable = true;
+    timeouts = [
+      {
+        timeout = 300;
+        command = "${pkgs.swaylock}/bin/swaylock -f -c 000000";
+      }
+      {
+        timeout = 320;
+        command = "${pkgs.swaymsg}/bin/swaymsg 'output * dpms off'";
+      }
+    ];
+    events = [
+      {
+        event = "resume";
+        command = "${pkgs.swaymsg}/bin/swaymsg 'output * dpms on'";
+      }
+      {
+        event = "before-sleep";
+        command = "${pkgs.swaylock}/bin/swaylock -f -c 000000";
+      }
+      {
+        event = "lock";
+        command = "${pkgs.swaylock}/bin/swaylock --screenshots --grace 10";
+      }
+    ];
   };
   services.wayland-pipewire-idle-inhibit = {
     enable = true;
@@ -124,15 +146,6 @@ in {
         #};
       };
       startup = [
-        {
-          command = ''
-            ${pkgs.swayidle}/bin/swayidle -w \
-                timeout 300 'swaylock -f -c 000000' \
-                timeout 600 'swaymsg "output * dpms off"' resume 'swaymsg "output * dpms on"' \
-                before-sleep 'swaylock -f -c 000000' \
-                lock 'swaylock --screenshots --grace 0'
-          '';
-        }
         {command = "nm-applet --indicator";}
         {command = "${wallpaper_switcher_path}";}
         # TODO: does this work on non-nixos?
@@ -145,17 +158,22 @@ in {
         m = config.wayland.windowManager.sway.config.modifier;
       in
         lib.mkOptionDefault {
-          "XF86AudioRaiseVolume" = "exec pactl set-sink-volume @DEFAULT_SINK@ +5%";
-          "XF86AudioLowerVolume" = "exec pactl set-sink-volume @DEFAULT_SINK@ -5%";
-          "XF86AudioMute" = "exec pactl set-sink-mute @DEFAULT_SINK@ toggle";
-          "XF86AudioPlay" = "exec playerctl play-pause";
-          "XF86AudioPause" = "exec playerctl play-pause";
-          "XF86AudioNext" = "exec playerctl next";
-          "XF86AudioPrev" = "exec playerctl previous";
-          "XF86MonBrightnessDown" = "exec brightnessctl s 5%-";
-          "XF86MonBrightnessUp" = "exec brightnessctl s 5%+";
-          "Next" = "exec pactl set-source-mute @DEFAULT_SOURCE@ toggle";
-          "${m}+Shift+q" = "kill";
+          # program binds
+          "${m}+b" = "exec firefox";
+          "${m}+d" = "exec ${config.wayland.windowManager.sway.config.menu}";
+          "${m}+Shift+d" = "exec bemoji -t";
+          "${m}+Return" = "exec ${config.wayland.windowManager.sway.config.terminal} tmux new -As0";
+          "${m}+Shift+w" = "exec ${reboot_wallpaper_path}";
+          "${m}+p" = "exec ${pkgs.playerctl}/bin/playerctl play-pause";
+          "${m}+o" = "exec ${pkgs.playerctl}/bin/playerctl previous";
+          "${m}+i" = "exec ${pkgs.playerctl}/bin/playerctl next";
+
+          "${m}+q" = "kill";
+          "${m}+f" = "fullscreen toggle";
+          "${m}+Shift+f" = "floating toggle";
+          "${m}+space" = "focus mode_toggle";
+
+          # focus
           "${m}+Left" = "focus left";
           "${m}+Right" = "focus right";
           "${m}+Up" = "focus up";
@@ -164,6 +182,8 @@ in {
           "${m}+l" = "focus right";
           "${m}+k" = "focus up";
           "${m}+j" = "focus down";
+
+          # move
           "${m}+Shift+Left" = "move left";
           "${m}+Shift+Right" = "move right";
           "${m}+Shift+Up" = "move up";
@@ -172,16 +192,15 @@ in {
           "${m}+Shift+l" = "move right";
           "${m}+Shift+k" = "move up";
           "${m}+Shift+j" = "move down";
+
+          # layout
           "${m}+v" = "split v";
           "${m}+Shift+v" = "split h";
-          "${m}+f" = "fullscreen toggle";
           "${m}+s" = "layout stacking";
           "${m}+t" = "layout tabbed";
           "${m}+e" = "layout toggle split";
-          "${m}+Shift+f" = "floating toggle";
-          "${m}+space" = "focus mode_toggle";
-          #"${m}+q" = "focus parent";
-          #"${m}+d" = "focus child";
+
+          # workspaces
           "${m}+1" = "workspace number ${ws1}";
           "${m}+2" = "workspace number ${ws2}";
           "${m}+3" = "workspace number ${ws3}";
@@ -202,19 +221,25 @@ in {
           "${m}+Shift+8" = "move container to workspace number ${ws8}";
           "${m}+Shift+9" = "move container to workspace number ${ws9}";
           "${m}+Shift+0" = "move container to workspace number ${ws10}";
+
+          # media controls
+          "XF86AudioRaiseVolume" = "exec ${pkgs.pulseaudio}/bin/pactl set-sink-volume @DEFAULT_SINK@ +5%";
+          "XF86AudioLowerVolume" = "exec ${pkgs.pulseaudio}/bin/pactl set-sink-volume @DEFAULT_SINK@ -5%";
+          "XF86AudioMute" = "exec ${pkgs.pulseaudio}/bin/pactl set-sink-mute @DEFAULT_SINK@ toggle";
+          "XF86AudioPlay" = "exec playerctl play-pause";
+          "XF86AudioPause" = "exec playerctl play-pause";
+          "XF86AudioNext" = "exec playerctl next";
+          "XF86AudioPrev" = "exec playerctl previous";
+          "XF86MonBrightnessDown" = "exec ${pkgs.brightnessctl}/bin/brightnessctl s 5%-";
+          "XF86MonBrightnessUp" = "exec ${pkgs.brightnessctl}/bin/brightnessctl s 5%+";
+          "Next" = "exec ${pkgs.pulseaudio}/bin/pactl set-source-mute @DEFAULT_SOURCE@ toggle";
+
+          # modes
           "${m}+Shift+r" = "reload";
+          "${m}+Shift+e" = "exec swaynag -t warning -m 'You pressed the exit shortcut. Do you really want to exit sway? This will end your Wayland session.' -B 'Yes, exit sway' 'swaymsg exit'";
           "${m}+r" = "mode \"resize\"";
           "${m}+Print" = "mode \"system\"";
           "Print" = "mode \"screenshot\"";
-          "${m}+b" = "exec firefox";
-          "${m}+d" = "exec ${config.wayland.windowManager.sway.config.menu}";
-          "${m}+Shift+d" = "exec bemoji -t";
-          "${m}+Return" = "exec ${config.wayland.windowManager.sway.config.terminal} tmux new -As0";
-          "${m}+Shift+w" = "exec ${reboot_wallpaper_path}";
-          "${m}+p" = "exec playerctl play-pause";
-          "${m}+o" = "exec playerctl previous";
-          "${m}+i" = "exec playerctl next";
-          "${m}+Shift+e" = "exec swaynag -t warning -m 'You pressed the exit shortcut. Do you really want to exit sway? This will end your Wayland session.' -B 'Yes, exit sway' 'swaymsg exit'";
         };
 
       modes = {
@@ -241,10 +266,10 @@ in {
         screenshot = {
           Escape = "mode default";
           Return = "mode default";
-          "1" = "exec grim -g \"$(slurp)\" - | wl-copy, mode default";
-          "2" = "exec env GRIM_DEFAULT_DIR=$HOME/.screenshots grim -g \"$(slurp)\", mode default";
-          "3" = "exec grim - | wl-copy, mode default";
-          "4" = "exec env GRIM_DEFAULT_DIR=$HOME/.screenshots grim, mode default";
+          "1" = "exec ${pkgs.grim}/bin/grim -g \"$(${pkgs.slurp}/bin/slurp)\" - | wl-copy, mode default";
+          "2" = "exec env GRIM_DEFAULT_DIR=$HOME/.screenshots ${pkgs.grim}/bin/grim -g \"$(${pkgs.slurp}/bin/slurp)\", mode default";
+          "3" = "exec ${pkgs.grim}/bin/grim - | wl-copy, mode default";
+          "4" = "exec env GRIM_DEFAULT_DIR=$HOME/.screenshots ${pkgs.grim}/bin/grim, mode default";
         };
       };
 
@@ -294,6 +319,8 @@ in {
       for_window [app_id="pavucontrol"] floating enable, border normal
       for_window [app_id="qalculate-gtk"] floating enable, border normal
       for_window [app_id="imv"] floating enable, border normal
+      for_window [app_id="thunar" title="^File Operation Progress$"] floating enable
+      for_window [app_id="thunar" title="^Confirm to replace files$"] floating enable
     '';
   };
 }

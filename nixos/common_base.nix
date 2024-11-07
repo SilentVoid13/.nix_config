@@ -150,20 +150,20 @@
     NIXOS_OZONE_WL = 1;
   };
   # hyprland config
-  programs.hyprland.enable = true;
-  security.pam.services.hyprlock = {};
+  #programs.hyprland.enable = true;
+  #security.pam.services.hyprlock = {};
 
   # sway config
-  #security.pam.services.swaylock = {};
-  #xdg.portal = {
-  #  enable = true;
-  #  config.common = {
-  #    # https://github.com/emersion/xdg-desktop-portal-wlr?tab=readme-ov-file#running
-  #    default = ["gtk"];
-  #    "org.freedesktop.impl.portal.Screenshot" = ["wlr"];
-  #    "org.freedesktop.impl.portal.Screencast" = ["wlr"];
-  #  };
-  #  wlr.enable = true;
-  #  extraPortals = [pkgs.xdg-desktop-portal-wlr pkgs.xdg-desktop-portal-gtk];
-  #};
+  security.pam.services.swaylock = {};
+  xdg.portal = {
+    enable = true;
+    config.common = {
+      # https://github.com/emersion/xdg-desktop-portal-wlr?tab=readme-ov-file#running
+      default = ["gtk"];
+      "org.freedesktop.impl.portal.Screenshot" = ["wlr"];
+      "org.freedesktop.impl.portal.Screencast" = ["wlr"];
+    };
+    wlr.enable = true;
+    extraPortals = [pkgs.xdg-desktop-portal-wlr pkgs.xdg-desktop-portal-gtk];
+  };
 }

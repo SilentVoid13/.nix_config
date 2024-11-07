@@ -30,8 +30,8 @@
 
     ## OS
     ./programs/stylix.nix
-    #./programs/sway
-    ./programs/hyprland
+    ./programs/sway
+    #./programs/hyprland
 
     #./programs/wofi.nix
     ./programs/fuzzel.nix

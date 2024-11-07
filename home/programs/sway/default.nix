@@ -76,14 +76,11 @@ in {
       }
       {
         timeout = 320;
-        command = "${pkgs.swaymsg}/bin/swaymsg 'output * dpms off'";
+        command = "swaymsg 'output * dpms off'";
+        resumeCommand = "swaymsg 'output * dpms on'";
       }
     ];
     events = [
-      {
-        event = "resume";
-        command = "${pkgs.swaymsg}/bin/swaymsg 'output * dpms on'";
-      }
       {
         event = "before-sleep";
         command = "${pkgs.swaylock}/bin/swaylock -f -c 000000";
@@ -128,22 +125,17 @@ in {
       terminal = "${pkgs.foot}/bin/foot";
       menu = "${pkgs.fuzzel}/bin/fuzzel";
 
-      # handled by stylix
-      #fonts = {
-      #  names = ["Pango" "Monospace"];
-      #  size = 8.0;
-      #};
-
       bars = [];
       defaultWorkspace = "workspace number ${ws1}";
       input = {
         "type:keyboard" = {
           xkb_layout = "qwerty_fr";
         };
-        #"type:touchpad" = {
-        #  tap = "enabled";
-        #  natural_scroll = "enabled";
-        #};
+        "type:touchpad" = {
+          tap = "enabled";
+          natural_scroll = "enabled";
+          pointer_accel = "0.7";
+        };
       };
       startup = [
         {command = "nm-applet --indicator";}

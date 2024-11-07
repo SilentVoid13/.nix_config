@@ -68,8 +68,8 @@ in {
     # TODO: move to /usr/bin/sway thing on non-nixos
     profileExtra = /*bash*/ ''
       if [ -z $DISPLAY ] && [ "$(tty)" = "/dev/tty1" ]; then
-          #exec sway --unsupported-gpu
-          exec Hyprland
+          exec sway --unsupported-gpu
+          #exec Hyprland
       fi
     '';
   };

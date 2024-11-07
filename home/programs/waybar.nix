@@ -9,10 +9,10 @@
         position = "top";
         height = 30;
         spacing = 15;
-        modules-left = ["hyprland/workspaces" "hyprland/submap"];
-        modules-center = ["hyprland/window"];
-        #modules-left = ["sway/workspaces" "sway/mode"];
-        #modules-center = ["sway/window"];
+        #modules-left = ["hyprland/workspaces" "hyprland/submap"];
+        #modules-center = ["hyprland/window"];
+        modules-left = ["sway/workspaces" "sway/mode"];
+        modules-center = ["sway/window"];
         modules-right = ["idle_inhibitor" "pulseaudio" "disk" "memory" "cpu" "battery" "clock" "tray"];
 
     

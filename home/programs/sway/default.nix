@@ -24,6 +24,8 @@
   reboot_wallpaper = "sway/reboot_wallpaper.sh";
   reboot_wallpaper_path = "${config.xdg.dataHome}/${reboot_wallpaper}";
 
+  lock_cmd = "${pkgs.swaylock}/bin/swaylock -f -c 000000";
+
   mon1 = myconf.monitor1;
   mon2 = myconf.monitor2;
 
@@ -67,30 +69,31 @@ in {
   imports = [
     wayland-pipewire-idle-inhibit.homeModules.default
   ];
+
+  programs.swaylock.enable = true;
+
   services.swayidle = {
     enable = true;
     timeouts = [
       {
         timeout = 300;
-        command = "${pkgs.swaylock}/bin/swaylock -f -c 000000";
+        command = lock_cmd;
       }
       {
         timeout = 320;
-        command = "swaymsg 'output * dpms off'";
-        resumeCommand = "swaymsg 'output * dpms on'";
+        command = ''${pkgs.sway}/bin/swaymsg "output * dpms off"'';
+        resumeCommand = ''${pkgs.sway}/bin/swaymsg "output * dpms on"'';
       }
     ];
     events = [
       {
         event = "before-sleep";
-        command = "${pkgs.swaylock}/bin/swaylock -f -c 000000";
+        command = lock_cmd;
       }
-      {
-        event = "lock";
-        command = "${pkgs.swaylock}/bin/swaylock --screenshots --grace 10";
-      }
+      #{ event = "lock"; command = lock_cmd; }
     ];
   };
+
   services.wayland-pipewire-idle-inhibit = {
     enable = true;
     systemdTarget = "sway-session.target";
@@ -143,7 +146,6 @@ in {
         # TODO: does this work on non-nixos?
         {command = "${pkgs.polkit_gnome}/libexec/polkit-gnome-authentication-agent-1";}
         {command = "${pkgs.waybar}/bin/waybar";}
-        {command = "${pkgs.darkman}/bin/darkman run";}
       ];
 
       keybindings = let
@@ -250,7 +252,7 @@ in {
         system = {
           Escape = "mode default";
           Return = "mode default";
-          l = "exec swaylock -f -c 000000, mode default";
+          l = "exec ${lock_cmd}, mode default";
           s = "exec systemctl suspend, mode default";
           r = "exec systemctl reboot, mode default";
           h = "exec systemctl poweroff, mode default";

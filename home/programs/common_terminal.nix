@@ -3,6 +3,7 @@
     file
     binutils
     htop
+    #nvtopPackages.full
     grc
     eza
     bat

@@ -128,6 +128,11 @@
           updates_disabled = false;
           default_area = "navbar";
         };
+        "{84601290-bec9-494a-b11c-1baa897a9683}" = {
+          installation_mode = "normal_installed";
+          install_url = "https://addons.mozilla.org/firefox/downloads/latest/ctrl-number-to-switch-tabs/latest.xpi";
+          updates_disabled = false;
+        };
       };
     };
   };

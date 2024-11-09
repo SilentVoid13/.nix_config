@@ -148,6 +148,14 @@
     MOZ_ENABLE_WAYLAND = 1;
     _JAVA_AWT_WM_NONREPARENTING = 1;
     NIXOS_OZONE_WL = 1;
+    WLR_NO_HARDWARE_CURSORS = 1;
+    #GBM_BACKEND = "nvidia-drm";
+    #NVD_BACKEND = "direct";
+    #LIBVA_DRIVER_NAME = "nvidia";
+    #__GLX_VENDOR_LIBRARY_NAME = "nvidia";
+    #__GL_VRR_ALLOWED = 0;
+    #__GL_SYNC_TO_VBLANK = 0;
+    #__GL_GSYNC_ALLOWED = 0;
   };
   # hyprland config
   #programs.hyprland.enable = true;
@@ -155,6 +163,7 @@
 
   # sway config
   security.pam.services.swaylock = {};
+  #programs.sway.enable = true;
   xdg.portal = {
     enable = true;
     config.common = {

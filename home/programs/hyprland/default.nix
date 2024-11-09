@@ -31,6 +31,8 @@ in {
     gnome-themes-extra
   ];
 
+  services.hyprpaper.enable = pkgs.lib.mkForce false;
+
   services.hypridle = {
     enable = true;
     settings = {
@@ -115,7 +117,6 @@ in {
       exec-once = [
         "${pkgs.polkit_gnome}/libexec/polkit-gnome-authentication-agent-1"
         "${pkgs.waybar}/bin/waybar"
-        "${pkgs.darkman}/bin/darkman run"
         "nm-applet --indicator"
       ];
       bind = [
@@ -197,6 +198,7 @@ in {
       xwayland = {
         force_zero_scaling = true;
       };
+      cursor.no_hardware_cursors = true;
     };
     extraConfig = ''
       submap = resize

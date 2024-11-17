@@ -19,6 +19,8 @@
       pkiBundle = "/etc/secureboot";
     };
     loader.systemd-boot.enable = lib.mkForce false;
+    # use bleeding edge kernel
+    kernelPackages = pkgs.linuxPackages_latest;
     supportedFilesystems = ["ntfs"];
   };
 
@@ -85,29 +87,7 @@
           "/dev/input/by-path/platform-i8042-serio-0-event-kbd"
         ];
         extraDefCfg = "process-unmapped-keys yes";
-        config = ''
-          (defsrc
-            caps a s d f j k l ;
-          )
-          (defvar
-            tap-time 150
-            hold-time 200
-          )
-          (defalias
-            escctrl (tap-hold 100 100 esc lctl)
-            a (tap-hold $tap-time $hold-time a lmet)
-            s (tap-hold $tap-time $hold-time s lalt)
-            d (tap-hold $tap-time $hold-time d lctl)
-            f (tap-hold $tap-time $hold-time f lsft)
-            j (tap-hold $tap-time $hold-time j rsft)
-            k (tap-hold $tap-time $hold-time k rctl)
-            l (tap-hold $tap-time $hold-time l ralt)
-            ; (tap-hold $tap-time $hold-time ; rmet)
-          )
-          (deflayer base
-            @escctrl @a @s @d @f @j @k @l @;
-          )
-        '';
+        config = (builtins.readFile ./files/homerow.kbd);
       };
     };
   };
@@ -143,12 +123,10 @@
   ## wayland config
 
   environment.sessionVariables = {
-    #XDG_CURRENT_DESKTOP = "sway";
-    #XDG_DATA_DIRS = "$HOME/.nix-profile/share:$XDG_DATA_DIRS";
     MOZ_ENABLE_WAYLAND = 1;
     _JAVA_AWT_WM_NONREPARENTING = 1;
     NIXOS_OZONE_WL = 1;
-    WLR_NO_HARDWARE_CURSORS = 1;
+    #WLR_NO_HARDWARE_CURSORS = 1;
     #GBM_BACKEND = "nvidia-drm";
     #NVD_BACKEND = "direct";
     #LIBVA_DRIVER_NAME = "nvidia";
@@ -157,11 +135,12 @@
     #__GL_SYNC_TO_VBLANK = 0;
     #__GL_GSYNC_ALLOWED = 0;
   };
-  # hyprland config
+
+  ## hyprland config
   #programs.hyprland.enable = true;
   #security.pam.services.hyprlock = {};
 
-  # sway config
+  ## sway config
   security.pam.services.swaylock = {};
   #programs.sway.enable = true;
   xdg.portal = {

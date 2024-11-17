@@ -1,10 +1,13 @@
 {pkgs, ...}: {
   home.packages = with pkgs; [
-    steam
+    # NOTE: steam can require some system-level permissions
+    #steam
+    # NOTE: GameMode depends on root-level capabilities that aren't available in a user-level Nix package installation
+    #gamemode
+
     steam-run
     gamescope
-    gamemode
-    # proton-ge
+    # for proton-ge
     protonup
   ];
 

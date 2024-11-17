@@ -13,6 +13,7 @@
     vaapiIntel
     vaapiVdpau
     libvdpau-va-gl
+    nvidia-vaapi-driver
   ];
 
   networking = {
@@ -33,6 +34,11 @@
   #    };
   #  };
   #};
+
+  ## steam config
+  programs.steam.enable = true;
+  programs.steam.gamescopeSession.enable = true;
+  programs.gamemode.enable = true;
 
   services.xserver.videoDrivers = ["nvidia"];
 

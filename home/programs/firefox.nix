@@ -128,10 +128,18 @@
           updates_disabled = false;
           default_area = "navbar";
         };
+        # ctrl-number-to-switch-tabs
         "{84601290-bec9-494a-b11c-1baa897a9683}" = {
           installation_mode = "normal_installed";
           install_url = "https://addons.mozilla.org/firefox/downloads/latest/ctrl-number-to-switch-tabs/latest.xpi";
           updates_disabled = false;
+        };
+        # bypass-paywalls
+        "magnolia@12.34" = {
+          installation_mode = "normal_installed";
+          install_url = "https://gitflic.ru/project/magnolia1234/bpc_uploads/blob/raw?file=bypass_paywalls_clean-latest.xpi";
+          updates_disabled = false;
+          default_area = "navbar";
         };
       };
     };

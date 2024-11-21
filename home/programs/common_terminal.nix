@@ -14,6 +14,7 @@
     just
     p7zip
     unzip
+    zip
     openvpn
     cloc
     trashy

@@ -154,8 +154,8 @@ in {
         lib.mkOptionDefault {
           # program binds
           "${m}+b" = "exec firefox";
-          "${m}+d" = "exec ${config.wayland.windowManager.sway.config.menu}";
-          "${m}+Shift+d" = "exec bemoji -t";
+          "${m}+e" = "exec ${config.wayland.windowManager.sway.config.menu}";
+          "${m}+Shift+e" = "exec bemoji -t";
           "${m}+Return" = "exec ${config.wayland.windowManager.sway.config.terminal} tmux new -As0";
           "${m}+Shift+w" = "exec ${reboot_wallpaper_path}";
           "${m}+p" = "exec ${pkgs.playerctl}/bin/playerctl play-pause";
@@ -163,7 +163,7 @@ in {
           "${m}+i" = "exec ${pkgs.playerctl}/bin/playerctl next";
 
           "${m}+q" = "kill";
-          "${m}+f" = "fullscreen toggle";
+          "${m}+v" = "fullscreen toggle";
           "${m}+Shift+f" = "floating toggle";
           "${m}+space" = "focus mode_toggle";
 
@@ -172,10 +172,10 @@ in {
           "${m}+Right" = "focus right";
           "${m}+Up" = "focus up";
           "${m}+Down" = "focus down";
-          "${m}+h" = "focus left";
-          "${m}+l" = "focus right";
-          "${m}+k" = "focus up";
-          "${m}+j" = "focus down";
+          #"${m}+h" = "focus left";
+          #"${m}+l" = "focus right";
+          #"${m}+k" = "focus up";
+          #"${m}+j" = "focus down";
 
           # move
           "${m}+Shift+Left" = "move left";
@@ -188,23 +188,23 @@ in {
           "${m}+Shift+j" = "move down";
 
           # layout
-          "${m}+v" = "split v";
-          "${m}+Shift+v" = "split h";
-          "${m}+s" = "layout stacking";
-          "${m}+t" = "layout tabbed";
-          "${m}+e" = "layout toggle split";
+          #"${m}+v" = "split v";
+          #"${m}+Shift+v" = "split h";
+          #"${m}+s" = "layout stacking";
+          #"${m}+t" = "layout tabbed";
+          #"${m}+e" = "layout toggle split";
 
           # workspaces
-          "${m}+1" = "workspace number ${ws1}";
-          "${m}+2" = "workspace number ${ws2}";
-          "${m}+3" = "workspace number ${ws3}";
-          "${m}+4" = "workspace number ${ws4}";
-          "${m}+5" = "workspace number ${ws5}";
-          "${m}+6" = "workspace number ${ws6}";
-          "${m}+7" = "workspace number ${ws7}";
-          "${m}+8" = "workspace number ${ws8}";
-          "${m}+9" = "workspace number ${ws9}";
-          "${m}+0" = "workspace number ${ws10}";
+          "${m}+a" = "workspace number ${ws1}";
+          "${m}+s" = "workspace number ${ws2}";
+          "${m}+d" = "workspace number ${ws3}";
+          "${m}+f" = "workspace number ${ws4}";
+          "${m}+g" = "workspace number ${ws5}";
+          "${m}+h" = "workspace number ${ws6}";
+          "${m}+j" = "workspace number ${ws7}";
+          "${m}+k" = "workspace number ${ws8}";
+          "${m}+l" = "workspace number ${ws9}";
+          "${m}+SemiColon" = "workspace number ${ws10}";
           "${m}+Shift+1" = "move container to workspace number ${ws1}";
           "${m}+Shift+2" = "move container to workspace number ${ws2}";
           "${m}+Shift+3" = "move container to workspace number ${ws3}";
@@ -230,7 +230,7 @@ in {
 
           # modes
           "${m}+Shift+r" = "reload";
-          "${m}+Shift+e" = "exec swaynag -t warning -m 'You pressed the exit shortcut. Do you really want to exit sway? This will end your Wayland session.' -B 'Yes, exit sway' 'swaymsg exit'";
+          "${m}+Shift+q" = "exec swaynag -t warning -m 'You pressed the exit shortcut. Do you really want to exit sway? This will end your Wayland session.' -B 'Yes, exit sway' 'swaymsg exit'";
           "${m}+r" = "mode \"resize\"";
           "${m}+Print" = "mode \"system\"";
           "Print" = "mode \"screenshot\"";

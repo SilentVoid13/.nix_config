@@ -87,10 +87,14 @@
           "/dev/input/by-path/platform-i8042-serio-0-event-kbd"
         ];
         extraDefCfg = "process-unmapped-keys yes";
-        config = (builtins.readFile ./files/homerow.kbd);
+        config = builtins.readFile ./files/homerow.kbd;
       };
     };
   };
+
+  services.udev.packages = with pkgs; [
+    vial
+  ];
 
   programs = {
     _1password = {
@@ -118,6 +122,7 @@
     sbctl
     yubioath-flutter
     docker-compose
+    vial
   ];
 
   ## wayland config

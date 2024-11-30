@@ -3,7 +3,7 @@
 
   inputs = {
     nixpkgs.url = "nixpkgs/nixos-unstable";
-    nixpkgs-stable.url = "nixpkgs/nixos-23.11";
+    nixpkgs-stable.url = "nixpkgs/nixos-24.05";
     nixpkgs-staging.url = "nixpkgs/staging-next";
 
     nurpkgs = {
@@ -53,6 +53,7 @@
 
   outputs = {
     nixpkgs,
+    nixpkgs-stable,
     nurpkgs,
     home-manager,
     nixgl,
@@ -68,6 +69,7 @@
   in {
     homeConfigurations = import ./outputs/home.nix {
       inherit nixpkgs;
+      inherit nixpkgs-stable;
       inherit myconf;
       inherit nurpkgs;
       inherit home-manager;

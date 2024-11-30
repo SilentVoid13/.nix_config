@@ -1,5 +1,6 @@
 {
   nixpkgs,
+  nixpkgs-stable,
   myconf,
   nurpkgs,
   home-manager,
@@ -16,6 +17,7 @@
     isNixOs,
     modules,
   }: let
+    pkgs-stable = import nixpkgs-stable {inherit system;};
     pkgs = import nixpkgs {
       inherit system;
       config = {

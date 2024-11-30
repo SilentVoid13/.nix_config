@@ -54,11 +54,11 @@
       };
       monospace = {
         name = "Iosevka Nerd Font Mono";
-        package = pkgs.nerdfonts.override {fonts = ["Iosevka"];};
+        package = pkgs.nerd-fonts.iosevka;
       };
       sansSerif = {
         name = "DejaVuSansM Nerd Font";
-        package = pkgs.nerdfonts.override {fonts = ["DejaVuSansMono"];};
+        package = pkgs.nerd-fonts.dejavu-sans-mono;
       };
     };
 

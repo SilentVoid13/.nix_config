@@ -23,7 +23,7 @@
       # Custom fonts
       terminus_font
       #iosevka
-      (nerdfonts.override {fonts = ["Iosevka"];})
+      nerd-fonts.iosevka
       ubuntu_font_family
     ];
   };

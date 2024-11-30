@@ -10,7 +10,7 @@
     (nixGLWrap obsidian)
     mullvad-vpn
     onlyoffice-bin
-    transmission-gtk
+    transmission_4-gtk
     chromium
     #discord
     vesktop

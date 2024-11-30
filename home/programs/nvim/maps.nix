@@ -4,6 +4,11 @@
 
     keymaps = [
       {
+        mode = "n";
+        key = "^";
+        action = "<C-^>";
+      }
+      {
         # Copy to clipboard
         mode = "v";
         key = "<leader>cp";

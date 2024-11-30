@@ -1,10 +1,16 @@
 {
   myconf,
   nixpkgs,
+  nixpkgs-stable,
   lanzaboote,
   disko,
   ...
-}: {
+}: let
+    # TODO: do not hardcode system
+    pkgs-stable = import nixpkgs-stable {
+        system = "x86_64-linux";
+    };
+in {
   dell = nixpkgs.lib.nixosSystem {
     system = "x86_64-linux";
     modules = [
@@ -15,7 +21,7 @@
       ../disko/luks_lvm_swap.nix
     ];
     specialArgs = {
-      inherit myconf nixpkgs;
+      inherit myconf nixpkgs pkgs-stable;
       disk_name = "/dev/nvme0n1";
     };
   };
@@ -30,7 +36,7 @@
       ../disko/luks_lvm_swap.nix
     ];
     specialArgs = {
-      inherit myconf nixpkgs;
+      inherit myconf nixpkgs pkgs-stable;
       disk_name = "/dev/nvme0n1";
     };
   };

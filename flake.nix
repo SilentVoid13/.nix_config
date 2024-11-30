@@ -82,6 +82,7 @@
 
     nixosConfigurations = import ./outputs/nixos.nix {
       inherit nixpkgs;
+      inherit nixpkgs-stable;
       inherit myconf;
       inherit lanzaboote;
       inherit disko;

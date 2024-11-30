@@ -61,6 +61,7 @@
         inherit arkenfox;
         inherit stylix;
         inherit wayland-pipewire-idle-inhibit;
+        inherit pkgs-stable;
       };
       modules =
         [

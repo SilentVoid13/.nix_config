@@ -1,5 +1,6 @@
 {
   pkgs,
+  pkgs-stable,
   stylix,
   config,
   ...
@@ -44,8 +45,12 @@
     #};
 
     cursor = {
-      package = pkgs.bibata-cursors;
-      name = "Bibata-Modern-Classic";
+      package = pkgs.phinger-cursors;
+      name = "phinger-cursors-dark";
+      # NOTE: bibata-cursors is currently broken
+      # https://github.com/ful1e5/Bibata_Cursor/issues/173
+      #package = pkgs.bibata-cursors;
+      #name = "Bibata-Modern-Classic";
       size = 24;
     };
     fonts = {
@@ -54,7 +59,9 @@
       };
       monospace = {
         name = "Iosevka Nerd Font Mono";
-        package = pkgs.nerd-fonts.iosevka;
+        #package = pkgs.nerd-fonts.iosevka;
+        # FIXME: remove this, it currently crashes foot
+        package = pkgs-stable.nerdfonts.override {fonts = ["Iosevka"];};
       };
       sansSerif = {
         name = "DejaVuSansM Nerd Font";

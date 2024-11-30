@@ -808,11 +808,11 @@
     },
     "nurpkgs": {
       "locked": {
-        "lastModified": 1732974297,
-        "narHash": "sha256-1l06Wh+JGw2k7f99iZLfAtdtl+INInkVZ2hjpRF6I2Q=",
+        "lastModified": 1732980641,
+        "narHash": "sha256-YjDVJPL4f+d41TTEYF+aVTMJFvYMXcbMJbXFi7HBUvw=",
         "owner": "nix-community",
         "repo": "NUR",
-        "rev": "796b97a2bd71517d4c3f40df57a572fc72764fcb",
+        "rev": "f5b99f967e98d67f4fa48808c46976e55412618d",
         "type": "github"
       },
       "original": {

@@ -1,6 +1,7 @@
 {
   myconf,
   pkgs,
+  pkgs-stable,
   ...
 }: {
   nixpkgs.config.allowUnfree = true;
@@ -23,7 +24,9 @@
       # Custom fonts
       terminus_font
       #iosevka
-      nerd-fonts.iosevka
+      #nerd-fonts.iosevka
+      # FIXME: remove this, it currently crashes foot
+      (pkgs-stable.nerdfonts.override {fonts = ["Iosevka"];})
       ubuntu_font_family
     ];
   };

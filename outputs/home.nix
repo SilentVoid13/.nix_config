@@ -18,22 +18,7 @@
     modules,
   }: let
     pkgs-stable = import nixpkgs-stable {inherit system;};
-    pkgs = import nixpkgs {
-      inherit system;
-      config = {
-        allowUnfree = true;
-      };
-      overlays =
-        [
-            nurpkgs.overlay
-            (import ../pkgs/tmux-override.nix)
-        ]
-        ++ (
-          if !isNixOs
-          then [nixgl.overlay]
-          else []
-        );
-    };
+    pkgs = import nixpkgs {inherit system;};
 
     nixGLWrap = pkg:
       if !isNixOs
@@ -65,6 +50,11 @@
       };
       modules =
         [
+          (import ./config_pkgs.nix {
+            inherit pkgs-stable;
+            inherit nurpkgs;
+            inherit nixgl;
+          })
           {
             home.username = "${username}";
             home.homeDirectory = "/home/${username}";

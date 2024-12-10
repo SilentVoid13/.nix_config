@@ -6,14 +6,17 @@
   disko,
   ...
 }: let
-    # TODO: do not hardcode system
-    pkgs-stable = import nixpkgs-stable {
-        system = "x86_64-linux";
-    };
+  # TODO: do not hardcode system
+  pkgs-stable = import nixpkgs-stable {
+    system = "x86_64-linux";
+  };
 in {
   dell = nixpkgs.lib.nixosSystem {
     system = "x86_64-linux";
     modules = [
+      (import ./config_pkgs.nix {
+        inherit pkgs-stable;
+      })
       lanzaboote.nixosModules.lanzaboote
       disko.nixosModules.disko
       ../nixos/configuration.nix
@@ -29,6 +32,9 @@ in {
   thinkpad = nixpkgs.lib.nixosSystem {
     system = "x86_64-linux";
     modules = [
+      (import ./config_pkgs.nix {
+        inherit pkgs-stable;
+      })
       lanzaboote.nixosModules.lanzaboote
       disko.nixosModules.disko
       ../nixos/configuration.nix
@@ -55,6 +61,9 @@ in {
   iso = nixpkgs.lib.nixosSystem {
     system = "x86_64-linux";
     modules = [
+      (import ./config_pkgs.nix {
+        inherit pkgs-stable;
+      })
       ../nixos/configuration_iso.nix
     ];
     specialArgs = {};

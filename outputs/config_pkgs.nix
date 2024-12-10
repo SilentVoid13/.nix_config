@@ -9,9 +9,14 @@
     overlays =
       [
         # FIXME: remove tmp fix
-        #(self: super: {
-        #  rust-analyzer = pkgs-stable.rust-analyzer;
-        #})
+        (self: super: {
+          rust-analyzer = pkgs-stable.rust-analyzer;
+        })
+
+        # FIXME: broken "gen" keyword in rust
+        (self: super: {
+            vimPlugins = pkgs-stable.vimPlugins;
+        })
       ]
       ++ (
         if nurpkgs != null

@@ -11,7 +11,16 @@ in {
     plugins = {
       lsp = {
         enable = true;
-        capabilities = ''
+        capabilities = '''';
+        onAttach = /* lua */ ''
+            if client.supports_method("textDocument/formatting") then
+                vim.api.nvim_create_autocmd('BufWritePre', {
+                    buffer = bufnr,
+                    callback = function()
+                        vim.lsp.buf.format({ bufnr = bufnr, id = client.id })
+                    end,
+                })
+            end
         '';
         keymaps = {
           silent = true;
@@ -33,7 +42,8 @@ in {
             installCargo = false;
             installRustc = false;
             settings = {
-              procMacro.enable = true;
+              # FIXME: re-enable when rust_analyzer is fixed
+              procMacro.enable = false;
               check.command = "clippy";
             };
           };
@@ -66,7 +76,7 @@ in {
           pyright = { enable = true; };
           */
 
-          # js/ts 
+          # js/ts
           ts_ls = {enable = true;};
           svelte = {enable = true;};
         };
@@ -103,10 +113,14 @@ in {
             {name = "copilot";}
           ];
           snippet = {
-            expand = /*lua*/ ''
-              function(args)
-                  require('luasnip').lsp_expand(args.body)
-              end'';
+            expand =
+              /*
+              lua
+              */
+              ''
+                function(args)
+                    require('luasnip').lsp_expand(args.body)
+                end'';
           };
         };
       };
@@ -147,6 +161,16 @@ in {
     ];
 
     keymaps = [
+      {
+        mode = "n";
+        key = "<leader>dd";
+        action = "<cmd>lua vim.diagnostic.setqflist({severity = vim.diagnostic.severity.ERROR })<CR>";
+      }
+      {
+        mode = "n";
+        key = "<leader>dw";
+        action = "<cmd>lua vim.diagnostic.setqflist({severity = { min = vim.diagnostic.severity.WARN }})<CR>";
+      }
       {
         mode = "n";
         key = "<leader>dj";

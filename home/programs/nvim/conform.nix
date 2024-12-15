@@ -15,6 +15,7 @@
   ];
 
   programs.nixvim = {
+    # NOTE: LSP formatting is used on save, this is a fallback
     plugins.conform-nvim = {
       enable = true;
       settings = {

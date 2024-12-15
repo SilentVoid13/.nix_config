@@ -1,4 +1,5 @@
 {
+  pkgs,
   config,
   myconf,
   ...
@@ -30,10 +31,21 @@ in {
 
     oh-my-zsh = {
       enable = true;
-      plugins = ["z" "tmux" "git"];
+      plugins = [
+        "z"
+        "tmux"
+        "git"
+      ];
       custom = "${config.xdg.configHome}/${omz_dir}";
       theme = "mytheme";
     };
+    plugins = [
+      {
+        name = "vi-mode";
+        src = pkgs.zsh-vi-mode;
+        file = "share/zsh-vi-mode/zsh-vi-mode.plugin.zsh";
+      }
+    ];
 
     dirHashes = {
       h = "$HOME/H";
@@ -66,12 +78,16 @@ in {
     };
 
     # TODO: move to /usr/bin/sway thing on non-nixos
-    profileExtra = /*bash*/ ''
-      if [ -z $DISPLAY ] && [ "$(tty)" = "/dev/tty1" ]; then
-          exec sway --unsupported-gpu
-          #exec Hyprland
-      fi
-    '';
+    profileExtra =
+      /*
+      bash
+      */
+      ''
+        if [ -z $DISPLAY ] && [ "$(tty)" = "/dev/tty1" ]; then
+            exec sway --unsupported-gpu
+            #exec Hyprland
+        fi
+      '';
   };
 
   programs.direnv = {

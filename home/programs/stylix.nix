@@ -59,9 +59,7 @@
       };
       monospace = {
         name = "Iosevka Nerd Font Mono";
-        #package = pkgs.nerd-fonts.iosevka;
-        # FIXME: remove this, it currently crashes foot
-        package = pkgs-stable.nerdfonts.override {fonts = ["Iosevka"];};
+        package = pkgs.nerd-fonts.iosevka;
       };
       sansSerif = {
         name = "DejaVuSansM Nerd Font";

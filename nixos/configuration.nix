@@ -1,7 +1,6 @@
 {
   myconf,
   pkgs,
-  pkgs-stable,
   ...
 }: {
   i18n.defaultLocale = "en_US.UTF-8";
@@ -22,9 +21,7 @@
       # Custom fonts
       terminus_font
       #iosevka
-      #nerd-fonts.iosevka
-      # FIXME: remove this, it currently crashes foot
-      (pkgs-stable.nerdfonts.override {fonts = ["Iosevka"];})
+      nerd-fonts.iosevka
       ubuntu_font_family
     ];
   };

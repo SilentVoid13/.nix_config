@@ -16,6 +16,7 @@
           markdown_inline
           vim
           vimdoc
+          svelte
         ];
 
         settings = {

@@ -1,6 +1,7 @@
 {
   config,
   pkgs,
+  pkgs-stable,
   lib,
   myconf,
   wayland-pipewire-idle-inhibit,
@@ -54,7 +55,9 @@ in {
     playerctl
     grim
     slurp
-    wbg
+    # FIXME: wait for fix to land
+    # https://github.com/NixOS/nixpkgs/pull/372792
+    pkgs-stable.wbg
     xdg-utils
     networkmanagerapplet
     pulseaudio

@@ -12,7 +12,11 @@ in {
       lsp = {
         enable = true;
         capabilities = '''';
-        onAttach = /* lua */ ''
+        onAttach =
+          /*
+          lua
+          */
+          ''
             if client.supports_method("textDocument/formatting") then
                 vim.api.nvim_create_autocmd('BufWritePre', {
                     buffer = bufnr,
@@ -21,7 +25,7 @@ in {
                     end,
                 })
             end
-        '';
+          '';
         keymaps = {
           silent = true;
           lspBuf = {
@@ -130,8 +134,10 @@ in {
       copilot-cmp.enable = true;
       copilot-lua = {
         enable = true;
-        panel.enabled = false;
-        suggestion.enabled = false;
+        settings = {
+          suggestion.enabled = false;
+          panel.enabled = false;
+        };
       };
       cmp_luasnip.enable = true;
 

@@ -38,5 +38,6 @@
     ./programs/waybar.nix
     ./services/dunst.nix
     ./services/darkman.nix
+    ./services/syncthing.nix
   ];
 }

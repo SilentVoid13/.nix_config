@@ -16,7 +16,7 @@
     ./programs/steam.nix
     ./programs/superprod.nix
 
-    ##  Terminal
+    ## Terminal
     ./programs/git
     ./programs/ssh.nix
     #./programs/alacritty.nix
@@ -38,5 +38,6 @@
     ./programs/waybar.nix
     ./services/dunst.nix
     ./services/darkman.nix
+    ./services/syncthing.nix
   ];
 }

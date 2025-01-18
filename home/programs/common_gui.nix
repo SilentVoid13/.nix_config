@@ -4,7 +4,6 @@
   ...
 }: {
   home.packages = with pkgs; [
-    (nixGLWrap wdisplays)
     qalculate-gtk
     (nixGLWrap okular)
     (nixGLWrap obsidian)
@@ -16,6 +15,7 @@
     vesktop
     gnome-pomodoro
     stremio
+    nwg-displays
 
     # temp
     spotify

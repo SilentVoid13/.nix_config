@@ -75,6 +75,7 @@ in {
       zettel = "date +%Y%m%d%H%M";
       crr = "cargo run --release";
       sshp = "ssh -o PreferredAuthentications=password -o PubkeyAuthentication=no ";
+      gll = "git stash && git pull && git stash pop";
     };
 
     # TODO: move to /usr/bin/sway thing on non-nixos

@@ -12,6 +12,7 @@
     libsecret
     fontconfig
     freetype
+    openssl
     xorg.libX11.out
     xorg.xcbutilwm.out
     xorg.xcbutilimage.out

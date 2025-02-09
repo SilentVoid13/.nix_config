@@ -3,7 +3,7 @@
 if [[ $# -eq 1 ]]; then
     selected=$1
 else
-    selected=$(find ~/H/p ~/H/r -mindepth 1 -maxdepth 1 -type d | fzf)
+    selected=$(find ~/H/p ~/H/r ~/H/t -mindepth 1 -maxdepth 1 -type d | fzf)
 fi
 
 if [[ -z $selected ]]; then

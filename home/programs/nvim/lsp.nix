@@ -56,7 +56,8 @@ in {
           nixd = {enable = true;};
 
           # python
-          ruff_lsp = {enable = true;};
+          ruff = {enable = true;};
+          /*
           pylsp = {
             enable = true;
             settings.plugins = {
@@ -70,7 +71,6 @@ in {
               rope.enabled = true;
             };
           };
-          /*
           pylyzer = {
             enable = true;
             # TODO: remove this

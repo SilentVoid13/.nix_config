@@ -36,9 +36,16 @@
   #};
 
   ## steam config
-  programs.steam.enable = true;
-  programs.steam.gamescopeSession.enable = true;
+  programs.steam = {
+    enable = true;
+    extraPkgs = pkgs:
+      with pkgs; [
+        gamemode
+      ];
+  };
   programs.gamemode.enable = true;
+  # FIXME: doesn't work
+  #programs.steam.gamescopeSession.enable = true;
 
   services.xserver.videoDrivers = ["nvidia"];
 

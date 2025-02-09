@@ -55,9 +55,7 @@ in {
     playerctl
     grim
     slurp
-    # FIXME: wait for fix to land
-    # https://github.com/NixOS/nixpkgs/pull/372792
-    pkgs-stable.wbg
+    wbg
     xdg-utils
     networkmanagerapplet
     pulseaudio

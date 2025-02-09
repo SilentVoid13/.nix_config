@@ -4,9 +4,9 @@
     #steam
     # NOTE: GameMode depends on root-level capabilities that aren't available in a user-level Nix package installation
     #gamemode
+    #gamescope
 
     steam-run
-    gamescope
     # for proton-ge
     protonup
   ];

@@ -11,6 +11,7 @@
     ./programs/firefox.nix
     ./programs/binaryninja
     ./programs/ida
+    ./programs/ghidra.nix
     ./programs/caido
     ./programs/mpv.nix
     #./programs/steam.nix

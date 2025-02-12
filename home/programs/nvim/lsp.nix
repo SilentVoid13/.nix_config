@@ -46,8 +46,6 @@ in {
             installCargo = false;
             installRustc = false;
             settings = {
-              # FIXME: re-enable when rust_analyzer is fixed
-              procMacro.enable = false;
               check.command = "clippy";
             };
           };

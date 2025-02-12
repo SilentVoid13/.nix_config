@@ -22,11 +22,6 @@
         (self: super: {
             lldb = pkgs-stable.lldb;
         })
-
-        # FIXME: currently broken by python310Packages.mistune
-        (self: super: {
-            nwg-displays = pkgs-stable.nwg-displays;
-        })
       ]
       ++ (
         if nurpkgs != null

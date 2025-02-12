@@ -35,6 +35,9 @@
         "gfx.canvas.accelerated.cache-size" = 512;
         "gfx.content.skia-font-cache-size" = 20;
         "media.memory_cache_max_size" = 65536;
+
+        # fixes occasional blurriness on wayland
+        "widget.wayland.fractional-scale.enabled" = true;
       };
       arkenfox = {
         enable = true;

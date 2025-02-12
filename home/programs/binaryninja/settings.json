@@ -1,7 +1,9 @@
 {
-	"corePlugins.debugger" : true,
-	"ui.components.enabled" : true,
-	"ui.featureMap.location" : "top",
-	"ui.middleClickNavigationAction" : "NewTab",
-	"ui.middleClickShiftNavigationAction" : "NewPane"
+  "corePlugins.debugger": true,
+  "ui.components.enabled": true,
+  "ui.featureMap.location": "top",
+  "ui.middleClickNavigationAction": "NewTab",
+  "ui.middleClickShiftNavigationAction": "NewPane",
+  "ui.view.symbols.showExportedDataVariables": true,
+  "ui.view.symbols.showLocalDataVariables": true
 }

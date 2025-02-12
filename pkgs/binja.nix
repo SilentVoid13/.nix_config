@@ -3,15 +3,14 @@ pkgs.buildFHSEnv {
   name = "binaryninja";
   targetPkgs = pkgs:
     with pkgs; [
+      autoPatchelfHook
+      makeWrapper
+
       dbus
       fontconfig
       freetype
       libGL
       libxkbcommon
-      (pkgs.python3.withPackages (python-pkgs: [
-        python-pkgs.pip
-        python-pkgs.lz4
-      ]))
       xorg.libX11
       xorg.libxcb
       xorg.xcbutilimage
@@ -21,6 +20,11 @@ pkgs.buildFHSEnv {
       wayland
       zlib
       libxml2
+      qt6.full
+      qt6.qtbase
+      glib
+
+      python3.pkgs.wrapPython
 
       # useful headers
       openssl.dev

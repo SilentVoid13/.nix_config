@@ -1,5 +1,6 @@
 {
   "corePlugins.debugger": true,
+  "corePlugins.warp": true,
   "ui.components.enabled": true,
   "ui.featureMap.location": "top",
   "ui.middleClickNavigationAction": "NewTab",

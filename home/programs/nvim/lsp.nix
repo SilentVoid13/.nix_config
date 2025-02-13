@@ -8,6 +8,7 @@
   md_link_pattern = helpers.mkRaw ''[[\(\k\| \|\/\|#\|-\)\+]]'';
 in {
   programs.nixvim = {
+    nixpkgs.useGlobalPackages = true;
     plugins = {
       lsp = {
         enable = true;
@@ -59,6 +60,7 @@ in {
           pylsp = {
             enable = true;
             settings.plugins = {
+              ruff.enabled = true;
               jedi = {
                 extra_paths = [
                   "${config.home.homeDirectory}/binaryninja/python"

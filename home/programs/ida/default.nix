@@ -3,6 +3,13 @@
   config,
   ...
 }: let
+  python = pkgs.python3.withPackages (ps:
+    with ps; [
+      toml
+      pip
+      pyelftools
+    ]);
+
   deps = with pkgs; [
     stdenv.cc.cc
     libglvnd
@@ -13,23 +20,22 @@
     fontconfig
     freetype
     openssl
-    xorg.libX11.out
-    xorg.xcbutilwm.out
-    xorg.xcbutilimage.out
-    xorg.libxcb.out
-    xorg.xcbutilrenderutil.out
-    xorg.xcbutilkeysyms.out
+    xorg.libX11
+    xorg.xcbutilwm
+    xorg.xcbutilimage
+    xorg.libxcb
+    xorg.xcbutilrenderutil
+    xorg.xcbutilkeysyms
     xorg.xcbutilerrors
-    xorg.xcbutil.out
-    xorg.xcbproto.out
-    xorg.libSM.out
-    xorg.libICE.out
+    xorg.xcbutil
+    xorg.xcbproto
+    xorg.libSM
+    xorg.libICE
     wayland
-    libxkbcommon.out
+    libxkbcommon
     dbus.lib
 
-    python311.out
-    python311Packages.qtconsole.out
+    python
   ];
   ld_libs = pkgs.lib.makeLibraryPath deps;
   ifolder = "${config.home.homeDirectory}/ida-pro";
@@ -37,15 +43,20 @@
     pkgs.writeShellScriptBin name ''
       export NIX_LD="${pkgs.stdenv.cc.bintools.dynamicLinker}"
       export NIX_LD_LIBRARY_PATH="${ld_libs}"
-      #export QT_QPA_PLATFORM_PLUGIN_PATH="${pkgs.qt5.qtbase.bin}/lib/qt-${pkgs.qt5.qtbase.version}/plugins/platforms";
       export QT_QPA_PLATFORM_PLUGIN_PATH="${pkgs.qt5.full}/lib/qt-${pkgs.qt5.qtbase.version}/plugins/platforms";
+
+      # for plugins
+      export PATH="${python}/bin:$PATH"
+      export PYTHONPATH="${python}/lib/python3.12/site-packages:$PYTHONPATH"
+
+      which python
 
       if ! command -v firejail &>/dev/null
       then
           echo -e "firejail not found."
           exit 1
       fi
-      firejail --net=none -- "${ifolder}/${name}"
+      firejail --net=none -- "${ifolder}/ida"
     '';
 in {
   home.packages = [
@@ -57,7 +68,7 @@ in {
     "ida" = {
       name = "IDA";
       exec = "ida %u";
-      icon = "${config.home.homeDirectory}/${ifolder}/appico.png";
+      icon = "${ifolder}/appico.png";
       mimeType = [];
       categories = ["Utility"];
       type = "Application";

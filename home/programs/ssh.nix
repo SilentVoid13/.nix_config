@@ -5,6 +5,7 @@
 in {
   programs.ssh = {
     enable = true;
+    includes = [ "${home}/.ssh/1Password/config" ];
     extraConfig = ''
       IdentityAgent "${sockPath}"
     '';
@@ -20,7 +21,7 @@ in {
   };
 
   # https://github.com/nix-community/home-manager/issues/322
-  # still not fixed, workaround
+  # FIXME: workaround
   home.file.".ssh/config" = {
     target = ".ssh/config_source";
     onChange = ''cat ~/.ssh/config_source > ~/.ssh/config && chmod 400 ~/.ssh/config'';

@@ -83,6 +83,7 @@ in {
           # js/ts
           ts_ls = {enable = true;};
           svelte = {enable = true;};
+          tailwindcss = {enable = true;};
         };
       };
 

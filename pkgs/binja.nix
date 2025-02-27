@@ -41,7 +41,7 @@ in
       # allows pip install for plugins
       export PATH="${python}/bin:$PATH"
       export PYTHONPATH="${python}/lib/python3.12/site-packages:$PYTHONPATH"
-      exec "$HOME/binaryninja/binaryninja" "$@"
+      "$HOME/binaryninja/binaryninja" "$@"
     '';
     meta = {
       description = "BinaryNinja";

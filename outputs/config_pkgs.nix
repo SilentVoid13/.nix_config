@@ -13,11 +13,6 @@
           rust-analyzer = pkgs-stable.rust-analyzer;
         })
 
-        # FIXME: broken "gen" keyword in rust
-        (self: super: {
-          vimPlugins = pkgs-stable.vimPlugins;
-        })
-
         # FIXME: broken, doesn't compile
         (self: super: {
           lldb = pkgs-stable.lldb;

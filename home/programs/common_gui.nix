@@ -5,7 +5,7 @@
 }: {
   home.packages = with pkgs; [
     qalculate-gtk
-    (nixGLWrap okular)
+    (nixGLWrap kdePackages.okular)
     (nixGLWrap obsidian)
     mullvad-vpn
     onlyoffice-bin
@@ -18,8 +18,6 @@
     nwg-displays
 
     # temp
-    spotify
-    tidal-hifi
     obs-studio
     vlc
     stretchly

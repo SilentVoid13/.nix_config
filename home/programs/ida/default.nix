@@ -1,9 +1,10 @@
 {
   pkgs,
+  pkgs-stable,
   config,
   ...
 }: let
-  python = pkgs.python3.withPackages (ps:
+  python = pkgs-stable.python312.withPackages (ps:
     with ps; [
       toml
       pip

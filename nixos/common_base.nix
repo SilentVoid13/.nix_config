@@ -76,7 +76,8 @@
     # Thumbnail support for images
     tumbler.enable = true;
     # VPN
-    mullvad-vpn.enable = true;
+    # FIXME: https://github.com/NixOS/nixpkgs/issues/385996
+    #mullvad-vpn.enable = true;
     # Flatpak
     flatpak.enable = true;
     kanata = {

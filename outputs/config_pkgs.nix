@@ -8,11 +8,6 @@
     config.allowUnfree = true;
     overlays =
       [
-        # FIXME: remove tmp fix
-        (self: super: {
-          rust-analyzer = pkgs-stable.rust-analyzer;
-        })
-
         # FIXME: broken, doesn't compile
         (self: super: {
           lldb = pkgs-stable.lldb;

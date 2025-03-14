@@ -2,7 +2,7 @@
   xdg = {
     enable = true;
     configFile."rustfmt/rustfmt.toml".text = ''
-      edition = "2021"
+      edition = "2024"
     '';
   };
 }

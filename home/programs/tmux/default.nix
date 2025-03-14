@@ -29,6 +29,10 @@ in {
     shell = "${pkgs.zsh}/bin/zsh";
     historyLimit = 5000;
 
+    plugins = [
+      pkgs.tmuxPlugins.extrakto
+    ];
+
     # maybe
     # set-window-option -g xterm-keys on
 

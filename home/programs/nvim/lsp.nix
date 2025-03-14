@@ -44,6 +44,7 @@ in {
           clangd = {enable = true;};
           rust_analyzer = {
             enable = true;
+            package = pkgs.emptyFile;
             installCargo = false;
             installRustc = false;
             settings = {

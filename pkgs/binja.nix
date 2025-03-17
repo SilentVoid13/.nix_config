@@ -1,5 +1,5 @@
 {pkgs}: let
-  python = pkgs.python3.withPackages (p: with p; [pip torch]);
+  python = pkgs.python3.withPackages (p: with p; [pip torch pyperclip]);
 in
   pkgs.buildFHSEnv {
     name = "binaryninja";

@@ -78,6 +78,27 @@ in {
       gll = "git stash && git pull && git stash pop";
     };
 
+    initExtra = ''
+      env_shell() {
+        cp ${./base_shell.nix} shell.nix
+        chmod 644 shell.nix
+        echo 'use nix' > .envrc
+        direnv allow
+      }
+      env_fhs() {
+        cp ${./base_fhs.nix} shell.nix
+        chmod 644 shell.nix
+        echo 'use nix' > .envrc
+        direnv allow
+      }
+      env_flake() {
+        cp ${./base_flake.nix} flake.nix
+        chmod 644 flake.nix
+        echo 'use flake' > .envrc
+        direnv allow
+      }
+    '';
+
     # TODO: move to /usr/bin/sway thing on non-nixos
     profileExtra =
       /*

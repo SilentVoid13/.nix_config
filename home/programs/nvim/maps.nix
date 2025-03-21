@@ -34,6 +34,14 @@
         action = "\"+y";
       }
       {
+        # replace all occurences for visual selection
+        # uses neovim v_star-default search
+        mode = "x";
+        key = "<leader>rp";
+        action = "*N:%s/<C-r>h//gc<left><left><left>";
+        options.remap = true;
+      }
+      {
         # tmp buffer
         # FIXME: this is not working
         mode = "v";

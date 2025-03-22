@@ -43,10 +43,9 @@
       }
       {
         # tmp buffer
-        # FIXME: this is not working
-        mode = "v";
-        key = "<leader>t";
-        action = "<cmd>enew<CR>";
+        mode = "";
+        key = "<leader>tp";
+        action = "<cmd>edit /tmp/buffer.txt<CR>";
       }
     ];
   };

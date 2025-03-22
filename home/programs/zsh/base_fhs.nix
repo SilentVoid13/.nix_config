@@ -1,5 +1,5 @@
 { pkgs ? import <nixpkgs> {} }:
-(pkgs.buildFHSUserEnv {
+(pkgs.buildFHSEnv {
     name = "fhs_env";
     targetPkgs = pkgs: with pkgs; [];
 }).env

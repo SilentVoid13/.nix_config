@@ -16,6 +16,7 @@
     ./fugitive.nix
     ./debugprint.nix
     ./oil.nix
+    ./comment.nix
     ./todo_comments.nix
     #./sov
     #./obsidian

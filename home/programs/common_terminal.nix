@@ -21,6 +21,8 @@
     python3
     appimage-run
     steam-run
+    magic-wormhole
+    rogcat
 
     ## hardware
     lshw

@@ -1,5 +1,7 @@
 ## PERSONAL
 RESOURCES.md
+.direnv
+.envrc
 
 ## VIM
 [._]*.s[a-v][a-z]

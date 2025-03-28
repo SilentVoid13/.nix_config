@@ -56,7 +56,7 @@
         "5000"."5003".enable = true;
       };
       search = {
-        default = "DuckDuckGo";
+        default = "ddg";
         force = true;
       };
       #extensions = with pkgs.nur.repos.rycee.firefox-addons; [

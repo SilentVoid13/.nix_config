@@ -88,52 +88,78 @@ in {
         };
       };
 
-      cmp = {
+      # cmp = {
+      #   enable = true;
+      #   settings = {
+      #     mapping = {
+      #       "<C-b>" = "cmp.mapping.scroll_docs(-4)";
+      #       "<C-f>" = "cmp.mapping.scroll_docs(4)";
+      #       "<C-Space>" = "cmp.mapping.complete()";
+      #       "<C-n>" = "cmp.mapping(cmp.mapping.select_next_item(), {'i', 's'})";
+      #       "<C-p>" = "cmp.mapping(cmp.mapping.select_prev_item(), {'i', 's'})";
+      #       #"<C-k>" = ''function() if require("luasnip").expand_or_jumpable() then require("luasnip").expand_or_jump() end end'';
+      #       #"<C-j>" = ''function() if require("luasnip").jumpable(-1) then require("luasnip").jump(-1) end end'';
+      #       #"<C-l>" = ''function() if require("luasnip").choice_active() then require("luasnip").change_choice(1) end end'';
+      #       "<CR>" = "cmp.mapping.confirm({ select = true })";
+      #       "<C-y>" = "cmp.config.disable";
+      #       "<C-e>" = "cmp.mapping({ i = cmp.mapping.abort(), c = cmp.mapping.close() })";
+      #     };
+      #     sources = [
+      #       {
+      #         name = "nvim_lsp";
+      #         option = {
+      #           zk.keyword_pattern = md_link_pattern;
+      #           sov.keyword_pattern = md_link_pattern;
+      #           markdown_oxide.keyword_pattern = md_link_pattern;
+      #         };
+      #       }
+      #       {name = "buffer";}
+      #       {name = "path";}
+      #       {name = "luasnip";}
+      #       {name = "copilot";}
+      #     ];
+      #     snippet = {
+      #       expand =
+      #         /*
+      #         lua
+      #         */
+      #         ''
+      #           function(args)
+      #               require('luasnip').lsp_expand(args.body)
+      #           end'';
+      #     };
+      #   };
+      # };
+      # cmp-nvim-lsp.enable = true;
+      # cmp-buffer.enable = true;
+      # cmp-path.enable = true;
+      # copilot-cmp.enable = true;
+      # cmp_luasnip.enable = true;
+
+      blink-cmp = {
         enable = true;
         settings = {
-          mapping = {
-            "<C-b>" = "cmp.mapping.scroll_docs(-4)";
-            "<C-f>" = "cmp.mapping.scroll_docs(4)";
-            "<C-Space>" = "cmp.mapping.complete()";
-            "<C-n>" = "cmp.mapping(cmp.mapping.select_next_item(), {'i', 's'})";
-            "<C-p>" = "cmp.mapping(cmp.mapping.select_prev_item(), {'i', 's'})";
-            #"<C-k>" = ''function() if require("luasnip").expand_or_jumpable() then require("luasnip").expand_or_jump() end end'';
-            #"<C-j>" = ''function() if require("luasnip").jumpable(-1) then require("luasnip").jump(-1) end end'';
-            #"<C-l>" = ''function() if require("luasnip").choice_active() then require("luasnip").change_choice(1) end end'';
-            "<CR>" = "cmp.mapping.confirm({ select = true })";
-            "<C-y>" = "cmp.config.disable";
-            "<C-e>" = "cmp.mapping({ i = cmp.mapping.abort(), c = cmp.mapping.close() })";
-          };
-          sources = [
-            {
-              name = "nvim_lsp";
-              option = {
-                zk.keyword_pattern = md_link_pattern;
-                sov.keyword_pattern = md_link_pattern;
-                markdown_oxide.keyword_pattern = md_link_pattern;
-              };
-            }
-            {name = "buffer";}
-            {name = "path";}
-            {name = "luasnip";}
-            {name = "copilot";}
-          ];
-          snippet = {
-            expand =
-              /*
-              lua
-              */
-              ''
-                function(args)
-                    require('luasnip').lsp_expand(args.body)
-                end'';
+          keymap.preset = "enter";
+          snippets.preset = "luasnip";
+          sources = {
+            providers.copilot = {
+              async = true;
+              module = "blink-cmp-copilot";
+              name = "copilot";
+              score_offset = 100;
+            };
+            default = [
+              "lsp"
+              "path"
+              "snippets"
+              "buffer"
+              "copilot"
+            ];
           };
         };
       };
-      cmp-nvim-lsp.enable = true;
-      cmp-buffer.enable = true;
-      cmp-path.enable = true;
-      copilot-cmp.enable = true;
+      blink-cmp-copilot.enable = true;
+
       copilot-lua = {
         enable = true;
         settings = {
@@ -141,7 +167,6 @@ in {
           panel.enabled = false;
         };
       };
-      cmp_luasnip.enable = true;
 
       luasnip = {
         enable = true;

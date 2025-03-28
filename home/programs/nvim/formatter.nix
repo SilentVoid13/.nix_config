@@ -6,8 +6,6 @@
   helpers = import ./helpers.nix {inherit lib;};
   ft = formatter: helpers.mkRaw "require('formatter.filetypes').${formatter}";
 in {
-  # TODO: add dependencies to common_toolchain?
-
   home.packages = with pkgs; [
     black
     isort

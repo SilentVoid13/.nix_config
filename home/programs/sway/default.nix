@@ -191,8 +191,8 @@ in {
           # layout
           #"${m}+v" = "split v";
           #"${m}+Shift+v" = "split h";
-          #"${m}+s" = "layout stacking";
-          #"${m}+t" = "layout tabbed";
+          "${m}+w" = "layout stacking";
+          "${m}+t" = "layout tabbed";
           #"${m}+e" = "layout toggle split";
 
           # workspaces

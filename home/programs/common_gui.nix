@@ -20,6 +20,5 @@
     # temp
     obs-studio
     vlc
-    stretchly
   ];
 }

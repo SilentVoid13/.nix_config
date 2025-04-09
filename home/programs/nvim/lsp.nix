@@ -9,6 +9,16 @@
 in {
   programs.nixvim = {
     nixpkgs.useGlobalPackages = true;
+    diagnostics = {
+      virtual_text = {
+        severity.min = "warn";
+        source = "if_many";
+      };
+      # virtual_lines = {
+      #   current_line = true;
+      # };
+    };
+
     plugins = {
       lsp = {
         enable = true;

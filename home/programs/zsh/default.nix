@@ -97,6 +97,12 @@ in {
         echo 'use flake' > .envrc
         direnv allow
       }
+      env_rust() {
+        cp ${./base_rust.nix} flake.nix
+        chmod 644 flake.nix
+        echo 'use flake' > .envrc
+        direnv allow
+      }
     '';
 
     # TODO: move to /usr/bin/sway thing on non-nixos

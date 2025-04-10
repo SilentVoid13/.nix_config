@@ -191,9 +191,9 @@ in {
           # layout
           #"${m}+v" = "split v";
           #"${m}+Shift+v" = "split h";
-          "${m}+w" = "layout stacking";
-          "${m}+t" = "layout tabbed";
-          #"${m}+e" = "layout toggle split";
+          "${m}+t" = "layout stacking";
+          "${m}+w" = "layout toggle split";
+          #"${m}+t" = "layout tabbed";
 
           # workspaces
           "${m}+a" = "workspace number ${ws1}";

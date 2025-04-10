@@ -3,8 +3,6 @@
     ## Common
     ./programs/common_terminal.nix
     ./programs/common_gui.nix
-    ./programs/common_toolchain.nix
-    ./programs/common_hacking.nix
 
     ## GUI
     #./programs/brave.nix

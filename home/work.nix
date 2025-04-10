@@ -3,8 +3,6 @@
     ## Common
     ./programs/common_terminal.nix
     ./programs/common_gui.nix
-    ./programs/common_toolchain.nix
-    ./programs/common_hacking.nix
 
     ## GUI
     #./programs/brave.nix
@@ -33,7 +31,6 @@
     ./programs/stylix.nix
     ./programs/sway
     #./programs/hyprland
-
     #./programs/wofi.nix
     ./programs/fuzzel.nix
     ./programs/waybar.nix

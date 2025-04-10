@@ -31,8 +31,8 @@
   hardware.bluetooth.enable = true;
 
   networking.extraHosts = ''
-    207.180.211.147 contabo
     192.168.0.99 homelab
+    ${myconf.extra_hosts}
   '';
 
   nix = {

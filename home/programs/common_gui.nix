@@ -5,7 +5,8 @@
 }: {
   home.packages = with pkgs; [
     qalculate-gtk
-    (nixGLWrap kdePackages.okular)
+    (nixGLWrap kdePackages.okular) # pdf viewer
+    qimgv # image viewer
     (nixGLWrap obsidian)
     mullvad-vpn
     onlyoffice-bin

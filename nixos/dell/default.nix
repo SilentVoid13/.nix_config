@@ -21,19 +21,6 @@
   };
 
   powerManagement.cpuFreqGovernor = "performance";
-  #services.auto-cpufreq = {
-  #  enable = true;
-  #  settings = {
-  #    battery = {
-  #      governor = "powersave";
-  #      turbo = "auto";
-  #    };
-  #    charger = {
-  #      governor = "performance";
-  #      turbo = "auto";
-  #    };
-  #  };
-  #};
 
   ## steam config
   programs.steam = {

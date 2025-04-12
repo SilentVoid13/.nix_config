@@ -67,6 +67,18 @@ in {
 
           # python
           ruff = {enable = true;};
+          basedpyright = {
+            enable = true;
+            settings.analysis = {
+              autoImportCompletions = true;
+              autoSearchPaths = true;
+              diagnosticMode = "workspace";
+              extraPaths = [
+                "${config.home.homeDirectory}/binaryninja/python"
+                "${config.home.homeDirectory}/binaryninja/python3"
+              ];
+            };
+          };
           /*
           pylsp = {
             enable = true;

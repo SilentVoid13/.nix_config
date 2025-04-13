@@ -9,11 +9,15 @@
     ./telescope.nix
     ./treesitter.nix
 
-    # formatter
+    ## formatter
     #./formatter.nix
     ./conform.nix
 
+    ## git
     ./fugitive.nix
+    ./gitsigns.nix
+    #./neogit.nix
+
     ./debugprint.nix
     ./oil.nix
     ./comment.nix

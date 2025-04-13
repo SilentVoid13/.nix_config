@@ -1,11 +1,10 @@
 {...}: let
 in {
   programs.nixvim = {
-    plugins.fugitive = {
-      enable = true;
-    };
+    plugins.fugitive.enable = true;
 
     keymaps = [
+      # fugitive
       {
         mode = "n";
         key = "<leader>gs";
@@ -23,8 +22,13 @@ in {
       }
       {
         mode = "n";
-        key = "<leader>gt";
-        action = "<cmd>tab Git push -u origin<CR>";
+        key = "<leader>go";
+        action = "<cmd>tabnew|Gclog<CR>";
+      }
+      {
+        mode = "n";
+        key = "<leader>gm";
+        action = "<cmd>Git mergetool<CR>";
       }
     ];
   };

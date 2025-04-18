@@ -9,7 +9,6 @@
 
   programs.firefox = {
     enable = true;
-    package = pkgs.firefox-wayland;
     arkenfox = {
       enable = true;
       version = "133.0";

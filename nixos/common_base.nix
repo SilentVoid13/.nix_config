@@ -20,7 +20,8 @@
     };
     loader.systemd-boot.enable = lib.mkForce false;
     # use bleeding edge kernel
-    kernelPackages = pkgs.linuxPackages_latest;
+    #kernelPackages = pkgs.linuxPackages_latest;
+    kernelPackages = pkgs.linuxPackages_zen;
     supportedFilesystems = ["ntfs"];
   };
 

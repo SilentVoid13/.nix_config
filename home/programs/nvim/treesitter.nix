@@ -21,7 +21,11 @@
 
         settings = {
           ensure_installed = [];
-          highlight.enable = true;
+          highlight = {
+              enable = true;
+              # https://github.com/nvim-treesitter/nvim-treesitter/issues/1573
+              additional_vim_regex_highlighting = [ "python" ];
+          };
         };
       };
       treesitter-context = {

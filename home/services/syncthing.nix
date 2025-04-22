@@ -19,6 +19,7 @@
       folders = {
         "knowledge_base" = {
           path = myconf.knowledge_base;
+          devices = [ "pixel7a" "faye" "jet" ];
         };
       };
     };

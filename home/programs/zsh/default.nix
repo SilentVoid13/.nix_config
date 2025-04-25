@@ -98,8 +98,13 @@ in {
         direnv allow
       }
       env_rust() {
+        # kind of ugly but it's for naersk to be happy
+        nix-shell -p cargo --run "cargo init && cargo generate-lockfile"
+        git add Cargo.toml Cargo.lock 
+
         cp ${./base_rust.nix} flake.nix
         chmod 644 flake.nix
+        git add flake.nix
         echo 'use flake' > .envrc
         direnv allow
       }

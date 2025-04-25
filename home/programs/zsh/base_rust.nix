@@ -35,9 +35,10 @@
             default.clippy
             default.rustfmt
             pkgs.rust-analyzer
-            targets.x86_64-unknown-linux-musl.latest.rust-std
-            targets.x86_64-pc-windows-gnu.latest.rust-std
-            targets.aarch64-unknown-linux-musl.latest.rust-std
+            # targets.x86_64-unknown-linux-musl.latest.rust-std
+            # targets.aarch64-unknown-linux-musl.latest.rust-std
+            # targets.x86_64-pc-windows-gnu.latest.rust-std
+            # targets.aarch64-linux-android.latest.rust-std
           ];
 
         naersk' = naersk.lib.${system}.override {
@@ -73,36 +74,48 @@
               ]);
         };
 
-        packages.x86_64-unknown-linux-musl = naerskBuildPackageT "x86_64-unknown-linux-musl" {
-          src = ./.;
-          #doCheck = true;
-          nativeBuildInputs = with pkgs; [pkgsStatic.stdenv.cc];
-          buildInputs = fnBuildInputs pkgs.pkgsCross.musl64.pkgsStatic;
-        };
+        # packages.x86_64-unknown-linux-musl = naerskBuildPackageT "x86_64-unknown-linux-musl" {
+        #   src = ./.;
+        #   #doCheck = true;
+        #   nativeBuildInputs = with pkgs; [pkgsStatic.stdenv.cc];
+        #   buildInputs = fnBuildInputs pkgs.pkgsCross.musl64.pkgsStatic;
+        # };
 
-        packages.aarch64-unknown-linux-musl = with pkgs.pkgsCross.aarch64-multiplatform-musl;
-          naerskBuildPackageT "aarch64-unknown-linux-musl" {
-            src = ./.;
-            strictDeps = true;
-            depsBuildBuild = [
-              stdenv.cc
-            ];
-            "CC_aarch64_unknown_linux_musl" = "${stdenv.cc}/bin/${stdenv.cc.targetPrefix}cc";
-            "CARGO_TARGET_AARCH64_UNKNOWN_LINUX_MUSL_LINKER" = "${stdenv.cc}/bin/${stdenv.cc.targetPrefix}cc";
-            buildInputs = fnBuildInputs pkgsStatic;
-          };
+        # packages.aarch64-unknown-linux-musl = with pkgs.pkgsCross.aarch64-multiplatform-musl;
+        #   naerskBuildPackageT "aarch64-unknown-linux-musl" {
+        #     src = ./.;
+        #     strictDeps = true;
+        #     depsBuildBuild = [
+        #       stdenv.cc
+        #     ];
+        #     "CC_aarch64_unknown_linux_musl" = "${stdenv.cc}/bin/${stdenv.cc.targetPrefix}cc";
+        #     "CARGO_TARGET_AARCH64_UNKNOWN_LINUX_MUSL_LINKER" = "${stdenv.cc}/bin/${stdenv.cc.targetPrefix}cc";
+        #     buildInputs = fnBuildInputs pkgsStatic;
+        #   };
 
-        packages.x86_64-pc-windows-gnu = naerskBuildPackageT "x86_64-pc-windows-gnu" {
-          src = ./.;
-          strictDeps = true;
-          #doCheck = true;
-          depsBuildBuild = with pkgs; [
-            pkgsCross.mingwW64.stdenv.cc
-            pkgsCross.mingwW64.windows.pthreads
-          ];
-          nativeBuildInputs = with pkgs; [];
-          buildInputs = fnBuildInputs pkgs.pkgsCross.mingwW64;
-        };
+        # packages.x86_64-pc-windows-gnu = naerskBuildPackageT "x86_64-pc-windows-gnu" {
+        #   src = ./.;
+        #   strictDeps = true;
+        #   #doCheck = true;
+        #   depsBuildBuild = with pkgs; [
+        #     pkgsCross.mingwW64.stdenv.cc
+        #     pkgsCross.mingwW64.windows.pthreads
+        #   ];
+        #   nativeBuildInputs = with pkgs; [];
+        #   buildInputs = fnBuildInputs pkgs.pkgsCross.mingwW64;
+        # };
+
+        # packages.aarch64-linux-android = with pkgs.pkgsCross.aarch64-android-prebuilt;
+        #   naerskBuildPackageT "aarch64-linux-android" {
+        #     src = ./.;
+        #     strictDeps = true;
+        #     depsBuildBuild = [
+        #       stdenv.cc
+        #     ];
+        #     "CC_aarch64_linux_android" = "${stdenv.cc}/bin/${stdenv.cc.targetPrefix}cc";
+        #     "CARGO_TARGET_AARCH64_LINUX_ANDROID_LINKER" = "${stdenv.cc}/bin/${stdenv.cc.targetPrefix}cc";
+        #     buildInputs = fnBuildInputs pkgsStatic;
+        #   };
 
         devShell = pkgs.mkShell (
           {

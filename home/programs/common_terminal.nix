@@ -23,6 +23,7 @@
     steam-run
     magic-wormhole
     rogcat
+    fd
 
     ## hardware
     lshw

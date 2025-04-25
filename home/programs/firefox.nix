@@ -11,7 +11,7 @@
     enable = true;
     arkenfox = {
       enable = true;
-      version = "133.0";
+      version = "135.0";
     };
     profiles."0" = {
       id = 0;
@@ -86,6 +86,7 @@
       #];
     };
     # NOTE: we need to use policies to be able to automatically pin and enable extensions
+    # NOTE: tool to find out extension id: https://github.com/tupakkatapa/mozid
     policies = {
       # extensions
       ExtensionSettings = {
@@ -135,6 +136,12 @@
         "{84601290-bec9-494a-b11c-1baa897a9683}" = {
           installation_mode = "normal_installed";
           install_url = "https://addons.mozilla.org/firefox/downloads/latest/ctrl-number-to-switch-tabs/latest.xpi";
+          updates_disabled = false;
+        };
+        # translate web pages
+        "{036a55b4-5e72-4d05-a06c-cba2dfcc134a}" = {
+          installation_mode = "normal_installed";
+          install_url = "https://addons.mozilla.org/firefox/downloads/latest/traduzir-paginas-web/latest.xpi";
           updates_disabled = false;
         };
         # bypass-paywalls

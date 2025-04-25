@@ -78,7 +78,7 @@ in {
       gll = "git stash && git pull && git stash pop";
     };
 
-    initExtra = ''
+    initContent = ''
       env_shell() {
         cp ${./base_shell.nix} shell.nix
         chmod 644 shell.nix

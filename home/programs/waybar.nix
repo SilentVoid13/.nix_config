@@ -1,4 +1,5 @@
-{...}: {
+{ ... }:
+{
   programs.waybar = {
     enable = true;
     # TODO: try to nixGL wrap?
@@ -11,11 +12,22 @@
         spacing = 15;
         #modules-left = ["hyprland/workspaces" "hyprland/submap"];
         #modules-center = ["hyprland/window"];
-        modules-left = ["sway/workspaces" "sway/mode"];
-        modules-center = ["sway/window"];
-        modules-right = ["idle_inhibitor" "pulseaudio" "disk" "memory" "cpu" "battery" "clock" "tray"];
+        modules-left = [
+          "sway/workspaces"
+          "sway/mode"
+        ];
+        modules-center = [ "sway/window" ];
+        modules-right = [
+          "idle_inhibitor"
+          "pulseaudio"
+          "disk"
+          "memory"
+          "cpu"
+          "battery"
+          "clock"
+          "tray"
+        ];
 
-    
         "sway/workspaces" = {
           disable-scroll = true;
         };
@@ -43,7 +55,13 @@
             "critical" = 15;
           };
           "format" = "{capacity}% {icon}";
-          "format-icons" = ["" "" "" "" ""];
+          "format-icons" = [
+            ""
+            ""
+            ""
+            ""
+            ""
+          ];
         };
         "pulseaudio" = {
           "scroll-step" = 5;
@@ -59,7 +77,10 @@
             "phone" = "";
             "portable" = "";
             "car" = "";
-            "default" = ["" ""];
+            "default" = [
+              ""
+              ""
+            ];
           };
           "on-click" = "pavucontrol";
         };

@@ -1,6 +1,8 @@
-{pkgs, ...}: let
+{ pkgs, ... }:
+let
   version = "0.44.1";
-in {
+in
+{
   home.packages = with pkgs; [
     caido
     #(import ../../../pkgs/caido_gui.nix {inherit pkgs version;})

@@ -51,41 +51,44 @@
     };
   };
 
-  outputs = {
-    nixpkgs,
-    nixpkgs-stable,
-    nurpkgs,
-    home-manager,
-    nixgl,
-    nixvim,
-    arkenfox,
-    lanzaboote,
-    disko,
-    stylix,
-    wayland-pipewire-idle-inhibit,
-    ...
-  }: let
-    myconf = import ./utils/myconf.nix {};
-  in {
-    homeConfigurations = import ./outputs/home.nix {
-      inherit nixpkgs;
-      inherit nixpkgs-stable;
-      inherit myconf;
-      inherit nurpkgs;
-      inherit home-manager;
-      inherit nixgl;
-      inherit nixvim;
-      inherit arkenfox;
-      inherit stylix;
-      inherit wayland-pipewire-idle-inhibit;
-    };
+  outputs =
+    {
+      nixpkgs,
+      nixpkgs-stable,
+      nurpkgs,
+      home-manager,
+      nixgl,
+      nixvim,
+      arkenfox,
+      lanzaboote,
+      disko,
+      stylix,
+      wayland-pipewire-idle-inhibit,
+      ...
+    }:
+    let
+      myconf = import ./utils/myconf.nix { };
+    in
+    {
+      homeConfigurations = import ./outputs/home.nix {
+        inherit nixpkgs;
+        inherit nixpkgs-stable;
+        inherit myconf;
+        inherit nurpkgs;
+        inherit home-manager;
+        inherit nixgl;
+        inherit nixvim;
+        inherit arkenfox;
+        inherit stylix;
+        inherit wayland-pipewire-idle-inhibit;
+      };
 
-    nixosConfigurations = import ./outputs/nixos.nix {
-      inherit nixpkgs;
-      inherit nixpkgs-stable;
-      inherit myconf;
-      inherit lanzaboote;
-      inherit disko;
+      nixosConfigurations = import ./outputs/nixos.nix {
+        inherit nixpkgs;
+        inherit nixpkgs-stable;
+        inherit myconf;
+        inherit lanzaboote;
+        inherit disko;
+      };
     };
-  };
 }

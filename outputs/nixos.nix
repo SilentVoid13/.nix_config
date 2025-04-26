@@ -5,12 +5,14 @@
   lanzaboote,
   disko,
   ...
-}: let
+}:
+let
   # TODO: do not hardcode system
   pkgs-stable = import nixpkgs-stable {
     system = "x86_64-linux";
   };
-in {
+in
+{
   dell = nixpkgs.lib.nixosSystem {
     system = "x86_64-linux";
     modules = [
@@ -66,6 +68,6 @@ in {
       })
       ../nixos/configuration_iso.nix
     ];
-    specialArgs = {};
+    specialArgs = { };
   };
 }

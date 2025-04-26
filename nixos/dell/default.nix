@@ -2,7 +2,8 @@
   pkgs,
   config,
   ...
-}: {
+}:
+{
   imports = [
     ./hardware-configuration.nix
     ../common_base.nix
@@ -22,16 +23,19 @@
   ## steam config
   programs.steam = {
     enable = true;
-    extraPkgs = pkgs:
-      with pkgs; [
-        gamemode
-      ];
+    package = pkgs.steam.override {
+      extraPkgs =
+        pkgs: with pkgs; [
+          gamemode
+        ];
+      extraLibraries = pkgs: [ pkgs.gperftools ];
+    };
   };
   programs.gamemode.enable = true;
   # FIXME: doesn't work
   #programs.steam.gamescopeSession.enable = true;
 
-  services.xserver.videoDrivers = ["nvidia"];
+  services.xserver.videoDrivers = [ "nvidia" ];
 
   hardware.nvidia = {
     # Modesetting is required.

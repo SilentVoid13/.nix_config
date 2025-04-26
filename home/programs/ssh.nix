@@ -1,8 +1,10 @@
-{config, myconf, ...}: let
+{ config, myconf, ... }:
+let
   # TODO: improve that
   home = config.home.homeDirectory;
   sockPath = "${home}/.1password/agent.sock";
-in {
+in
+{
   programs.ssh = {
     enable = true;
     includes = [ "${home}/.ssh/1Password/config" ];

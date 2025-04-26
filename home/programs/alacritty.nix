@@ -2,7 +2,8 @@
   pkgs,
   nixGLWrap,
   ...
-}: {
+}:
+{
   programs.alacritty = {
     enable = true;
     package = nixGLWrap pkgs.alacritty;

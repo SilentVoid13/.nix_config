@@ -1,4 +1,5 @@
-{pkgs, ...}: {
+{ pkgs, ... }:
+{
   home.packages = with pkgs; [
     # NOTE: steam can require some system-level permissions
     #steam
@@ -19,7 +20,10 @@
       name = "Steam Nvidia";
       exec = "nvidia-offload steam %U";
       icon = "steam";
-      mimeType = ["x-scheme-handler/steam" "x-scheme-handler/steamlink"];
+      mimeType = [
+        "x-scheme-handler/steam"
+        "x-scheme-handler/steamlink"
+      ];
       type = "Application";
       terminal = false;
     };

@@ -4,7 +4,8 @@
   stylix,
   config,
   ...
-}: {
+}:
+{
   imports = [
     stylix.homeManagerModules.stylix
   ];
@@ -71,7 +72,7 @@
       waybar.enable = true;
       nixvim.enable = false;
       foot.enable = false;
-      firefox.profileNames = ["0"];
+      firefox.profileNames = [ "0" ];
     };
   };
 }

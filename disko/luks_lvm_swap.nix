@@ -1,4 +1,5 @@
-{disk_name, ...}: {
+{ disk_name, ... }:
+{
   disko.devices = {
     disk = {
       main = {
@@ -14,7 +15,7 @@
                 type = "filesystem";
                 format = "vfat";
                 mountpoint = "/boot";
-                mountOptions = ["defaults"];
+                mountOptions = [ "defaults" ];
               };
             };
             luks = {
@@ -54,7 +55,7 @@
               type = "filesystem";
               format = "ext4";
               mountpoint = "/";
-              mountOptions = ["defaults"];
+              mountOptions = [ "defaults" ];
             };
           };
         };

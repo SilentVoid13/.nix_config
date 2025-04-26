@@ -4,7 +4,8 @@
   myconf,
   nixpkgs,
   ...
-}: {
+}:
+{
   #boot = {
   #  loader = {
   #    systemd-boot.enable = true;
@@ -22,7 +23,7 @@
     # use bleeding edge kernel
     #kernelPackages = pkgs.linuxPackages_latest;
     kernelPackages = pkgs.linuxPackages_zen;
-    supportedFilesystems = ["ntfs"];
+    supportedFilesystems = [ "ntfs" ];
   };
 
   hardware.graphics = {
@@ -38,7 +39,7 @@
 
   nix = {
     package = pkgs.nixVersions.latest;
-    settings.allowed-users = ["${myconf.username}"];
+    settings.allowed-users = [ "${myconf.username}" ];
     extraOptions = ''
       experimental-features = nix-command flakes
     '';
@@ -104,7 +105,7 @@
     _1password-gui = {
       enable = true;
       #package = pkgs._1password-gui-beta;
-      polkitPolicyOwners = ["${myconf.username}"];
+      polkitPolicyOwners = [ "${myconf.username}" ];
     };
     nix-ld.enable = true;
     adb.enable = true;
@@ -112,7 +113,7 @@
     dconf.enable = true;
     thunar = {
       enable = true;
-      plugins = with pkgs.xfce; [thunar-volman];
+      plugins = with pkgs.xfce; [ thunar-volman ];
     };
   };
 
@@ -147,17 +148,20 @@
   #security.pam.services.hyprlock = {};
 
   ## sway config
-  security.pam.services.swaylock = {};
+  security.pam.services.swaylock = { };
   #programs.sway.enable = true;
   xdg.portal = {
     enable = true;
     config.common = {
       # https://github.com/emersion/xdg-desktop-portal-wlr?tab=readme-ov-file#running
-      default = ["gtk"];
-      "org.freedesktop.impl.portal.Screenshot" = ["wlr"];
-      "org.freedesktop.impl.portal.Screencast" = ["wlr"];
+      default = [ "gtk" ];
+      "org.freedesktop.impl.portal.Screenshot" = [ "wlr" ];
+      "org.freedesktop.impl.portal.Screencast" = [ "wlr" ];
     };
     wlr.enable = true;
-    extraPortals = [pkgs.xdg-desktop-portal-wlr pkgs.xdg-desktop-portal-gtk];
+    extraPortals = [
+      pkgs.xdg-desktop-portal-wlr
+      pkgs.xdg-desktop-portal-gtk
+    ];
   };
 }

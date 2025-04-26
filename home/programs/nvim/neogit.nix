@@ -1,5 +1,7 @@
-{...}: let
-in {
+{ ... }:
+let
+in
+{
   programs.nixvim = {
     plugins.neogit = {
       enable = true;
@@ -7,8 +9,8 @@ in {
         disable_line_numbers = false;
         disable_relative_line_numbers = false;
         mappings.status = {
-            # like in fugitive
-            "=" = "Toggle";
+          # like in fugitive
+          "=" = "Toggle";
         };
       };
     };

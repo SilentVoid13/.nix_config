@@ -2,10 +2,12 @@
   config,
   pkgs,
   ...
-}: let
-    tmux_sessionizer_rel = "tmux/tmux-sessionizer";
-    tmux_sessionizer_abs = "${config.xdg.dataHome}/${tmux_sessionizer_rel}";
-in {
+}:
+let
+  tmux_sessionizer_rel = "tmux/tmux-sessionizer";
+  tmux_sessionizer_abs = "${config.xdg.dataHome}/${tmux_sessionizer_rel}";
+in
+{
   home.packages = with pkgs; [
     fzf
   ];
@@ -13,8 +15,8 @@ in {
   xdg = {
     enable = true;
     dataFile."${tmux_sessionizer_rel}" = {
-        source = ./tmux-sessionizer.sh;
-        executable = true;
+      source = ./tmux-sessionizer.sh;
+      executable = true;
     };
   };
 

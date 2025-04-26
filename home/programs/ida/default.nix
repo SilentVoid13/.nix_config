@@ -3,13 +3,15 @@
   pkgs-stable,
   config,
   ...
-}: let
-  python = pkgs-stable.python312.withPackages (ps:
-    with ps; [
+}:
+let
+  python = pkgs-stable.python312.withPackages (
+    ps: with ps; [
       toml
       pip
       pyelftools
-    ]);
+    ]
+  );
 
   deps = with pkgs; [
     stdenv.cc.cc
@@ -40,7 +42,8 @@
   ];
   ld_libs = pkgs.lib.makeLibraryPath deps;
   ifolder = "${config.home.homeDirectory}/ida-pro";
-  wrap_bin = name:
+  wrap_bin =
+    name:
     pkgs.writeShellScriptBin name ''
       export NIX_LD="${pkgs.stdenv.cc.bintools.dynamicLinker}"
       export NIX_LD_LIBRARY_PATH="${ld_libs}"
@@ -59,7 +62,8 @@
       fi
       firejail --net=none -- "${ifolder}/ida"
     '';
-in {
+in
+{
   home.packages = [
     (wrap_bin "ida")
     (wrap_bin "idat")
@@ -70,8 +74,8 @@ in {
       name = "IDA";
       exec = "ida %u";
       icon = "${ifolder}/appico.png";
-      mimeType = [];
-      categories = ["Utility"];
+      mimeType = [ ];
+      categories = [ "Utility" ];
       type = "Application";
       terminal = false;
     };

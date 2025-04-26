@@ -2,8 +2,9 @@
   pkgs,
   lib,
   ...
-}: let
-  helpers = import ./helpers.nix {inherit lib;};
+}:
+let
+  helpers = import ./helpers.nix { inherit lib; };
 
   # find_command doesn't support pipe so we create a tmp script as a bypass
   file_lister = pkgs.writeShellScriptBin "file_lister" ''
@@ -15,9 +16,7 @@
   '';
 
   find_command =
-    /*
-    lua
-    */
+    # lua
     ''
       function()
           return { "file_lister", vim.fn.expand('%')  }
@@ -25,11 +24,10 @@
     '';
 
   tiebreak_index_fn =
-    /*
-    lua
-    */
+    # lua
     ''function(entry1, entry2, prompt) return entry1.index < entry2.index; end'';
-in {
+in
+{
   home.packages = with pkgs; [
     # ripgrep is required for live_grep and grep_string
     ripgrep

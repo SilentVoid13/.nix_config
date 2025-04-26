@@ -1,4 +1,5 @@
-{pkgs, ...}: {
+{ pkgs, ... }:
+{
   programs.nixvim = {
     plugins = {
       treesitter = {
@@ -20,11 +21,11 @@
         ];
 
         settings = {
-          ensure_installed = [];
+          ensure_installed = [ ];
           highlight = {
-              enable = true;
-              # https://github.com/nvim-treesitter/nvim-treesitter/issues/1573
-              additional_vim_regex_highlighting = [ "python" ];
+            enable = true;
+            # https://github.com/nvim-treesitter/nvim-treesitter/issues/1573
+            additional_vim_regex_highlighting = [ "python" ];
           };
         };
       };

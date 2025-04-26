@@ -3,7 +3,8 @@
   nurpkgs ? null,
   nixgl ? null,
   ...
-}: {
+}:
+{
   nixpkgs = {
     config.allowUnfree = true;
     overlays =
@@ -13,15 +14,7 @@
           lldb = pkgs-stable.lldb;
         })
       ]
-      ++ (
-        if nurpkgs != null
-        then [nurpkgs.overlays.default]
-        else []
-      )
-      ++ (
-        if nixgl != null
-        then [nixgl.overlay]
-        else []
-      );
+      ++ (if nurpkgs != null then [ nurpkgs.overlays.default ] else [ ])
+      ++ (if nixgl != null then [ nixgl.overlay ] else [ ]);
   };
 }

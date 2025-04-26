@@ -1,4 +1,5 @@
-{...}: {
+{ ... }:
+{
   imports = [
     ## Common
     ./programs/common_terminal.nix

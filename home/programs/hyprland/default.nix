@@ -2,10 +2,12 @@
   pkgs,
   myconf,
   ...
-}: let
+}:
+let
   mon1 = myconf.monitor1;
   mon2 = myconf.monitor2;
-in {
+in
+{
   home.file.".xkb/symbols/qwerty_fr" = {
     source = "${pkgs.qwerty-fr}/share/X11/xkb/symbols/us_qwerty-fr";
   };

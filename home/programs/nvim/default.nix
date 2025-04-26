@@ -1,4 +1,5 @@
-{nixvim, ...}: {
+{ nixvim, ... }:
+{
   imports = [
     nixvim.homeManagerModules.nixvim
     ./sets.nix

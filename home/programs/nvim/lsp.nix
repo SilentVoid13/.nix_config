@@ -3,10 +3,12 @@
   lib,
   pkgs,
   ...
-}: let
-  helpers = import ./helpers.nix {inherit lib;};
+}:
+let
+  helpers = import ./helpers.nix { inherit lib; };
   md_link_pattern = helpers.mkRaw ''[[\(\k\| \|\/\|#\|-\)\+]]'';
-in {
+in
+{
   programs.nixvim = {
     nixpkgs.useGlobalPackages = true;
     diagnostics = {
@@ -24,9 +26,7 @@ in {
         enable = true;
         capabilities = '''';
         onAttach =
-          /*
-          lua
-          */
+          # lua
           ''
             if client.supports_method("textDocument/formatting") then
                 vim.api.nvim_create_autocmd('BufWritePre', {
@@ -51,7 +51,9 @@ in {
           };
         };
         servers = {
-          clangd = {enable = true;};
+          clangd = {
+            enable = true;
+          };
           rust_analyzer = {
             enable = true;
             package = pkgs.emptyFile;
@@ -61,12 +63,18 @@ in {
               check.command = "clippy";
             };
           };
-          lua_ls = {enable = true;};
+          lua_ls = {
+            enable = true;
+          };
           #nil_ls = {enable = true;};
-          nixd = {enable = true;};
+          nixd = {
+            enable = true;
+          };
 
           # python
-          ruff = {enable = true;};
+          ruff = {
+            enable = true;
+          };
           basedpyright = {
             enable = true;
             settings.analysis = {
@@ -80,33 +88,39 @@ in {
             };
           };
           /*
-          pylsp = {
-            enable = true;
-            settings.plugins = {
-              ruff.enabled = true;
-              jedi = {
-                extra_paths = [
-                  "${config.home.homeDirectory}/binaryninja/python"
-                  "${config.home.homeDirectory}/binaryninja/python3"
-                  "${pkgs.lldb.lib}/lib/python3.11/site-packages"
-                ];
+            pylsp = {
+              enable = true;
+              settings.plugins = {
+                ruff.enabled = true;
+                jedi = {
+                  extra_paths = [
+                    "${config.home.homeDirectory}/binaryninja/python"
+                    "${config.home.homeDirectory}/binaryninja/python3"
+                    "${pkgs.lldb.lib}/lib/python3.11/site-packages"
+                  ];
+                };
+                rope.enabled = true;
               };
-              rope.enabled = true;
             };
-          };
-          pylyzer = {
-            enable = true;
-            # TODO: remove this
-            # https://github.com/NixOS/nixpkgs/issues/295735
-            package = pkgs.emptyFile;
-          };
-          pyright = { enable = true; };
+            pylyzer = {
+              enable = true;
+              # TODO: remove this
+              # https://github.com/NixOS/nixpkgs/issues/295735
+              package = pkgs.emptyFile;
+            };
+            pyright = { enable = true; };
           */
 
           # js/ts
-          ts_ls = {enable = true;};
-          svelte = {enable = true;};
-          tailwindcss = {enable = true;};
+          ts_ls = {
+            enable = true;
+          };
+          svelte = {
+            enable = true;
+          };
+          tailwindcss = {
+            enable = true;
+          };
         };
       };
 
@@ -202,11 +216,11 @@ in {
       };
 
       /*
-      coq-nvim = {
-        enable = true;
-        #installArtifacts = true;
-        autoStart = true;
-      };
+        coq-nvim = {
+          enable = true;
+          #installArtifacts = true;
+          autoStart = true;
+        };
       */
     };
 

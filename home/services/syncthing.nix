@@ -1,4 +1,5 @@
-{myconf, ...}: {
+{ myconf, ... }:
+{
   services.syncthing = {
     enable = true;
     settings = {
@@ -19,7 +20,11 @@
       folders = {
         "knowledge_base" = {
           path = myconf.knowledge_base;
-          devices = [ "pixel7a" "faye" "jet" ];
+          devices = [
+            "pixel7a"
+            "faye"
+            "jet"
+          ];
         };
       };
     };

@@ -2,10 +2,12 @@
   config,
   myconf,
   ...
-}: let
+}:
+let
   gitignore_global = "git/gitignore_global";
   gitconfig_work = "git/gitconfig_work";
-in {
+in
+{
   xdg = {
     enable = true;
     configFile."${gitignore_global}".source = ./gitignore_global;

@@ -1,4 +1,5 @@
-{pkgs, ...}: let
+{ pkgs, ... }:
+let
   extText = builtins.toJSON {
     external_update_url = "https://clients2.google.com/service/update2/crx";
   };
@@ -15,7 +16,8 @@
     clearurls = "lckanjgmijmafbedllaakclkaicjfmnk";
     cookieautodelete = "fhcgjolkccmbidfldomjliifgaodjagh";
   };
-in {
+in
+{
   # TODO: Switch to programs.chromium?
   # https://github.com/nix-community/home-manager/blob/master/modules/programs/chromium.nix
 

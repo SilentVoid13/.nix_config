@@ -14,21 +14,24 @@
     };
   };
 
-  outputs = {
-    self,
-    nixpkgs,
-    flake-utils,
-    naersk,
-    fenix,
-  }:
+  outputs =
+    {
+      self,
+      nixpkgs,
+      flake-utils,
+      naersk,
+      fenix,
+    }:
     flake-utils.lib.eachDefaultSystem (
-      system: let
+      system:
+      let
         pkgs = import nixpkgs {
           inherit system;
-          overlays = [fenix.overlays.default];
+          overlays = [ fenix.overlays.default ];
         };
 
-        toolchain = with fenix.packages.${system};
+        toolchain =
+          with fenix.packages.${system};
           combine [
             default.rustc
             default.cargo
@@ -46,32 +49,30 @@
           rustc = toolchain;
         };
 
-        naerskBuildPackage = args:
-          naersk'.buildPackage (
-            args
-            // cargoConfig
-          );
-        naerskBuildPackageT = target: args: naerskBuildPackage (args // {CARGO_BUILD_TARGET = target;});
+        naerskBuildPackage = args: naersk'.buildPackage (args // cargoConfig);
+        naerskBuildPackageT = target: args: naerskBuildPackage (args // { CARGO_BUILD_TARGET = target; });
 
         cargoConfig = {
           CARGO_TARGET_X86_64_UNKNOWN_LINUX_MUSL_RUSTFLAGS = "-C target-feature=+crt-static";
         };
 
-        fnBuildInputs = pkgs: with pkgs; [];
-        shellPkgs = with pkgs; [];
-      in rec {
+        fnBuildInputs = pkgs: with pkgs; [ ];
+        shellPkgs = with pkgs; [ ];
+      in
+      rec {
         defaultPackage = naerskBuildPackage {
           src = ./.;
           buildInputs =
             (fnBuildInputs pkgs)
-            ++ (with pkgs;
-              lib.optionals stdenv.isDarwin
-              [
+            ++ (
+              with pkgs;
+              lib.optionals stdenv.isDarwin [
                 darwin.apple_sdk.frameworks.CoreFoundation
                 darwin.apple_sdk.frameworks.CoreServices
                 darwin.apple_sdk.frameworks.SystemConfiguration
                 darwin.apple_sdk.frameworks.Security
-              ]);
+              ]
+            );
         };
 
         # packages.x86_64-unknown-linux-musl = naerskBuildPackageT "x86_64-unknown-linux-musl" {
@@ -119,7 +120,7 @@
 
         devShell = pkgs.mkShell (
           {
-            inputsFrom = [defaultPackage];
+            inputsFrom = [ defaultPackage ];
             packages = shellPkgs;
             #LD_LIBRARY_PATH = "${pkgs.lib.makeLibraryPath (fnBuildInputs pkgs)}";
           }

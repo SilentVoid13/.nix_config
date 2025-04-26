@@ -6,18 +6,21 @@
   myconf,
   wayland-pipewire-idle-inhibit,
   ...
-}: let
+}:
+let
   configure-gtk = pkgs.writeTextFile {
     name = "configure-gtk";
     destination = "/bin/configure-gtk";
     executable = true;
-    text = let
-      schema = pkgs.gsettings-desktop-schemas;
-      datadir = "${schema}/share/gsettings-schemas/${schema.name}";
-    in ''
-      export XDG_DATA_DIRS=${datadir}:$XDG_DATA_DIRS
-      gnome_schema=org.gnome.desktop.interface
-    '';
+    text =
+      let
+        schema = pkgs.gsettings-desktop-schemas;
+        datadir = "${schema}/share/gsettings-schemas/${schema.name}";
+      in
+      ''
+        export XDG_DATA_DIRS=${datadir}:$XDG_DATA_DIRS
+        gnome_schema=org.gnome.desktop.interface
+      '';
   };
 
   wallpaper_switcher = "sway/wallpaper_switcher.sh";
@@ -40,7 +43,8 @@
   ws8 = "8";
   ws9 = "9";
   ws10 = "10";
-in {
+in
+{
   # TODO: dunst dependency?
   # TODO: fuzzel dependency?
   # TODO: darkman dependency?
@@ -102,9 +106,9 @@ in {
       verbosity = "WARN";
       media_minimum_duration = 5;
       idle_inhibitor = "wayland";
-      sink_whitelist = [];
+      sink_whitelist = [ ];
       node_blacklist = [
-        {name = "spotify";}
+        { name = "spotify"; }
       ];
     };
   };
@@ -129,7 +133,7 @@ in {
       terminal = "${pkgs.foot}/bin/foot";
       menu = "${pkgs.fuzzel}/bin/fuzzel";
 
-      bars = [];
+      bars = [ ];
       defaultWorkspace = "workspace number ${ws1}";
       input = {
         "type:keyboard" = {
@@ -142,16 +146,17 @@ in {
         };
       };
       startup = [
-        {command = "nm-applet --indicator";}
-        {command = "${wallpaper_switcher_path}";}
+        { command = "nm-applet --indicator"; }
+        { command = "${wallpaper_switcher_path}"; }
         # TODO: does this work on non-nixos?
-        {command = "${pkgs.polkit_gnome}/libexec/polkit-gnome-authentication-agent-1";}
-        {command = "${pkgs.waybar}/bin/waybar";}
+        { command = "${pkgs.polkit_gnome}/libexec/polkit-gnome-authentication-agent-1"; }
+        { command = "${pkgs.waybar}/bin/waybar"; }
       ];
 
-      keybindings = let
-        m = config.wayland.windowManager.sway.config.modifier;
-      in
+      keybindings =
+        let
+          m = config.wayland.windowManager.sway.config.modifier;
+        in
         lib.mkOptionDefault {
           # program binds
           "${m}+b" = "exec firefox";
@@ -231,7 +236,8 @@ in {
 
           # modes
           "${m}+Shift+r" = "reload";
-          "${m}+Shift+q" = "exec swaynag -t warning -m 'You pressed the exit shortcut. Do you really want to exit sway? This will end your Wayland session.' -B 'Yes, exit sway' 'swaymsg exit'";
+          "${m}+Shift+q" =
+            "exec swaynag -t warning -m 'You pressed the exit shortcut. Do you really want to exit sway? This will end your Wayland session.' -B 'Yes, exit sway' 'swaymsg exit'";
           "${m}+r" = "mode \"resize\"";
           "${m}+Print" = "mode \"system\"";
           "Print" = "mode \"screenshot\"";
@@ -262,7 +268,8 @@ in {
           Escape = "mode default";
           Return = "mode default";
           "1" = "exec ${pkgs.grim}/bin/grim -g \"$(${pkgs.slurp}/bin/slurp)\" - | wl-copy, mode default";
-          "2" = "exec env GRIM_DEFAULT_DIR=$HOME/.screenshots ${pkgs.grim}/bin/grim -g \"$(${pkgs.slurp}/bin/slurp)\", mode default";
+          "2" =
+            "exec env GRIM_DEFAULT_DIR=$HOME/.screenshots ${pkgs.grim}/bin/grim -g \"$(${pkgs.slurp}/bin/slurp)\", mode default";
           "3" = "exec ${pkgs.grim}/bin/grim - | wl-copy, mode default";
           "4" = "exec env GRIM_DEFAULT_DIR=$HOME/.screenshots ${pkgs.grim}/bin/grim, mode default";
         };

@@ -2,7 +2,8 @@
   pkgs,
   config,
   ...
-}: let
+}:
+let
   ghidra_dir = ".config/ghidra/${pkgs.ghidra.distroPrefix}";
 
   #catppuccin = pkgs.fetchFromGitHub {
@@ -19,7 +20,8 @@
     rev = "d6dc573532e6a4ac4c294cc80c9217fcfa90348f";
     hash = "sha256-2OzWZBKDdWcJ6CJ8Q5PbtqUHtpdHVtIDdtwaiuB/LLo=";
   };
-in {
+in
+{
   home.packages = with pkgs; [
     ghidra
   ];

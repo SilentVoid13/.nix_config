@@ -2,7 +2,8 @@
   myconf,
   pkgs,
   ...
-}: {
+}:
+{
   programs.nixvim = {
     extraFiles."lua/my_obsidian.lua".source = ./my_obsidian.lua;
 
@@ -29,11 +30,12 @@
           opts.buffer = true;
         };
       };
-      followUrlFunc = /*lua*/ ''
-        function(url)
-              vim.fn.jobstart({"xdg-open", url})
-        end
-      '';
+      followUrlFunc = # lua
+        ''
+          function(url)
+                vim.fn.jobstart({"xdg-open", url})
+          end
+        '';
     };
 
     keymaps = [

@@ -1,4 +1,5 @@
-{pkgs, ...}: {
+{ pkgs, ... }:
+{
   home.packages = [
     pkgs.super-productivity
     #(pkgs.callPackage ../../pkgs/superprod.nix {})

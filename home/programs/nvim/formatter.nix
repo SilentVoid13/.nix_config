@@ -2,10 +2,12 @@
   pkgs,
   lib,
   ...
-}: let
-  helpers = import ./helpers.nix {inherit lib;};
+}:
+let
+  helpers = import ./helpers.nix { inherit lib; };
   ft = formatter: helpers.mkRaw "require('formatter.filetypes').${formatter}";
-in {
+in
+{
   home.packages = with pkgs; [
     black
     isort

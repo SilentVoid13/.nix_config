@@ -2,7 +2,8 @@
   pkgs,
   arkenfox,
   ...
-}: {
+}:
+{
   imports = [
     arkenfox.hmModules.default
   ];

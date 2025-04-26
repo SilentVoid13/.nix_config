@@ -1,5 +1,6 @@
-{myconf, ...}: {
-  home.sessionPath = ["$HOME/H/p/sov/target/debug"];
+{ myconf, ... }:
+{
+  home.sessionPath = [ "$HOME/H/p/sov/target/debug" ];
 
   programs.nixvim = {
     extraFiles."lua/my_sov.lua".source = ./my_sov.lua;

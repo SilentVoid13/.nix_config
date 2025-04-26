@@ -1,5 +1,7 @@
-{...}: let
-in {
+{ ... }:
+let
+in
+{
   programs.nixvim = {
     plugins.fugitive.enable = true;
 

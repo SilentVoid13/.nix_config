@@ -3,9 +3,11 @@
   config,
   myconf,
   ...
-}: let
+}:
+let
   omz_dir = "zsh/oh-my-zsh/";
-in {
+in
+{
   home.sessionVariables = {
     EDITOR = "nvim";
     GEM_HOME = "$HOME/.gem/";
@@ -15,7 +17,11 @@ in {
     MANPATH = "$MANPATH:$NPM_PACKAGES/share/man";
   };
 
-  home.sessionPath = ["$HOME/.local/bin" "$HOME/go/bin" "$HOME/npm_packages/bin"];
+  home.sessionPath = [
+    "$HOME/.local/bin"
+    "$HOME/go/bin"
+    "$HOME/npm_packages/bin"
+  ];
 
   xdg = {
     enable = true;
@@ -112,9 +118,7 @@ in {
 
     # TODO: move to /usr/bin/sway thing on non-nixos
     profileExtra =
-      /*
-      bash
-      */
+      # bash
       ''
         if [ -z $DISPLAY ] && [ "$(tty)" = "/dev/tty1" ]; then
             exec sway --unsupported-gpu

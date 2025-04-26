@@ -2,7 +2,8 @@
   pkgs,
   nixGLWrap,
   ...
-}: {
+}:
+{
   home.packages = with pkgs; [
     qalculate-gtk
     (nixGLWrap kdePackages.okular) # pdf viewer

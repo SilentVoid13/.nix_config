@@ -2,14 +2,16 @@
   pkgs,
   config,
   ...
-}: let 
-    base_settings = ".binaryninja/settings-base.json";
-    settings = ".binaryninja/settings.json";
-    base_keybindings = ".binaryninja/keybindings-base.json";
-    keybindings = ".binaryninja/keybindings.json";
-in {
+}:
+let
+  base_settings = ".binaryninja/settings-base.json";
+  settings = ".binaryninja/settings.json";
+  base_keybindings = ".binaryninja/keybindings-base.json";
+  keybindings = ".binaryninja/keybindings.json";
+in
+{
   home.packages = [
-    (import ../../../pkgs/binja.nix {inherit pkgs;})
+    (import ../../../pkgs/binja.nix { inherit pkgs; })
   ];
 
   # HACK: allows modification of the files to avoid RO
@@ -29,8 +31,11 @@ in {
       name = "Binary Ninja";
       exec = "env QT_QPA_PLATFORM=wayland binaryninja -platform wayland %u";
       icon = "${config.home.homeDirectory}/binaryninja/docs/img/logo.png";
-      mimeType = ["application/x-binaryninja" "x-scheme-handler/binaryninja"];
-      categories = ["Utility"];
+      mimeType = [
+        "application/x-binaryninja"
+        "x-scheme-handler/binaryninja"
+      ];
+      categories = [ "Utility" ];
       type = "Application";
       terminal = false;
     };

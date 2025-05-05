@@ -11,7 +11,7 @@ in
 {
   programs.nixvim = {
     nixpkgs.useGlobalPackages = true;
-    diagnostics = {
+    diagnostic.settings = {
       virtual_text = {
         severity.min = "warn";
         source = "if_many";

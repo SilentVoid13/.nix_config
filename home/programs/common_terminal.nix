@@ -25,6 +25,7 @@
     magic-wormhole
     rogcat
     fd
+    aria2
 
     ## hardware
     lshw

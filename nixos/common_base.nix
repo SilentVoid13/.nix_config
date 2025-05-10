@@ -73,10 +73,11 @@
     gnome.gnome-keyring.enable = true;
     # Yubikey
     pcscd.enable = true;
-    # Mount, trash, and other functionalities
+
+    # File Manager
     gvfs.enable = true;
-    # Thumbnail support for images
     tumbler.enable = true;
+    udisks2.enable = true;
     # VPN
     mullvad-vpn.enable = true;
     # Flatpak

@@ -6,6 +6,7 @@
     #package =
     settings = {
       mainBar = {
+        ipc = true;
         layer = "bottom";
         position = "top";
         height = 30;

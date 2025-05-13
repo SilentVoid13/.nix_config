@@ -133,7 +133,15 @@ in
       terminal = "${pkgs.foot}/bin/foot";
       menu = "${pkgs.fuzzel}/bin/fuzzel";
 
-      bars = [ ];
+      bars = [
+        {
+          command = "${pkgs.waybar}/bin/waybar";
+          mode = "hide";
+          hiddenState = "hide";
+          position = "top";
+          extraConfig = "modifier Mod4";
+        }
+      ];
       defaultWorkspace = "workspace number ${ws1}";
       input = {
         "type:keyboard" = {
@@ -150,7 +158,6 @@ in
         { command = "${wallpaper_switcher_path}"; }
         # TODO: does this work on non-nixos?
         { command = "${pkgs.polkit_gnome}/libexec/polkit-gnome-authentication-agent-1"; }
-        { command = "${pkgs.waybar}/bin/waybar"; }
       ];
 
       keybindings =
@@ -311,6 +318,9 @@ in
           #scale = "1.2";
         };
       };
+
+      # gaps.smartGaps = true;
+      # gaps.smartBorders = "on";
     };
     extraConfig = ''
       focus output ${mon1}

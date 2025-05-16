@@ -99,6 +99,9 @@
         };
       };
     };
+
+    # https://github.com/Alexays/Waybar/issues/3492
+    # https://github.com/Alexays/Waybar/issues/3750
     style = ''
       * {
           border: none;
@@ -107,8 +110,7 @@
       }
 
       window#waybar {
-          background: black;
-          opacity: 0.9;
+          background-color: alpha(black, 0.5);
           color: white;
       }
 

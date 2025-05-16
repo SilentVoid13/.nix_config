@@ -30,6 +30,8 @@
       showcmd = true;
       scrolloff = 8;
       incsearch = true;
+      ignorecase = true;
+      smartcase = true;
 
       mouse = "a";
       belloff = "all";

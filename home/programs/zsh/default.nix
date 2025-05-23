@@ -19,6 +19,7 @@ in
 
   home.sessionPath = [
     "$HOME/.local/bin"
+    "$HOME/.cargo/bin"
     "$HOME/go/bin"
     "$HOME/npm_packages/bin"
   ];

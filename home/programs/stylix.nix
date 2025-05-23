@@ -7,7 +7,7 @@
 }:
 {
   imports = [
-    stylix.homeManagerModules.stylix
+    stylix.homeModules.stylix
   ];
   stylix = {
     enable = true;

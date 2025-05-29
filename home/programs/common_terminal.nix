@@ -33,6 +33,7 @@
     lshw
     dmidecode
     usbutils
+    pciutils
 
     ## temp
     #quickemu

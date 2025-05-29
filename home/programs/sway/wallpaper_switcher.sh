@@ -11,7 +11,7 @@ random_wallpaper() {
 while true 
 do
     random_wallpaper
-    wbg $wallpaper &
+    swaybg -i $wallpaper -m fill &
     last_pid=$!
     sleep 3600
     kill $last_pid

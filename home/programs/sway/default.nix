@@ -59,7 +59,7 @@ in
     playerctl
     grim
     slurp
-    wbg
+    swaybg
     xdg-utils
     networkmanagerapplet
     pulseaudio

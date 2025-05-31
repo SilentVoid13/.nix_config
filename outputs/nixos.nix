@@ -13,7 +13,7 @@ let
   };
 in
 {
-  dell = nixpkgs.lib.nixosSystem {
+  jet = nixpkgs.lib.nixosSystem {
     system = "x86_64-linux";
     modules = [
       (import ./config_pkgs.nix {
@@ -22,7 +22,7 @@ in
       lanzaboote.nixosModules.lanzaboote
       disko.nixosModules.disko
       ../nixos/configuration.nix
-      ../nixos/dell
+      ../nixos/jet
       ../disko/luks_lvm_swap.nix
     ];
     specialArgs = {
@@ -31,7 +31,7 @@ in
     };
   };
 
-  thinkpad = nixpkgs.lib.nixosSystem {
+  faye = nixpkgs.lib.nixosSystem {
     system = "x86_64-linux";
     modules = [
       (import ./config_pkgs.nix {
@@ -40,7 +40,7 @@ in
       lanzaboote.nixosModules.lanzaboote
       disko.nixosModules.disko
       ../nixos/configuration.nix
-      ../nixos/thinkpad
+      ../nixos/faye
       ../disko/luks_lvm_swap.nix
     ];
     specialArgs = {

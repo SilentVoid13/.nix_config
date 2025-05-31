@@ -5,7 +5,6 @@ home target *args:
     # full, work, full_non_nixos
     home-manager switch --flake ".#{{target}}" --impure {{args}}
 nixos target *args:
-    # dell, thinkpad, vm, iso
     sudo nixos-rebuild switch --flake ".#{{target}}" {{args}}
 update:
     nix-channel --update

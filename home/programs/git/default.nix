@@ -38,7 +38,7 @@ in
       gpg.ssh.program = "op-ssh-sign";
 
       # global gitignore with common patterns
-      core.excludefiles = "${config.xdg.configHome}/${gitignore_global}";
+      core.excludesFile = "${config.xdg.configHome}/${gitignore_global}";
 
       # sort branches by last commit date descending
       branch.sort = "-committerdate";

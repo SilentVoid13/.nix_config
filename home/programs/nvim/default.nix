@@ -17,7 +17,7 @@
     ## git
     ./fugitive.nix
     ./gitsigns.nix
-    #./neogit.nix
+    ./neogit.nix
 
     ./debugprint.nix
     ./oil.nix

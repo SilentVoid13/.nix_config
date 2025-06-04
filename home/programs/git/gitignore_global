@@ -1,5 +1,4 @@
 ## PERSONAL
-RESOURCES.md
 .direnv
 .envrc
 
@@ -38,8 +37,3 @@ fabric.properties
 
 ## MISC
 .DS_Store
-
-
-## NODE
-node_modules/
-.npm

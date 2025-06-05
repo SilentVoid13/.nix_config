@@ -32,11 +32,6 @@
   };
   hardware.bluetooth.enable = true;
 
-  networking.extraHosts = ''
-    192.168.0.99 homelab
-    ${myconf.extra_hosts}
-  '';
-
   nix = {
     package = pkgs.nixVersions.latest;
     settings.allowed-users = [ "${myconf.username}" ];

@@ -58,6 +58,7 @@ let
           inherit nurpkgs;
           inherit nixgl;
         })
+        (if builtins.pathExists ../extra/home.nix then import ../extra/home.nix else { })
         {
           home.username = "${username}";
           home.homeDirectory = "/home/${username}";

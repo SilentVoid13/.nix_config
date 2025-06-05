@@ -24,6 +24,7 @@ in
       ../nixos/configuration.nix
       ../nixos/jet
       ../disko/luks_lvm_swap.nix
+      (if builtins.pathExists ../extra/nixos.nix then import ../extra/nixos.nix else { })
     ];
     specialArgs = {
       inherit myconf nixpkgs pkgs-stable;
@@ -42,6 +43,7 @@ in
       ../nixos/configuration.nix
       ../nixos/faye
       ../disko/luks_lvm_swap.nix
+      (if builtins.pathExists ../extra/nixos.nix then import ../extra/nixos.nix else { })
     ];
     specialArgs = {
       inherit myconf nixpkgs pkgs-stable;

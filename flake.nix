@@ -67,7 +67,11 @@
       ...
     }:
     let
-      myconf = import ./utils/myconf.nix { };
+      myconf =
+        if builtins.pathExists ./extra/conf.nix then
+          (import ./extra/conf.nix { })
+        else
+          (import ./extra/conf.example.nix { });
     in
     {
       homeConfigurations = import ./outputs/home.nix {

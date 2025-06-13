@@ -78,18 +78,20 @@ in
           ruff = {
             enable = true;
           };
-          basedpyright = {
-            enable = true;
-            settings.analysis = {
-              autoImportCompletions = true;
-              autoSearchPaths = true;
-              diagnosticMode = "workspace";
-              extraPaths = [
-                "${config.home.homeDirectory}/binaryninja/python"
-                "${config.home.homeDirectory}/binaryninja/python3"
-              ];
-            };
-          };
+
+          # basedpyright = {
+          #   enable = true;
+          #   settings.analysis = {
+          #     autoImportCompletions = true;
+          #     autoSearchPaths = true;
+          #     diagnosticMode = "workspace";
+          #     extraPaths = [
+          #       "${config.home.homeDirectory}/binaryninja/python"
+          #       "${config.home.homeDirectory}/binaryninja/python3"
+          #     ];
+          #   };
+          # };
+
           /*
             pylsp = {
               enable = true;
@@ -264,6 +266,31 @@ in
     ];
     extraConfigLua = ''
       -- require("lspconfig").markdown_oxide.setup({})
+
+      vim.lsp.config['pyrefly'] = {
+        cmd = { 'pyrefly', 'lsp' },
+        filetypes = { 'python' },
+        root_markers = {
+          'pyrefly.toml',
+          'pyproject.toml',
+          'setup.py',
+          'setup.cfg',
+          'requirements.txt',
+          'Pipfile',
+          '.git',
+        },
+        on_exit = function(code, _, _)
+          vim.notify('Closing Pyrefly LSP exited with code: ' .. code, vim.log.levels.INFO)
+        end,
+      }
+      vim.lsp.enable('pyrefly')
+
+      -- vim.lsp.config['ty'] = {
+      --   cmd = { 'ty', 'server' },
+      --   filetypes = { 'python' },
+      --   root_markers = { 'ty.toml', 'pyproject.toml', 'requirements.txt', '.git' },
+      -- }
+      -- vim.lsp.enable('ty')
     '';
   };
 }

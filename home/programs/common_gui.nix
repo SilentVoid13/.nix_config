@@ -16,11 +16,11 @@
     #discord
     vesktop
     gnome-pomodoro
-    stremio
     nwg-displays
 
     # temp
     obs-studio
     vlc
+    stremio
   ];
 }

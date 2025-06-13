@@ -69,6 +69,9 @@ in
     adwaita-icon-theme
     gsettings-desktop-schemas
     gnome-themes-extra
+
+    # TODO: move this elsewhere
+    ulauncher
   ];
 
   imports = [
@@ -131,7 +134,8 @@ in
     config = {
       modifier = "Mod4";
       terminal = "${pkgs.foot}/bin/foot";
-      menu = "${pkgs.fuzzel}/bin/fuzzel";
+      # menu = "${pkgs.fuzzel}/bin/fuzzel";
+      menu = "${pkgs.ulauncher}/bin/ulauncher-toggle";
 
       bars = [
         {
@@ -158,6 +162,7 @@ in
         { command = "${wallpaper_switcher_path}"; }
         # TODO: does this work on non-nixos?
         { command = "${pkgs.polkit_gnome}/libexec/polkit-gnome-authentication-agent-1"; }
+        { command = "${pkgs.ulauncher}/bin/ulauncher --hide-window"; }
       ];
 
       keybindings =
@@ -333,6 +338,7 @@ in
       for_window [app_id="imv"] floating enable, border normal
       for_window [app_id="thunar" title="^File Operation Progress$"] floating enable
       for_window [app_id="thunar" title="^Confirm to replace files$"] floating enable
+      for_window [app_id="ulauncher"] floating enable, border none
     '';
   };
 }

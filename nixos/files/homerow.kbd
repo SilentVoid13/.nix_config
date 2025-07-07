@@ -8,7 +8,6 @@
 )
 
 (defalias
-  escctrl (tap-hold-release 100 100 esc lctl)
   a (tap-hold-release $tap-time $hold-time a lmet)
   s (tap-hold-release $tap-time $hold-time s lalt)
   d (tap-hold-release $tap-time $hold-time d lctl)
@@ -20,5 +19,5 @@
 )
 
 (deflayer base
-  @escctrl @a @s @d @f @j @k @l @;
+  esc @a @s @d @f @j @k @l @;
 )

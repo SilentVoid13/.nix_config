@@ -180,9 +180,6 @@ in
       blink-cmp = {
         enable = true;
         settings = {
-          # FIXME: remove once this is fixed
-          # https://github.com/Saghen/blink.cmp/issues/1727
-          fuzzy.implementation = "lua";
           keymap.preset = "enter";
           snippets.preset = "luasnip";
           sources = {

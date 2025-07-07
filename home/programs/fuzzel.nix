@@ -9,12 +9,11 @@
   programs.fuzzel = {
     enable = true;
     settings = {
-      main = {
-        icon-theme = "Papirus-Dark";
-      };
-
       # handled by stylix
       /*
+        main = {
+          icon-theme = "Papirus-Dark";
+        };
         colors = {
           background = "282a36dd";
           text = "f8f8f2ff";

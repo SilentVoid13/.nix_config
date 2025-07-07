@@ -72,6 +72,7 @@
       waybar.enable = true;
       nixvim.enable = false;
       foot.enable = false;
+      sway.useWallpaper = false;
       firefox.profileNames = [ "0" ];
     };
   };

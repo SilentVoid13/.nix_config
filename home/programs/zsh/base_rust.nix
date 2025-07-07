@@ -33,6 +33,10 @@
         toolchain =
           with fenix.packages.${system};
           combine [
+            # default / complete / latest / minimal = nightly
+            # stable
+            # beta
+
             default.rustc
             default.cargo
             default.clippy

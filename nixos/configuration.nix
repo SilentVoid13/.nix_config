@@ -41,6 +41,7 @@
       "wheel"
       "docker"
       "adbusers"
+      "wireshark"
     ];
     # todo: replace with hash / secret manager
     initialPassword = "test";

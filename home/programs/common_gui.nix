@@ -21,6 +21,6 @@
     # temp
     obs-studio
     vlc
-    stremio
+    #stremio
   ];
 }

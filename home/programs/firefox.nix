@@ -22,6 +22,9 @@
         # prevent extension disabling
         "extensions.autoDisableScopes" = "0";
 
+        "sidebar.verticalTabs" = true;
+        "browser.tabs.insertAfterCurrent" = true;
+
         # hardware acceleration
         "gfx.webrender.all" = true;
         "gfx.webrender.enabled" = true;
@@ -39,6 +42,7 @@
         # fixes occasional blurriness on wayland
         # FIXME: remove, not working properly (spawns zoomed in)
         #"widget.wayland.fractional-scale.enabled" = true;
+
       };
       arkenfox = {
         enable = true;

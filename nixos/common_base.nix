@@ -17,7 +17,7 @@
   boot = {
     lanzaboote = {
       enable = true;
-      pkiBundle = "/etc/secureboot";
+      pkiBundle = "/var/lib/sbctl";
     };
     loader.systemd-boot.enable = lib.mkForce false;
     # use bleeding edge kernel

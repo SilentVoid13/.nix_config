@@ -1,10 +1,9 @@
 {
   config,
   pkgs,
-  pkgs-stable,
   lib,
   myconf,
-  wayland-pipewire-idle-inhibit,
+  inputs,
   ...
 }:
 let
@@ -45,9 +44,9 @@ let
   ws10 = "10";
 in
 {
-  # TODO: dunst dependency?
-  # TODO: fuzzel dependency?
-  # TODO: darkman dependency?
+  imports = [
+    inputs.wayland-pipewire-idle-inhibit.homeModules.default
+  ];
 
   home.packages = with pkgs; [
     configure-gtk
@@ -71,11 +70,7 @@ in
     gnome-themes-extra
 
     # TODO: move this elsewhere
-    ulauncher
-  ];
-
-  imports = [
-    wayland-pipewire-idle-inhibit.homeModules.default
+    # ulauncher
   ];
 
   programs.swaylock.enable = true;
@@ -134,8 +129,8 @@ in
     config = {
       modifier = "Mod4";
       terminal = "${pkgs.foot}/bin/foot";
-      # menu = "${pkgs.fuzzel}/bin/fuzzel";
-      menu = "${pkgs.ulauncher}/bin/ulauncher-toggle";
+      menu = "${pkgs.fuzzel}/bin/fuzzel";
+      # menu = "${pkgs.ulauncher}/bin/ulauncher-toggle";
 
       bars = [
         {
@@ -162,7 +157,7 @@ in
         { command = "${wallpaper_switcher_path}"; }
         # TODO: does this work on non-nixos?
         { command = "${pkgs.polkit_gnome}/libexec/polkit-gnome-authentication-agent-1"; }
-        { command = "${pkgs.ulauncher}/bin/ulauncher --hide-window"; }
+        # { command = "${pkgs.ulauncher}/bin/ulauncher --hide-window"; }
       ];
 
       keybindings =

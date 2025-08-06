@@ -5,10 +5,7 @@
   nurpkgs,
   home-manager,
   nixgl,
-  nixvim,
-  arkenfox,
-  stylix,
-  wayland-pipewire-idle-inhibit,
+  inputs,
   ...
 }:
 let
@@ -46,10 +43,7 @@ let
       extraSpecialArgs = {
         inherit nixGLWrap;
         inherit myconf;
-        inherit nixvim;
-        inherit arkenfox;
-        inherit stylix;
-        inherit wayland-pipewire-idle-inhibit;
+        inherit inputs;
         inherit pkgs-stable;
       };
       modules = [
@@ -65,9 +59,11 @@ let
           home.stateVersion = "23.05";
           home.packages = [
             pkgs.home-manager
-          ] ++ (if !isNixOs then [ pkgs.nixgl.auto.nixGLDefault ] else [ ]);
+          ]
+          ++ (if !isNixOs then [ pkgs.nixgl.auto.nixGLDefault ] else [ ]);
         }
-      ] ++ modules;
+      ]
+      ++ modules;
     };
 in
 {

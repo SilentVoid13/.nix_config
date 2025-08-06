@@ -32,8 +32,10 @@
     ./programs/stylix.nix
     ./programs/sway
     #./programs/hyprland
+    ## launcher
     #./programs/wofi.nix
     ./programs/fuzzel.nix
+    # ./programs/sherlock.nix
     ./programs/waybar.nix
     ./services/dunst.nix
     #./services/darkman.nix

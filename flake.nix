@@ -49,6 +49,11 @@
       url = "github:danth/stylix";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    # sherlock = {
+    #   url = "github:Skxxtz/sherlock";
+    #   inputs.nixpkgs.follows = "nixpkgs";
+    # };
   };
 
   outputs =
@@ -58,14 +63,10 @@
       nurpkgs,
       home-manager,
       nixgl,
-      nixvim,
-      arkenfox,
       lanzaboote,
       disko,
-      stylix,
-      wayland-pipewire-idle-inhibit,
       ...
-    }:
+    }@inputs:
     let
       myconf =
         if builtins.pathExists ./extra/conf.nix then
@@ -81,10 +82,7 @@
         inherit nurpkgs;
         inherit home-manager;
         inherit nixgl;
-        inherit nixvim;
-        inherit arkenfox;
-        inherit stylix;
-        inherit wayland-pipewire-idle-inhibit;
+        inherit inputs;
       };
 
       nixosConfigurations = import ./outputs/nixos.nix {

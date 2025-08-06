@@ -1,11 +1,11 @@
 {
   pkgs,
-  arkenfox,
+  inputs,
   ...
 }:
 {
   imports = [
-    arkenfox.hmModules.default
+    inputs.arkenfox.hmModules.default
   ];
 
   programs.firefox = {

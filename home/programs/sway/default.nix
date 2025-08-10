@@ -68,9 +68,6 @@ in
     adwaita-icon-theme
     gsettings-desktop-schemas
     gnome-themes-extra
-
-    # TODO: move this elsewhere
-    # ulauncher
   ];
 
   programs.swaylock.enable = true;
@@ -129,7 +126,8 @@ in
     config = {
       modifier = "Mod4";
       terminal = "${pkgs.foot}/bin/foot";
-      menu = "${pkgs.fuzzel}/bin/fuzzel";
+      # menu = "${pkgs.fuzzel}/bin/fuzzel";
+      menu = "otter_toggle_sway.sh";
       # menu = "${pkgs.ulauncher}/bin/ulauncher-toggle";
 
       bars = [
@@ -334,6 +332,7 @@ in
       for_window [app_id="thunar" title="^File Operation Progress$"] floating enable
       for_window [app_id="thunar" title="^Confirm to replace files$"] floating enable
       for_window [app_id="ulauncher"] floating enable, border none
+      for_window [app_id="otter-launcher"] floating enable, border none, resize set width 600px height 200px
     '';
   };
 }

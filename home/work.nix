@@ -35,6 +35,7 @@
     ## launcher
     #./programs/wofi.nix
     ./programs/fuzzel.nix
+    ./programs/otter_launcher.nix
     # ./programs/sherlock.nix
     ./programs/waybar.nix
     ./services/dunst.nix

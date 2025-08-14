@@ -74,6 +74,7 @@ in
       cat = "bat --paging=never -p";
       #grep = "rg";
       rgi = "rg -i -. --no-ignore";
+      fd = "fd -HI";
       cp = "cp -i";
       mv = "mv -i";
       cpp = "rsync -aP";
@@ -83,6 +84,7 @@ in
       crr = "cargo run --release";
       sshp = "ssh -o PreferredAuthentications=password -o PubkeyAuthentication=no ";
       gll = "git stash && git pull && git stash pop";
+      nixsf = "nix run github:nix-community/nix-index-database";
     };
 
     initContent = ''
@@ -110,6 +112,13 @@ in
         git add Cargo.toml Cargo.lock 
 
         cp ${./base_rust.nix} flake.nix
+        chmod 644 flake.nix
+        git add flake.nix
+        echo 'use flake' > .envrc
+        direnv allow
+      }
+      env_rust_fenix() {
+        cp ${./base_rust_fenix.nix} flake.nix
         chmod 644 flake.nix
         git add flake.nix
         echo 'use flake' > .envrc

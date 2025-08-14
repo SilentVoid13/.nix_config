@@ -71,6 +71,9 @@ in
             enable = true;
           };
 
+          # bash
+          bashls.enable = true;
+
           # java
           jdtls.enable = true;
 

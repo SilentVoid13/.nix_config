@@ -1,19 +1,10 @@
-{ pkgs, ... }:
+{
+  pkgs,
+  inputs,
+  lib,
+  ...
+}:
 let
-  otter_pkg = pkgs.rustPlatform.buildRustPackage rec {
-    pname = "otter-launcher";
-    version = "v0.5.6";
-    src = pkgs.fetchFromGitHub {
-      owner = "kuokuo123";
-      repo = pname;
-      rev = version;
-      sha256 = "sha256-Z5ZX9S+hmgMJZU3l20mlyX97hSMQQu8j5utARqbFnHs=";
-    };
-    cargoHash = "";
-    doCheck = false;
-    # FIXME: this is currently broken as it doesn't provide a Cargo.lock
-  };
-
   otter_toggle_sway = pkgs.writeShellScriptBin "otter_toggle_sway.sh" ''
     #!/bin/bash
 
@@ -31,14 +22,17 @@ let
   '';
 in
 {
+  imports = [
+    inputs.otter-launcher.homeModules.default
+  ];
+
   home.packages = [
     otter_toggle_sway
     pkgs.sway-launcher-desktop
-    # otter_pkg
   ];
 
-  # xdg = {
-  #   enable = true;
-  #   configFile."otter-launcher/config.toml".source = '''';
-  # };
+  programs.otter-launcher = {
+    enable = true;
+    settings = lib.importTOML ./config.toml;
+  };
 }

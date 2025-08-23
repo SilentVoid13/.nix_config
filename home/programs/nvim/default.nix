@@ -1,7 +1,7 @@
 { inputs, ... }:
 {
   imports = [
-    inputs.nixvim.homeManagerModules.nixvim
+    inputs.nixvim.homeModules.nixvim
     ./sets.nix
     ./maps.nix
     ./colors.nix

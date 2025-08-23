@@ -84,7 +84,7 @@ in
       crr = "cargo run --release";
       sshp = "ssh -o PreferredAuthentications=password -o PubkeyAuthentication=no ";
       gll = "git stash && git pull && git stash pop";
-      nixsf = "nix run github:nix-community/nix-index-database";
+      nixsf = "nix run github:nix-community/nix-index-database -- ";
     };
 
     initContent = ''
@@ -123,6 +123,18 @@ in
         git add flake.nix
         echo 'use flake' > .envrc
         direnv allow
+      }
+      check_unstaged() {
+        for dir_proj in ${builtins.concatStringsSep " " myconf.project_folders}; do
+          for folder in $dir_proj/*; do
+            [ -d "$folder/.git" ] || continue
+            if [ -n "$(git -C "$folder" status --porcelain --untracked-files=no)" ]; then
+              echo "------------------------------------------------"
+              echo "Unstaged changes in $folder"
+              git -C "$folder" status --porcelain --untracked-files=no
+            fi
+          done
+        done
       }
     '';
 

@@ -1,5 +1,6 @@
 {
   config,
+  myconf,
   pkgs,
   ...
 }:
@@ -15,7 +16,10 @@ in
   xdg = {
     enable = true;
     dataFile."${tmux_sessionizer_rel}" = {
-      source = ./tmux-sessionizer.sh;
+      source = pkgs.writeShellScript "my-script" ''
+        export PROJECT_FOLDERS="${builtins.concatStringsSep " " myconf.project_folders}"
+        source ${./tmux-sessionizer.sh}
+      '';
       executable = true;
     };
   };

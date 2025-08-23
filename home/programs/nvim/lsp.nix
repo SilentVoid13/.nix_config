@@ -29,6 +29,8 @@ in
           # lua
           ''
             if client.supports_method("textDocument/formatting") then
+                local filetype = vim.bo[bufnr].filetype
+                -- if filetype ~= "python" then
                 vim.api.nvim_create_autocmd('BufWritePre', {
                     buffer = bufnr,
                     callback = function()
@@ -61,6 +63,8 @@ in
             installRustc = false;
             settings = {
               check.command = "clippy";
+              cargo.targetDir = true;
+              diagnostics.experimental.enable = true;
             };
           };
           lua_ls = {
@@ -71,11 +75,13 @@ in
             enable = true;
           };
 
+          zls.enable = true;
+
           # bash
           bashls.enable = true;
 
           # java
-          jdtls.enable = true;
+          # jdtls.enable = true;
 
           # python
           ruff = {
@@ -293,4 +299,8 @@ in
       -- vim.lsp.enable('ty')
     '';
   };
+
+  home.packages = with pkgs; [
+    pyrefly
+  ];
 }

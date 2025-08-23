@@ -20,4 +20,8 @@
     intel-vaapi-driver # For older processors. LIBVA_DRIVER_NAME=i965
     vpl-gpu-rt # Intel Quick Sync Video
   ];
+
+  environment.systemPackages = with pkgs; [
+    nvtopPackages.intel
+  ];
 }

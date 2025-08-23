@@ -88,6 +88,9 @@
         config = builtins.readFile ./files/homerow.kbd;
       };
     };
+
+    # make non-nixos things slightly less painful
+    envfs.enable = true;
   };
 
   services.udev.packages = with pkgs; [
@@ -103,7 +106,16 @@
       #package = pkgs._1password-gui-beta;
       polkitPolicyOwners = [ "${myconf.username}" ];
     };
-    nix-ld.enable = true;
+
+    # make non-nixos things slightly less painful
+    nix-ld = {
+      enable = true;
+      libraries = with pkgs; [
+        stdenv.cc.cc.lib
+        zlib
+      ];
+    };
+
     adb.enable = true;
     noisetorch.enable = true;
     dconf.enable = true;

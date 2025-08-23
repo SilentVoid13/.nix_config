@@ -3,9 +3,9 @@ home_init target *args:
     nix run home-manager/master -- switch --flake "{{target}}" {{args}}
 home target *args:
     # full, work, full_non_nixos
-    home-manager switch --flake "path://${PWD}#{{target}}" --impure {{args}}
+    home-manager switch --flake "path://${PWD}#{{target}}" --impure -L {{args}}
 nixos target *args:
-    sudo nixos-rebuild switch --flake "path://${PWD}#{{target}}" {{args}}
+    sudo nixos-rebuild switch --flake "path://${PWD}#{{target}}" -L {{args}}
 update:
     nix-channel --update
     nix flake update

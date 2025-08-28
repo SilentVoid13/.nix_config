@@ -47,7 +47,7 @@ let
     pkgs.writeShellScriptBin name ''
       export NIX_LD="${pkgs.stdenv.cc.bintools.dynamicLinker}"
       export NIX_LD_LIBRARY_PATH="${ld_libs}"
-      export QT_QPA_PLATFORM_PLUGIN_PATH="${pkgs.qt5.full}/lib/qt-${pkgs.qt5.qtbase.version}/plugins/platforms";
+      export QT_QPA_PLATFORM_PLUGIN_PATH="${pkgs.qt5.qtbase}/lib/qt-${pkgs.qt5.qtbase.version}/plugins/platforms";
 
       # for plugins
       export PATH="${python}/bin:$PATH"

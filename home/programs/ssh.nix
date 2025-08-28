@@ -7,10 +7,8 @@ in
 {
   programs.ssh = {
     enable = true;
+    enableDefaultConfig = false;
     includes = [ "${home}/.ssh/1Password/config" ];
-    extraConfig = ''
-      IdentityAgent "${sockPath}"
-    '';
     matchBlocks = {
       "${myconf.git.work.host}" = {
         user = "git";
@@ -18,6 +16,11 @@ in
       };
       "homelab" = {
         forwardAgent = true;
+      };
+      "*" = {
+        forwardAgent = false;
+        addKeysToAgent = "no";
+        identityAgent = "${sockPath}";
       };
     };
   };

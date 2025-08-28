@@ -10,8 +10,11 @@
   ];
   stylix = {
     enable = true;
-    #polarity = "dark";
+    autoEnable = true;
+
+    polarity = "dark";
     image = config.lib.stylix.pixel "base0A";
+
     base16Scheme = "${pkgs.base16-schemes}/share/themes/tokyo-night-dark.yaml";
 
     #base16Scheme = "${pkgs.base16-schemes}/share/themes/tokyo-night-dark.yaml";

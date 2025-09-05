@@ -16,11 +16,13 @@
     #discord
     vesktop
     gnome-pomodoro
-    nwg-displays
+
+    # FIXME: broken for now
+    # nwg-displays
 
     # temp
     obs-studio
-    vlc
+    #vlc
     #stremio
   ];
 }

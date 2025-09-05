@@ -24,9 +24,6 @@
     magic-wormhole
     rogcat
     fd
-    aria2
-    rclone
-    borgbackup
 
     ## hardware
     lshw

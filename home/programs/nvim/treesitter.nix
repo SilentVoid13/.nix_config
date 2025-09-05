@@ -32,6 +32,25 @@
       treesitter-context = {
         enable = true;
       };
+
+      origami = {
+        enable = true;
+        settings = {
+          useLspFoldsWithTreesitterFallback = true;
+          pauseFoldsOnSearch = true;
+        };
+      };
+    };
+
+    opts = {
+      # foldmethod = "expr";
+      # foldexpr = "nvim_treesitter#foldexpr()";
+      # foldexpr = "v:lua.vim.lsp.foldexpr()";
+      # foldexpr = "v:lua.vim.treesitter.foldexpr()";
+      # foldcolumn = "0";
+      # foldtext = "";
+      foldlevel = 99;
+      foldlevelstart = 99;
     };
   };
 }

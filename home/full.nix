@@ -10,11 +10,12 @@
     ./programs/firefox.nix
     ./programs/binaryninja
     ./programs/ida
+    ./programs/jeb.nix
     ./programs/ghidra.nix
     ./programs/caido
     ./programs/mpv.nix
     ./programs/steam.nix
-    ./programs/superprod.nix
+    #./programs/superprod.nix
 
     ## Terminal
     ./programs/git

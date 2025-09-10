@@ -17,11 +17,15 @@
 
   hardware.graphics.extraPackages = with pkgs; [
     intel-media-driver # For Broadwell (2014) or newer processors. LIBVA_DRIVER_NAME=iHD
-    intel-vaapi-driver # For older processors. LIBVA_DRIVER_NAME=i965
+    # intel-vaapi-driver # For older processors. LIBVA_DRIVER_NAME=i965
+    intel-compute-runtime
     vpl-gpu-rt # Intel Quick Sync Video
   ];
 
+  services.throttled.enable = true;
+
   environment.systemPackages = with pkgs; [
     nvtopPackages.intel
+    kdiskmark
   ];
 }

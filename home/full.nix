@@ -13,7 +13,6 @@
     ./programs/jeb.nix
     ./programs/ghidra.nix
     ./programs/caido
-    ./programs/mpv.nix
     ./programs/steam.nix
     #./programs/superprod.nix
 
@@ -28,6 +27,8 @@
     ./programs/zsh
     #./programs/fish.nix
     ./programs/tmux
+    ./programs/mpv.nix
+    ./programs/htop.nix
 
     ## OS
     ./programs/stylix.nix

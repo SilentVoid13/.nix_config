@@ -3,11 +3,9 @@
   home.packages = with pkgs; [
     file
     binutils
-    htop
     grc
     eza
     bat
-    procs
     ripgrep
     dua
     jq
@@ -24,6 +22,10 @@
     magic-wormhole
     rogcat
     fd
+
+    ## monitoring
+    s-tui
+    procs
 
     ## hardware
     lshw

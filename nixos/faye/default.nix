@@ -22,7 +22,10 @@
     vpl-gpu-rt # Intel Quick Sync Video
   ];
 
+  services.fwupd.enable = true;
   services.throttled.enable = true;
+  # unsupported for this CPU apparently
+  # services.thermald.enable = true;
 
   environment.systemPackages = with pkgs; [
     nvtopPackages.intel

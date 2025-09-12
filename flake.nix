@@ -54,11 +54,6 @@
       url = "github:kuokuo123/otter-launcher";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-
-    # sherlock = {
-    #   url = "github:Skxxtz/sherlock";
-    #   inputs.nixpkgs.follows = "nixpkgs";
-    # };
   };
 
   outputs =

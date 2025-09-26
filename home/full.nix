@@ -11,6 +11,7 @@
     ./programs/binaryninja
     ./programs/ida
     ./programs/jeb.nix
+    ./programs/jadx.nix
     ./programs/ghidra.nix
     ./programs/caido
     ./programs/steam.nix

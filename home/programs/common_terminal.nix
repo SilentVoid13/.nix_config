@@ -22,6 +22,7 @@
     magic-wormhole
     rogcat
     fd
+    spacer
 
     ## monitoring
     s-tui

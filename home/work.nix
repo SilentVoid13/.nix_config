@@ -41,8 +41,11 @@
     ./programs/otter_launcher
     # ./programs/sherlock.nix
     ./programs/waybar.nix
+
+    ## daemons services
     ./services/dunst.nix
+    # ./services/swaync.nix
     #./services/darkman.nix
-    ./services/syncthing.nix
+    #./services/syncthing.nix
   ];
 }

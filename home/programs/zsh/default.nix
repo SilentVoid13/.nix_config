@@ -106,12 +106,19 @@ in
         echo 'use flake' > .envrc
         direnv allow
       }
-      env_rust() {
+      env_rust_build() {
+        cp ${./base_rust_build.nix} flake.nix
+        chmod 644 flake.nix
+        git add flake.nix
+        echo 'use flake' > .envrc
+        direnv allow
+      }
+      env_rust_naersk() {
         # kind of ugly but it's for naersk to be happy
         nix-shell -p cargo --run "cargo init && cargo generate-lockfile"
         git add Cargo.toml Cargo.lock 
 
-        cp ${./base_rust.nix} flake.nix
+        cp ${./base_rust_naersk.nix} flake.nix
         chmod 644 flake.nix
         git add flake.nix
         echo 'use flake' > .envrc

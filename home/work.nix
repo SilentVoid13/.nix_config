@@ -43,8 +43,8 @@
     ./programs/waybar.nix
 
     ## daemons services
-    ./services/dunst.nix
-    # ./services/swaync.nix
+    # ./services/dunst.nix
+    ./services/swaync.nix
     #./services/darkman.nix
     #./services/syncthing.nix
   ];

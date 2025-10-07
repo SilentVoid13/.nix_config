@@ -172,6 +172,7 @@ in
           "${m}+p" = "exec ${pkgs.playerctl}/bin/playerctl play-pause";
           "${m}+o" = "exec ${pkgs.playerctl}/bin/playerctl previous";
           "${m}+i" = "exec ${pkgs.playerctl}/bin/playerctl next";
+          "${m}+c" = "exec swaync-client -t -sw";
 
           "${m}+q" = "kill";
           "${m}+v" = "fullscreen toggle";

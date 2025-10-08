@@ -12,4 +12,4 @@ update:
 home_depends target pkg:
     nix why-depends --derivation .#homeConfigurations.{{target}}.activationPackage .\#homeConfigurations.{{target}}.pkgs.{{pkg}} --impure
 nixos_depends target pkg:
-    nix why-depends --derivation .#nixosConfigurations.{{target}}.config.system.build.toplevel .\#nixosConfigurations.{{target}}.config.system.packages.${pkg} --impure
+    nix why-depends --derivation .#nixosConfigurations.{{target}}.config.system.build.toplevel .\#nixosConfigurations.{{target}}.config.system.packages.{{pkg}} --impure

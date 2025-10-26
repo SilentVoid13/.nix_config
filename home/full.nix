@@ -12,7 +12,7 @@
     ./programs/ida
     ./programs/jeb.nix
     ./programs/jadx.nix
-    ./programs/ghidra.nix
+    ./programs/ghidra
     ./programs/caido
     ./programs/steam.nix
     #./programs/superprod.nix
@@ -35,12 +35,13 @@
     ./programs/stylix.nix
     ./programs/sway
     #./programs/hyprland
+    ./programs/waybar.nix
+
     ## launcher
     #./programs/wofi.nix
-    ./programs/fuzzel.nix
+    # ./programs/fuzzel.nix
     ./programs/otter_launcher
     # ./programs/sherlock.nix
-    ./programs/waybar.nix
 
     ## daemons services
     # ./services/dunst.nix

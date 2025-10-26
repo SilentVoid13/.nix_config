@@ -7,21 +7,23 @@
     eza
     bat
     ripgrep
-    dua
+    fd
     jq
     just
+
+    ## archive
     p7zip
     unzip
     zip
+
+    ## misc
+    dua
     openvpn
     cloc
     trashy
     python3
-    appimage-run
-    steam-run
     magic-wormhole
     rogcat
-    fd
     spacer
 
     ## monitoring
@@ -33,6 +35,10 @@
     dmidecode
     usbutils
     pciutils
+
+    ## nixos utils
+    appimage-run
+    steam-run
 
     ## temp
     #quickemu

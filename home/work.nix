@@ -12,7 +12,7 @@
     ./programs/ida
     ./programs/jeb.nix
     ./programs/jadx.nix
-    ./programs/ghidra.nix
+    ./programs/ghidra
     ./programs/caido
     #./programs/steam.nix
     #./programs/superprod.nix

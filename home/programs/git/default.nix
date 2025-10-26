@@ -21,19 +21,11 @@ in
 
   programs.git = {
     enable = true;
-    userName = myconf.git.personal.name;
-    userEmail = myconf.git.personal.email;
-    delta = {
-      enable = true;
-    };
-    lfs = {
-      enable = true;
-    };
-    signing = {
-      key = myconf.git.personal.key;
-      signByDefault = true;
-    };
-    extraConfig = {
+
+    settings = {
+      user.name = myconf.git.personal.name;
+      user.email = myconf.git.personal.email;
+
       gpg.format = "ssh";
       gpg.ssh.program = "op-ssh-sign";
 
@@ -49,6 +41,13 @@ in
       # rebase when pulling
       pull.rebase = "true";
     };
+    lfs = {
+      enable = true;
+    };
+    signing = {
+      key = myconf.git.personal.key;
+      signByDefault = true;
+    };
 
     includes = [
       {
@@ -60,5 +59,10 @@ in
         condition = "hasconfig:remote.*.url:ssh://git@${myconf.git.work.host}:*/**";
       }
     ];
+  };
+
+  programs.delta = {
+    enable = true;
+    enableGitIntegration = true;
   };
 }

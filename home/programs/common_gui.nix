@@ -15,10 +15,7 @@
     chromium
     #discord
     vesktop
-    gnome-pomodoro
-
-    # FIXME: broken for now
-    # nwg-displays
+    nwg-displays
 
     # temp
     obs-studio

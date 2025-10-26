@@ -82,6 +82,7 @@ in
 
           # java
           # jdtls.enable = true;
+          # java_language_server.enable = true;
 
           # python
           ruff = {

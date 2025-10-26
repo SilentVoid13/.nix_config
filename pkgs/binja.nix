@@ -37,8 +37,7 @@ pkgs.buildFHSEnv {
       wayland
       zlib
       libxml2
-      libxml2_13
-      qt6.full
+      # libxml2_13
       qt6.qtbase
       glib
 

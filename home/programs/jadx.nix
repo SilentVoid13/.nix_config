@@ -5,13 +5,13 @@
 let
   jadx_pkg = pkgs.stdenv.mkDerivation rec {
     pname = "jadx";
-    version = "r2516.5f1985f";
+    version = "r2529.88e9072";
     # version = "1.5.3";
 
     src = pkgs.fetchzip {
       # url = "https://github.com/skylot/jadx/releases/download/v${version}/jadx-${version}.zip";
       url = "https://nightly.link/skylot/jadx/workflows/build-artifacts/master/jadx-${version}.zip";
-      sha256 = "sha256-q+WBR//73QSKdkkL+v/kG5e+mp5Uho8pG5QCBSWu/Ww=";
+      sha256 = "sha256-tBCp3FPS6AoSDWMBwVdZI1Xzq1gRgetXvrUFvv9YGIY=";
       stripRoot = false;
     };
 
@@ -44,4 +44,14 @@ let
 in
 {
   home.packages = [ jadx_pkg ];
+
+  xdg.desktopEntries = {
+    "jadx" = {
+      name = "JADX";
+      exec = "jadx-gui";
+      categories = [ "Utility" ];
+      type = "Application";
+      terminal = false;
+    };
+  };
 }

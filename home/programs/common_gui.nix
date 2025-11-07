@@ -10,7 +10,7 @@
     qimgv # image viewer
     (nixGLWrap obsidian)
     mullvad-vpn
-    onlyoffice-bin
+    onlyoffice-desktopeditors
     transmission_4-gtk
     chromium
     #discord

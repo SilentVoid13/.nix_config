@@ -133,6 +133,9 @@
                     <STATE NAME="MouseBinding" TYPE="string" VALUE="" />
                 </WRAPPED_OPTION>
             </CATEGORY>
+            <CATEGORY NAME="Tool">
+                <STATE NAME="Copy Strings Without Quotes" TYPE="boolean" VALUE="true" />
+            </CATEGORY>
         </OPTIONS>
         <PACKAGE NAME="Ghidra Core">
             <INCLUDE CLASS="ghidra.app.plugin.core.interpreter.InterpreterPanelPlugin" />

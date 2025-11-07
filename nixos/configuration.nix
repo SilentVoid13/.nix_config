@@ -13,17 +13,15 @@
       corefonts
       liberation_ttf
       noto-fonts
-      noto-fonts-extra
       noto-fonts-cjk-sans
       noto-fonts-cjk-serif
       # emojis
-      noto-fonts-emoji
       noto-fonts-color-emoji
       # Custom fonts
       terminus_font
       #iosevka
       nerd-fonts.iosevka
-      ubuntu_font_family
+      ubuntu-classic
     ];
   };
 

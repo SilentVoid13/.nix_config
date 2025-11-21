@@ -9,6 +9,7 @@ let
       torch
       pyperclip
       flatbuffers
+      lief
     ]
   );
   libxml2_13 = pkgs.libxml2.overrideAttrs rec {

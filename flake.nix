@@ -8,6 +8,7 @@
 
     nurpkgs = {
       url = "github:nix-community/NUR";
+      inputs.nixpkgs.follows = "nixpkgs";
     };
 
     home-manager = {

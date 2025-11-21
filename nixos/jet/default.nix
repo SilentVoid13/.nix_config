@@ -11,6 +11,7 @@
 
   hardware.graphics.extraPackages = with pkgs; [
     intel-media-driver
+    intel-compute-runtime
     nvidia-vaapi-driver
   ];
 
@@ -36,6 +37,9 @@
   #programs.steam.gamescopeSession.enable = true;
 
   services.xserver.videoDrivers = [ "nvidia" ];
+
+  # services.thermald.enable = true;
+  # services.throttled.enable = true;
 
   hardware.nvidia = {
     # Modesetting is required.

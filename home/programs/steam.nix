@@ -9,7 +9,7 @@
 
     steam-run
     # for proton-ge
-    protonup
+    protonup-ng
   ];
 
   programs.mangohud.enable = true;

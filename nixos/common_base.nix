@@ -55,6 +55,8 @@
   virtualisation.docker.enable = true;
   programs.firejail.enable = true;
 
+  networking.networkmanager.wifi.powersave = false;
+
   services = {
     pipewire = {
       enable = true;

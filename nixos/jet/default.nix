@@ -39,7 +39,7 @@
   services.xserver.videoDrivers = [ "nvidia" ];
 
   # services.thermald.enable = true;
-  # services.throttled.enable = true;
+  services.throttled.enable = true;
 
   hardware.nvidia = {
     # Modesetting is required.

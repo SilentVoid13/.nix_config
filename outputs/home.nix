@@ -2,7 +2,6 @@
   nixpkgs,
   nixpkgs-stable,
   myconf,
-  nurpkgs,
   home-manager,
   nixgl,
   inputs,
@@ -47,11 +46,14 @@ let
         inherit pkgs-stable;
       };
       modules = [
-        (import ./config_pkgs.nix {
-          inherit pkgs-stable;
-          inherit nurpkgs;
-          inherit nixgl;
-        })
+        inputs.stylix.homeModules.stylix
+        (
+          import ./config_pkgs.nix {
+            inherit pkgs-stable;
+            inherit nixgl;
+          }
+          // (if inputs ? nurpkgs then { nurpkgs = inputs.nurpkgs; } else { })
+        )
         (if builtins.pathExists ../extra/home.nix then import ../extra/home.nix else { })
         {
           home.username = "${username}";
@@ -85,6 +87,8 @@ in
     system = "x86_64-linux";
     username = "${myconf.username}";
     isNixOs = true;
-    modules = [ ../home/work.nix ];
+    modules = [
+      ../home/work.nix
+    ];
   };
 }

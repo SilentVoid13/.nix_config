@@ -22,6 +22,10 @@
       #iosevka
       nerd-fonts.iosevka
       ubuntu-classic
+      inter
+      nerd-fonts.dejavu-sans-mono
+      source-sans
+      ibm-plex
     ];
   };
 

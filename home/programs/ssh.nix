@@ -10,10 +10,6 @@ in
     enableDefaultConfig = false;
     includes = [ "${home}/.ssh/1Password/config" ];
     matchBlocks = {
-      "${myconf.git.work.host}" = {
-        user = "git";
-        port = 2222;
-      };
       "homelab" = {
         forwardAgent = true;
       };

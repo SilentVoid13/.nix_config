@@ -6,11 +6,6 @@
     nixpkgs-stable.url = "nixpkgs/nixos-24.05";
     nixpkgs-staging.url = "nixpkgs/staging-next";
 
-    nurpkgs = {
-      url = "github:nix-community/NUR";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-
     home-manager = {
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -47,7 +42,7 @@
     };
 
     stylix = {
-      url = "github:danth/stylix";
+      url = "github:nix-community/stylix";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
@@ -55,13 +50,17 @@
       url = "github:kuokuo123/otter-launcher";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    # nurpkgs = {
+    #   url = "github:nix-community/NUR";
+    #   inputs.nixpkgs.follows = "nixpkgs";
+    # };
   };
 
   outputs =
     {
       nixpkgs,
       nixpkgs-stable,
-      nurpkgs,
       home-manager,
       nixgl,
       lanzaboote,
@@ -80,7 +79,6 @@
         inherit nixpkgs;
         inherit nixpkgs-stable;
         inherit myconf;
-        inherit nurpkgs;
         inherit home-manager;
         inherit nixgl;
         inherit inputs;

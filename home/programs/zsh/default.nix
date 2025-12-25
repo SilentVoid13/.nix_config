@@ -85,6 +85,7 @@ in
       sshp = "ssh -o PreferredAuthentications=password -o PubkeyAuthentication=no ";
       gll = "git stash && git pull && git stash pop";
       nixsf = "nix run github:nix-community/nix-index-database -- ";
+      copy = "wl-copy";
     };
 
     initContent = ''

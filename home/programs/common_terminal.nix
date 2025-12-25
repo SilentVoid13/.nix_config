@@ -25,6 +25,7 @@
     magic-wormhole
     rogcat
     spacer
+    xlsclients
 
     ## monitoring
     s-tui

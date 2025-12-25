@@ -52,7 +52,10 @@
   };
 
   # containers / virtualisation
-  virtualisation.docker.enable = true;
+  virtualisation.docker = {
+    enable = true;
+    liveRestore = false;
+  };
   programs.firejail.enable = true;
 
   networking.networkmanager.wifi.powersave = false;

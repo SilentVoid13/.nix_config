@@ -40,9 +40,9 @@
     ## nixos utils
     appimage-run
     steam-run
+    nh
 
     ## temp
-    #quickemu
   ];
 
   xdg = {

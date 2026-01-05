@@ -83,6 +83,7 @@ in
       zettel = "date +%Y%m%d%H%M";
       crr = "cargo run --release";
       sshp = "ssh -o PreferredAuthentications=password -o PubkeyAuthentication=no ";
+      scpp = "scp -o PreferredAuthentications=password -o PubkeyAuthentication=no ";
       gll = "git stash && git pull && git stash pop";
       nixsf = "nix run github:nix-community/nix-index-database -- ";
       copy = "wl-copy";

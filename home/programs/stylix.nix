@@ -5,18 +5,15 @@
   ...
 }:
 {
-  imports = [
-    inputs.stylix.homeModules.stylix
-  ];
   stylix = {
     enable = true;
     autoEnable = true;
+    enableReleaseChecks = false;
 
     polarity = "dark";
     image = config.lib.stylix.pixel "base0A";
 
     base16Scheme = "${pkgs.base16-schemes}/share/themes/tokyo-night-dark.yaml";
-
     #base16Scheme = "${pkgs.base16-schemes}/share/themes/tokyo-night-dark.yaml";
     #base16Scheme = "${pkgs.base16-schemes}/share/themes/gruvbox-dark-hard.yaml";
     override = {
@@ -61,12 +58,27 @@
         terminal = 14;
       };
       monospace = {
+        # name = "Intel One Mono";
+        # package = pkgs.intel-one-mono;
+
+        # name = "JetBrainsMono";
+        # package = pkgs.nerd-fonts.jetbrains-mono;
+
         name = "Iosevka Nerd Font Mono";
         package = pkgs.nerd-fonts.iosevka;
       };
       sansSerif = {
-        name = "DejaVuSansM Nerd Font";
-        package = pkgs.nerd-fonts.dejavu-sans-mono;
+        # name = "Inter";
+        # package = pkgs.inter;
+
+        name = "IBM Plex Sans";
+        package = pkgs.ibm-plex;
+
+        # name = "JetBrainsMono";
+        # package = pkgs.nerd-fonts.jetbrains-mono;
+
+        # name = "DejaVuSansM Nerd Font";
+        # package = pkgs.nerd-fonts.dejavu-sans-mono;
       };
     };
 

@@ -85,13 +85,10 @@ in
         resumeCommand = ''${pkgs.sway}/bin/swaymsg "output * dpms on"'';
       }
     ];
-    events = [
-      {
-        event = "before-sleep";
-        command = lock_cmd;
-      }
-      #{ event = "lock"; command = lock_cmd; }
-    ];
+    events = {
+      "before-sleep" = lock_cmd;
+      # "lock" = lock_cmd;
+    };
   };
 
   services.wayland-pipewire-idle-inhibit = {

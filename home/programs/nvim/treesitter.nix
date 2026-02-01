@@ -36,7 +36,7 @@
       origami = {
         enable = true;
         settings = {
-          useLspFoldsWithTreesitterFallback = true;
+          useLspFoldsWithTreesitterFallback.enabled = true;
           pauseFoldsOnSearch = true;
         };
       };

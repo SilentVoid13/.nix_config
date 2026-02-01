@@ -12,7 +12,7 @@
     taplo # toml
     google-java-format # java
     ktfmt # kotlin
-    nixfmt-rfc-style # nix
+    nixfmt # nix
   ];
 
   programs.nixvim = {

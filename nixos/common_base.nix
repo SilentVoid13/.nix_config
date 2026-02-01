@@ -120,13 +120,11 @@
         zlib
       ];
     };
-
-    adb.enable = true;
     noisetorch.enable = true;
     dconf.enable = true;
     thunar = {
       enable = true;
-      plugins = with pkgs.xfce; [ thunar-volman ];
+      plugins = with pkgs; [ thunar-volman ];
     };
   };
 
@@ -138,6 +136,7 @@
     yubioath-flutter
     docker-compose
     vial
+    android-tools
   ];
 
   ## wayland config

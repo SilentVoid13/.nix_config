@@ -12,7 +12,7 @@
     enable = true;
     arkenfox = {
       enable = true;
-      version = "135.0";
+      version = "master";
     };
     profiles."0" = {
       id = 0;

@@ -22,11 +22,6 @@ let
       '';
   };
 
-  wallpaper_switcher = "sway/wallpaper_switcher.sh";
-  wallpaper_switcher_path = "${config.xdg.dataHome}/${wallpaper_switcher}";
-  reboot_wallpaper = "sway/reboot_wallpaper.sh";
-  reboot_wallpaper_path = "${config.xdg.dataHome}/${reboot_wallpaper}";
-
   lock_cmd = "${pkgs.swaylock}/bin/swaylock -f -c 000000";
 
   mon1 = myconf.monitor1;
@@ -44,10 +39,6 @@ let
   ws10 = "10";
 in
 {
-  imports = [
-    inputs.wayland-pipewire-idle-inhibit.homeModules.default
-  ];
-
   home.packages = with pkgs; [
     configure-gtk
     polkit_gnome
@@ -58,7 +49,6 @@ in
     playerctl
     grim
     slurp
-    swaybg
     xdg-utils
     networkmanagerapplet
     pulseaudio
@@ -72,48 +62,14 @@ in
 
   programs.swaylock.enable = true;
 
-  services.swayidle = {
-    enable = true;
-    timeouts = [
-      {
-        timeout = 300;
-        command = lock_cmd;
-      }
-      {
-        timeout = 320;
-        command = ''${pkgs.sway}/bin/swaymsg "output * dpms off"'';
-        resumeCommand = ''${pkgs.sway}/bin/swaymsg "output * dpms on"'';
-      }
-    ];
-    events = {
-      "before-sleep" = lock_cmd;
-      # "lock" = lock_cmd;
-    };
-  };
-
-  services.wayland-pipewire-idle-inhibit = {
-    enable = true;
-    systemdTarget = "sway-session.target";
-    settings = {
-      verbosity = "WARN";
-      media_minimum_duration = 5;
-      idle_inhibitor = "wayland";
-      sink_whitelist = [ ];
-      node_blacklist = [
-        { name = "spotify"; }
-      ];
-    };
-  };
-
-  xdg = {
-    enable = true;
-    dataFile."${wallpaper_switcher}".source = ./wallpaper_switcher.sh;
-    dataFile."${reboot_wallpaper}".source = ./reboot_wallpaper.sh;
-  };
-
   home.file.".xkb/symbols/qwerty_fr" = {
     source = "${pkgs.qwerty-fr}/share/X11/xkb/symbols/us_qwerty-fr";
   };
+
+  # NOTE: in addition, we need to modify:
+  # - waybar to enable sway/workspaces
+  # - zsh to start it from .zprofile
+  # - common_base.nix to enable nixos sway (portal etc)
 
   wayland.windowManager.sway = {
     enable = true;
@@ -148,8 +104,8 @@ in
         };
       };
       startup = [
-        { command = "nm-applet --indicator"; }
-        { command = "${wallpaper_switcher_path}"; }
+        { command = "${pkgs.networkmanagerapplet}/bin/nm-applet --indicator"; }
+        { command = "wallpaper_switcher.sh"; }
         # TODO: does this work on non-nixos?
         { command = "${pkgs.polkit_gnome}/libexec/polkit-gnome-authentication-agent-1"; }
         # { command = "${pkgs.ulauncher}/bin/ulauncher --hide-window"; }
@@ -165,12 +121,23 @@ in
           "${m}+e" = "exec ${config.wayland.windowManager.sway.config.menu}";
           "${m}+Shift+e" = "exec bemoji -t";
           "${m}+Return" = "exec ${config.wayland.windowManager.sway.config.terminal} tmux new -As0";
-          "${m}+Shift+w" = "exec ${reboot_wallpaper_path}";
+          "${m}+Shift+w" = "exec reboot_wallpaper.sh";
           "${m}+p" = "exec ${pkgs.playerctl}/bin/playerctl play-pause";
           "${m}+o" = "exec ${pkgs.playerctl}/bin/playerctl previous";
           "${m}+i" = "exec ${pkgs.playerctl}/bin/playerctl next";
           "${m}+c" = "exec swaync-client -t -sw";
           "${m}+Shift+c" = "exec swaync-client -C";
+          # media controls
+          "XF86AudioRaiseVolume" = "exec ${pkgs.pulseaudio}/bin/pactl set-sink-volume @DEFAULT_SINK@ +5%";
+          "XF86AudioLowerVolume" = "exec ${pkgs.pulseaudio}/bin/pactl set-sink-volume @DEFAULT_SINK@ -5%";
+          "XF86AudioMute" = "exec ${pkgs.pulseaudio}/bin/pactl set-sink-mute @DEFAULT_SINK@ toggle";
+          "XF86AudioPlay" = "exec playerctl play-pause";
+          "XF86AudioPause" = "exec playerctl play-pause";
+          "XF86AudioNext" = "exec playerctl next";
+          "XF86AudioPrev" = "exec playerctl previous";
+          "XF86MonBrightnessDown" = "exec ${pkgs.brightnessctl}/bin/brightnessctl s 5%-";
+          "XF86MonBrightnessUp" = "exec ${pkgs.brightnessctl}/bin/brightnessctl s 5%+";
+          "Insert" = "exec ${pkgs.pulseaudio}/bin/pactl set-source-mute @DEFAULT_SOURCE@ toggle";
 
           "${m}+q" = "kill";
           "${m}+v" = "fullscreen toggle";
@@ -225,18 +192,6 @@ in
           "${m}+Shift+8" = "move container to workspace number ${ws8}";
           "${m}+Shift+9" = "move container to workspace number ${ws9}";
           "${m}+Shift+0" = "move container to workspace number ${ws10}";
-
-          # media controls
-          "XF86AudioRaiseVolume" = "exec ${pkgs.pulseaudio}/bin/pactl set-sink-volume @DEFAULT_SINK@ +5%";
-          "XF86AudioLowerVolume" = "exec ${pkgs.pulseaudio}/bin/pactl set-sink-volume @DEFAULT_SINK@ -5%";
-          "XF86AudioMute" = "exec ${pkgs.pulseaudio}/bin/pactl set-sink-mute @DEFAULT_SINK@ toggle";
-          "XF86AudioPlay" = "exec playerctl play-pause";
-          "XF86AudioPause" = "exec playerctl play-pause";
-          "XF86AudioNext" = "exec playerctl next";
-          "XF86AudioPrev" = "exec playerctl previous";
-          "XF86MonBrightnessDown" = "exec ${pkgs.brightnessctl}/bin/brightnessctl s 5%-";
-          "XF86MonBrightnessUp" = "exec ${pkgs.brightnessctl}/bin/brightnessctl s 5%+";
-          "Insert" = "exec ${pkgs.pulseaudio}/bin/pactl set-source-mute @DEFAULT_SOURCE@ toggle";
 
           # modes
           "${m}+Shift+r" = "reload";

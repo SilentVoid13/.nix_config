@@ -3,6 +3,7 @@
   lib,
   myconf,
   nixpkgs,
+  inputs,
   ...
 }:
 {
@@ -162,18 +163,52 @@
   ## sway config
   security.pam.services.swaylock = { };
   #programs.sway.enable = true;
-  xdg.portal = {
+
+  ## niri config
+  imports = [
+    inputs.niri.nixosModules.niri
+  ];
+  programs.niri = {
     enable = true;
-    config.common = {
-      # https://github.com/emersion/xdg-desktop-portal-wlr?tab=readme-ov-file#running
-      default = [ "gtk" ];
-      "org.freedesktop.impl.portal.Screenshot" = [ "wlr" ];
-      "org.freedesktop.impl.portal.Screencast" = [ "wlr" ];
+    package = pkgs.niri-unstable;
+  };
+  # programs.uwsm = {
+  #   enable = true;
+  #   waylandCompositors = {
+  #     niri = {
+  #       prettyName = "niri";
+  #       comment = "niri compositor managed by UWSM";
+  #       binPath = "/run/current-system/sw/bin/niri";
+  #     };
+  #   };
+  # };
+
+  xdg = {
+    portal = {
+      enable = true;
+      extraPortals = [
+        pkgs.xdg-desktop-portal-gnome
+        pkgs.xdg-desktop-portal-gtk
+        # pkgs.xdg-desktop-portal-wlr
+      ];
+      config = {
+        common = {
+          default = [
+            "gnome"
+            "gtk"
+          ];
+          "org.freedesktop.impl.portal.ScreenCast" = [ "gnome" ];
+          "org.freedesktop.impl.portal.Screenshot" = [ "gnome" ];
+        };
+      };
+      ## WLR config
+      # config.common = {
+      #   # https://github.com/emersion/xdg-desktop-portal-wlr?tab=readme-ov-file#running
+      #   default = [ "gtk" ];
+      #   "org.freedesktop.impl.portal.Screenshot" = [ "wlr" ];
+      #   "org.freedesktop.impl.portal.Screencast" = [ "wlr" ];
+      # };
+      # wlr.enable = true;
     };
-    wlr.enable = true;
-    extraPortals = [
-      pkgs.xdg-desktop-portal-wlr
-      pkgs.xdg-desktop-portal-gtk
-    ];
   };
 }

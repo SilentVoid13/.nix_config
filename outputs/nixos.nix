@@ -4,6 +4,7 @@
   nixpkgs-stable,
   lanzaboote,
   disko,
+  inputs,
   ...
 }:
 let
@@ -18,6 +19,7 @@ in
     modules = [
       (import ./config_pkgs.nix {
         inherit pkgs-stable;
+        niri = inputs.niri;
       })
       lanzaboote.nixosModules.lanzaboote
       disko.nixosModules.disko
@@ -27,7 +29,12 @@ in
       (if builtins.pathExists ../extra/nixos.nix then import ../extra/nixos.nix else { })
     ];
     specialArgs = {
-      inherit myconf nixpkgs pkgs-stable;
+      inherit
+        myconf
+        nixpkgs
+        pkgs-stable
+        inputs
+        ;
       disk_name = "/dev/nvme0n1";
     };
   };
@@ -37,6 +44,7 @@ in
     modules = [
       (import ./config_pkgs.nix {
         inherit pkgs-stable;
+        niri = inputs.niri;
       })
       lanzaboote.nixosModules.lanzaboote
       disko.nixosModules.disko
@@ -46,7 +54,12 @@ in
       (if builtins.pathExists ../extra/nixos.nix then import ../extra/nixos.nix else { })
     ];
     specialArgs = {
-      inherit myconf nixpkgs pkgs-stable;
+      inherit
+        myconf
+        nixpkgs
+        pkgs-stable
+        inputs
+        ;
       disk_name = "/dev/nvme0n1";
     };
   };

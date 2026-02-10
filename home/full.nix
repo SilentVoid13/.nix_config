@@ -33,7 +33,11 @@
 
     ## OS
     ./programs/stylix.nix
-    ./programs/sway
+    ./programs/swayidle.nix
+    ./programs/wallpaper_switcher.nix
+    ./programs/wayland_pipewire_inhibit.nix
+    # ./programs/sway
+    ./programs/niri
     #./programs/hyprland
     ./programs/waybar.nix
 

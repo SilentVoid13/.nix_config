@@ -152,8 +152,12 @@ in
       # bash
       ''
         if [ -z $DISPLAY ] && [ "$(tty)" = "/dev/tty1" ]; then
-            exec sway --unsupported-gpu
-            #exec Hyprland
+            # exec sway --unsupported-gpu
+            # exec Hyprland
+            if [ -z "$NIRI_LOADED" ]; then
+                export NIRI_LOADED=1
+                exec niri-session
+            fi
         fi
       '';
   };

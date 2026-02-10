@@ -14,8 +14,9 @@
         #modules-left = ["hyprland/workspaces" "hyprland/submap"];
         #modules-center = ["hyprland/window"];
         modules-left = [
-          "sway/workspaces"
-          "sway/mode"
+          "niri/workspaces"
+          # "sway/workspaces"
+          # "sway/mode"
         ];
         modules-center = [ "sway/window" ];
         modules-right = [

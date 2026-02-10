@@ -38,13 +38,8 @@
     interactiveShellInit = # fish
       ''
         if [ -z $DISPLAY ] && [ "$(tty)" = "/dev/tty1" ]; then
-            export XDG_CURRENT_DESKTOP="sway"
-            export MOZ_ENABLE_WAYLAND=1
-            export _JAVA_AWT_WM_NONREPARENTING=1
             export XDG_DATA_DIRS=$HOME/.nix-profile/share:$XDG_DATA_DIRS
-            export NIXOS_OZONE_WL=1
             export LOCALE_ARCHIVE=/usr/lib/locale/locale-archive
-
             exec sway --unsupported-gpu
         fi
       '';

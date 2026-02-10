@@ -51,9 +51,12 @@ let
           import ./config_pkgs.nix {
             inherit pkgs-stable;
             inherit nixgl;
+            niri = inputs.niri;
           }
           // (if inputs ? nurpkgs then { nurpkgs = inputs.nurpkgs; } else { })
         )
+        inputs.niri.homeModules.niri
+        inputs.niri.homeModules.stylix
         (if builtins.pathExists ../extra/home.nix then import ../extra/home.nix else { })
         {
           home.username = "${username}";

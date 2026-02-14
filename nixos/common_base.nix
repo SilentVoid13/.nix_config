@@ -172,6 +172,9 @@
     enable = true;
     package = pkgs.niri-unstable;
   };
+  # disable KDE polkit to use gnome
+  systemd.user.services.niri-flake-polkit.enable = false;
+
   # programs.uwsm = {
   #   enable = true;
   #   waylandCompositors = {

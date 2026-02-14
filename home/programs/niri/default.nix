@@ -208,6 +208,9 @@ in
           "systemctl"
           "suspend"
         ];
+        "${m}+Shift+w".action.spawn = [
+          "reboot_wallpaper.sh"
+        ];
 
         # workspaces
         "${m}+a".action.focus-workspace = "${ws1}";
@@ -248,11 +251,11 @@ in
       };
 
       spawn-at-startup = [
-        # {
-        #   argv = [
-        #     "${pkgs.polkit_gnome}/libexec/polkit-gnome-authentication-agent-1"
-        #   ];
-        # }
+        {
+          argv = [
+            "${pkgs.polkit_gnome}/libexec/polkit-gnome-authentication-agent-1"
+          ];
+        }
         {
           argv = [
             "${pkgs.waybar}/bin/waybar"

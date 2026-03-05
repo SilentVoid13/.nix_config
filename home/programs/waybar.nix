@@ -69,7 +69,7 @@
         "pulseaudio" = {
           "scroll-step" = 5;
           "format" = "{volume}% {icon}  {format_source}";
-          "format-bluetooth" = "{volume}% {icon}";
+          "format-bluetooth" = "{volume}% {icon}  {format_source}";
           "format-source" = "Mic ON";
           "format-source-muted" = "Mic OFF";
           "format-muted" = "";

@@ -5,6 +5,10 @@
   ...
 }:
 {
+  imports = [
+    inputs.stylix.nixosModules.stylix
+  ];
+
   stylix = {
     enable = true;
     # NOTE: for now we duplicate this with nixos, but we should eventually move it to a shared module
@@ -81,12 +85,6 @@
       };
     };
 
-    targets = {
-      waybar.enable = true;
-      nixvim.enable = false;
-      foot.enable = false;
-      sway.useWallpaper = false;
-      firefox.profileNames = [ "0" ];
-    };
+    # targets = { };
   };
 }

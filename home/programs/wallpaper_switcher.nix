@@ -2,12 +2,6 @@
 let
   wallpaper_folder = "$HOME/.wallpapers";
 
-  reboot_wallpaper = pkgs.writeShellScriptBin "reboot_wallpaper.sh" ''
-    pkill -TERM -f ${pkgs.swaybg}/bin/swaybg
-    pkill -TERM -f wallpaper_switcher
-    ~/.local/share/sway/wallpaper_switcher.sh &
-  '';
-
   wallpaper_switcher = pkgs.writeShellScriptBin "wallpaper_switcher.sh" ''
     wallpaper_folder="${wallpaper_folder}"
     delay=3600
@@ -25,6 +19,12 @@ let
         sleep 3600
         kill $last_pid
     done
+  '';
+
+  reboot_wallpaper = pkgs.writeShellScriptBin "reboot_wallpaper.sh" ''
+    pkill -TERM -f ${pkgs.swaybg}/bin/swaybg
+    pkill -TERM -f wallpaper_switcher
+    ${wallpaper_switcher}/bin/wallpaper_switcher.sh &
   '';
 in
 {

@@ -12,10 +12,10 @@
     mullvad-vpn
     onlyoffice-desktopeditors
     transmission_4-gtk
-    chromium
+    #chromium
     #discord
     vesktop
-    nwg-displays
+    wdisplays
 
     # temp
     obs-studio

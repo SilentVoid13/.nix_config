@@ -129,6 +129,12 @@
     };
   };
 
+  imports = [
+    ./programs/stylix.nix
+    ./programs/chromium.nix
+    inputs.niri.nixosModules.niri
+  ];
+
   environment.systemPackages = with pkgs; [
     vim
     git
@@ -138,6 +144,8 @@
     docker-compose
     vial
     android-tools
+    # required for xdg-desktop-portal-gnome
+    nautilus
   ];
 
   ## wayland config
@@ -165,9 +173,6 @@
   #programs.sway.enable = true;
 
   ## niri config
-  imports = [
-    inputs.niri.nixosModules.niri
-  ];
   programs.niri = {
     enable = true;
     package = pkgs.niri-unstable;
@@ -202,6 +207,7 @@
           ];
           "org.freedesktop.impl.portal.ScreenCast" = [ "gnome" ];
           "org.freedesktop.impl.portal.Screenshot" = [ "gnome" ];
+          "org.freedesktop.impl.portal.FileChooser" = [ "gtk" ];
         };
       };
       ## WLR config

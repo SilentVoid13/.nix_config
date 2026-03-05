@@ -88,17 +88,17 @@ in
         };
       };
 
-      workspaces = {
-        "${ws1}" = {
-          open-on-output = "${mon1}";
-        };
-        "${ws2}" = {
-          open-on-output = "${mon1}";
-        };
-        "${ws9}" = {
-          open-on-output = "${mon2}";
-        };
-      };
+      # workspaces = {
+      #   "${ws1}" = {
+      #     open-on-output = "${mon1}";
+      #   };
+      #   "${ws2}" = {
+      #     open-on-output = "${mon1}";
+      #   };
+      #   # "${ws9}" = {
+      #   #   open-on-output = "${mon2}";
+      #   # };
+      # };
 
       layout = {
         gaps = 0;
@@ -113,7 +113,9 @@ in
       binds = {
         # program binds
         "${m}+b".action.spawn = [
-          "firefox"
+          # "firefox"
+          "brave"
+          "--disable-features=WaylandFractionalScaleV1"
         ];
         "${m}+e".action.spawn = [
           "${menu}"
@@ -202,8 +204,8 @@ in
           "@DEFAULT_SOURCE@"
           "toggle"
         ];
-        "${m}+Shift+Print".action.screenshot = { };
-        "${m}+Print".action.screenshot-window = { };
+        "${m}+Shift+Print".action.screenshot-window = { };
+        "${m}+Print".action.screenshot = { };
         "${m}+Shift+s".action.spawn = [
           "systemctl"
           "suspend"
@@ -213,26 +215,30 @@ in
         ];
 
         # workspaces
-        "${m}+a".action.focus-workspace = "${ws1}";
-        "${m}+s".action.focus-workspace = "${ws2}";
+        "${m}+a".action.focus-workspace = 1;
+        "${m}+s".action.focus-workspace = 2;
         "${m}+d".action.focus-workspace = 3;
         "${m}+f".action.focus-workspace = 4;
         "${m}+g".action.focus-workspace = 5;
         "${m}+h".action.focus-workspace = 6;
         "${m}+j".action.focus-workspace = 7;
         "${m}+k".action.focus-workspace = 8;
-        "${m}+l".action.focus-workspace = "${ws9}";
+        "${m}+l".action.focus-workspace = 9;
         "${m}+SemiColon".action.focus-workspace = 10;
-        "${m}+Shift+1".action.move-window-to-workspace = "${ws1}";
-        "${m}+Shift+2".action.move-window-to-workspace = "${ws2}";
+        "${m}+Shift+1".action.move-window-to-workspace = 1;
+        "${m}+Shift+2".action.move-window-to-workspace = 2;
         "${m}+Shift+3".action.move-window-to-workspace = 3;
         "${m}+Shift+4".action.move-window-to-workspace = 4;
         "${m}+Shift+5".action.move-window-to-workspace = 5;
         "${m}+Shift+6".action.move-window-to-workspace = 6;
         "${m}+Shift+7".action.move-window-to-workspace = 7;
         "${m}+Shift+8".action.move-window-to-workspace = 8;
-        "${m}+Shift+9".action.move-window-to-workspace = "${ws9}";
+        "${m}+Shift+9".action.move-window-to-workspace = 9;
         "${m}+Shift+0".action.move-window-to-workspace = 10;
+
+        # monitor
+        "${m}+m".action.focus-monitor-next = { };
+        "${m}+Shift+m".action.move-window-to-monitor-next = { };
 
         # niri
         "${m}+Shift+e".action.quit = { };
@@ -291,6 +297,7 @@ in
           matches = [
             { app-id = "foot"; }
             { app-id = "firefox"; }
+            { app-id = "brave"; }
           ];
         }
       ];

@@ -14,8 +14,9 @@ in
       }
       {
         timeout = 320;
-        command = ''${pkgs.sway}/bin/swaymsg "output * dpms off"'';
-        resumeCommand = ''${pkgs.sway}/bin/swaymsg "output * dpms on"'';
+        command = "systemctl suspend";
+        # command = ''${pkgs.sway}/bin/swaymsg "output * dpms off"'';
+        # resumeCommand = ''${pkgs.sway}/bin/swaymsg "output * dpms on"'';
       }
     ];
     events = {

@@ -76,11 +76,11 @@ esac fi }
 power $(echo -e 'reboot\nshutdown\nlogout\nsuspend\nhibernate' | fzf --reverse --no-scrollbar --padding 1,3 --prompt 'Power Menu: ' | tail -1)
 """
 
-[[modules]]
-description = "launch program in a new terminal"
-prefix = "sh"
-cmd = "setsid -f $TERM -e {}"
-with_argument = true
+# [[modules]]
+# description = "launch program in a new terminal"
+# prefix = "sh"
+# cmd = "setsid -f $TERM -e {}"
+# with_argument = true
 
 [[modules]]
 description = "search nix wiki"
@@ -119,12 +119,47 @@ url_encode = true
 description = "connect to a vpn"
 prefix = "vpn"
 cmd = """
-selected=$(echo -e "$(nmcli connection show | rg ' vpn | wireguard ' | cut -d ' ' -f 1)" | fzf --reverse --padding 1,3 --prompt 'VPNs: ')
+selected=$(nmcli connection show | rg ' vpn | wireguard ' | cut -d ' ' -f 1 | fzf --padding 1,2 --info-command 'printf " vpn"' --cycle --gutter " " --pointer " ▌" --color "bg+:-1,pointer:1,info:8,separator:8,scrollbar:0" --prompt '>  ')
+ 
+if [ -n "$selected" ]; then
+  if [ "$(nmcli connection show --active | rg "$selected")" ];
+    then
+      nmcli connection down "$selected" > /dev/null 2>&1
+    else
+      nmcli connection up "$selected" --ask
+  fi
+fi
+"""
+
+[[modules]]
+description = "switch wifi connection"
+prefix = "wifi"
+cmd = """
+selected=$(echo -e "$(nmcli -f ssid device wifi list | gawk '{print $1}' | grep -v SSID | sort | uniq)" | fzf --padding 1,2 --info-command 'printf " wifi"' --cycle --gutter " " --pointer " ▌" --color "bg+:-1,pointer:1,info:8,separator:8,scrollbar:0" --prompt '>  ')
  
 if [ "$(nmcli connection show --active | rg "$selected")" ]
   then
     nmcli connection down "$selected"
   else
-    nmcli connection up "$selected" --ask
+    nmcli connection up "$selected"
 fi
+
+"""
+
+[[modules]]
+description = "power menu (fzf)"
+prefix = "sys"
+cmd = """
+function power {
+    if [[ -n $1 ]]; then
+    case $1 in
+        "lock") swaylock -f -c 000000;;
+        "suspend") systemctl suspend ;;
+        "hibernate") systemctl hibernate ;;
+        "reboot") systemctl reboot ;;
+        "shutdown") systemctl poweroff ;;
+    esac 
+    fi 
+}
+power $(echo -e 'reboot\nshutdown\nlock\nsuspend\nhibernate' | fzf --padding 1,2 --info-command 'printf " power menu ($FZF_POS/$FZF_TOTAL_COUNT)"' --cycle --gutter " " --pointer " ▌" --color "bg+:-1,pointer:1,info:8,separator:8,scrollbar:0" --prompt '>  ' | tail -1)
 """

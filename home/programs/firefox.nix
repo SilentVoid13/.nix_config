@@ -16,7 +16,7 @@
     };
     profiles."0" = {
       id = 0;
-      isDefault = true;
+      # isDefault = true;
       name = "0";
       settings = {
         # prevent extension disabling

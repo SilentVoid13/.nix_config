@@ -7,6 +7,7 @@
 
     ## GUI
     #./programs/brave.nix
+    ./programs/chromium.nix
     ./programs/firefox.nix
     ./programs/binaryninja
     ./programs/ida

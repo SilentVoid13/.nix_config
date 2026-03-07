@@ -107,6 +107,11 @@ in
         default-column-width = { };
       };
 
+      debug = {
+        # focus with xdg-open
+        honor-xdg-activation-with-invalid-serial = { };
+      };
+
       input.keyboard.xkb.layout = "qwerty_fr";
       prefer-no-csd = true;
 

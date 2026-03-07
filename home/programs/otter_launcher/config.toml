@@ -85,14 +85,14 @@ power $(echo -e 'reboot\nshutdown\nlogout\nsuspend\nhibernate' | fzf --reverse -
 [[modules]]
 description = "search nix wiki"
 prefix = "nixw"
-cmd = "setsid -f xdg-open https://wiki.nixos.org/w/index.php?search={} && swaymsg '[app_id=firefox] focus'"
+cmd = "setsid -f xdg-open https://wiki.nixos.org/w/index.php?search={}"
 with_argument = true
 url_encode = true
 
 [[modules]]
 description = "search for nix packages"
 prefix = "nix"
-cmd = "setsid -f xdg-open https://search.nixos.org/packages?query={} && swaymsg '[app_id=firefox] focus'"
+cmd = "setsid -f xdg-open https://search.nixos.org/packages?query={}"
 with_argument = true
 url_encode = true
 
@@ -110,7 +110,6 @@ cmd = """
 xdg-open 'https://apkpure.com/search?q={}'
 xdg-open 'https://www.apkmirror.com/?post_type=app_release&searchtype=apk&bundles%5B%5D=apkm_bundles&bundles%5B%5D=apk_files&s={}'
 xdg-open 'https://apkcombo.com/search/{}'
-swaymsg '[app_id=firefox] focus'
 """
 with_argument = true
 url_encode = true

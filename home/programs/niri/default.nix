@@ -249,7 +249,9 @@ in
         "${m}+Shift+e".action.quit = { };
         "${m}+q".action.close-window = { };
         "${m}+shift+h".action.focus-column-left = { };
+        "${m}+shift+ctrl+h".action.move-column-left = { };
         "${m}+shift+l".action.focus-column-right = { };
+        "${m}+shift+ctrl+l".action.move-column-right = { };
         "${m}+shift+j".action.focus-window-down = { };
         "${m}+shift+k".action.focus-window-up = { };
         "${m}+shift+v".action.maximize-column = { };

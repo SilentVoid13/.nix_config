@@ -29,12 +29,13 @@ pkgs.buildFHSEnv {
       freetype
       libGL
       libxkbcommon
-      xorg.libX11
-      xorg.libxcb
-      xorg.xcbutilimage
-      xorg.xcbutilkeysyms
-      xorg.xcbutilrenderutil
-      xorg.xcbutilwm
+      curl
+      libx11
+      libxcb
+      libxcb-image
+      libxcb-keysyms
+      libxcb-render-util
+      libxcb-wm
       wayland
       zlib
       libxml2

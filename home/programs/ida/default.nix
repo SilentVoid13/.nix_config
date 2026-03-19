@@ -23,17 +23,17 @@ let
     fontconfig
     freetype
     openssl
-    xorg.libX11
-    xorg.xcbutilwm
-    xorg.xcbutilimage
-    xorg.libxcb
-    xorg.xcbutilrenderutil
-    xorg.xcbutilkeysyms
-    xorg.xcbutilerrors
-    xorg.xcbutil
-    xorg.xcbproto
-    xorg.libSM
-    xorg.libICE
+    libx11
+    libxcb
+    libxcb-wm
+    libxcb-image
+    libxcb-render-util
+    libxcb-keysyms
+    libxcb-errors
+    libxcb-util
+    xcb-proto
+    libsm
+    libice
     wayland
     libxkbcommon
     dbus.lib

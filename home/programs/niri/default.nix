@@ -113,6 +113,10 @@ in
       };
 
       input.keyboard.xkb.layout = "qwerty_fr";
+      input.touchpad = {
+        accel-speed = 0.7;
+        dwt = true;
+      };
       prefer-no-csd = true;
 
       binds = {

@@ -26,6 +26,13 @@
             "jet"
           ];
         };
+        "hexis" = {
+          path = myconf.hexis_path;
+          devices = [
+            "faye"
+            "jet"
+          ];
+        };
       };
     };
   };

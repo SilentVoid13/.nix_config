@@ -2,6 +2,7 @@
 rec {
   username = "silent";
   knowledge_base = "/home/${username}/kb";
+  hexis_path = "/home/${username}/hexis";
   project_folders = [
     "/home/${username}/H/p"
     "/home/${username}/H/r"

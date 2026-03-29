@@ -5,13 +5,13 @@
 let
   jadx_pkg = pkgs.stdenv.mkDerivation rec {
     pname = "jadx";
-    version = "r2631.dcce3aa";
+    version = "r2632.cdd5bf5";
     # version = "1.5.3";
 
     src = pkgs.fetchzip {
       # url = "https://github.com/skylot/jadx/releases/download/v${version}/jadx-${version}.zip";
       url = "https://nightly.link/skylot/jadx/workflows/build-artifacts/master/jadx-${version}.zip";
-      sha256 = "sha256-oeeWnov3ZqRHdU8R1lhidZmP5+H5nJlIERBQ6kD0vk8=";
+      sha256 = "sha256-oxHKSeaikzPgu9iF1exdv0x6cz4ZF4r30TKMnG1HCLg=";
       stripRoot = false;
     };
 

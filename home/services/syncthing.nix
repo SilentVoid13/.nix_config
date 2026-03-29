@@ -4,8 +4,8 @@
     enable = true;
     settings = {
       devices = {
-        "pixel7a" = {
-          id = "CNZLAZG-OH6B3H5-XFRGL3O-W6DFIR3-ALFOWUW-6UJMQDB-SEENXU7-XAP3HAT";
+        "pixel9a" = {
+          id = "WY5DIP5-SJOXPV7-7U4Q7FS-PVNTDUG-PYDFPVE-B4GLIZX-VUA73R4-5KINXQI";
           autoAcceptFolders = true;
         };
         "faye" = {
@@ -21,7 +21,7 @@
         "knowledge_base" = {
           path = myconf.knowledge_base;
           devices = [
-            "pixel7a"
+            "pixel9a"
             "faye"
             "jet"
           ];

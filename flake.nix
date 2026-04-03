@@ -6,13 +6,16 @@
     nixpkgs-stable.url = "nixpkgs/nixos-25.11";
     nixpkgs-staging.url = "nixpkgs/staging-next";
 
-    home-manager = {
-      url = "github:nix-community/home-manager";
-      inputs.nixpkgs.follows = "nixpkgs";
+    flake-parts = {
+      url = "github:hercules-ci/flake-parts";
     };
 
-    nixgl = {
-      url = "github:guibou/nixGL";
+    import-tree = {
+      url = "github:vic/import-tree";
+    };
+
+    home-manager = {
+      url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
@@ -63,15 +66,7 @@
   };
 
   outputs =
-    {
-      nixpkgs,
-      nixpkgs-stable,
-      home-manager,
-      nixgl,
-      lanzaboote,
-      disko,
-      ...
-    }@inputs:
+    inputs:
     let
       myconf =
         if builtins.pathExists ./extra/conf.nix then
@@ -79,23 +74,35 @@
         else
           (import ./extra/conf.example.nix { });
     in
-    {
-      homeConfigurations = import ./outputs/home.nix {
-        inherit nixpkgs;
-        inherit nixpkgs-stable;
-        inherit myconf;
-        inherit home-manager;
-        inherit nixgl;
-        inherit inputs;
-      };
+    inputs.flake-parts.lib.mkFlake { inherit inputs; } {
+      flake.myconf = myconf;
+      systems = [
+        "x86_64-linux"
+        # "aarch64-linux"
+        # "x86_64-darwin"
+        # "aarch64-darwin"
+      ];
 
-      nixosConfigurations = import ./outputs/nixos.nix {
-        inherit nixpkgs;
-        inherit nixpkgs-stable;
-        inherit myconf;
-        inherit lanzaboote;
-        inherit disko;
-        inherit inputs;
-      };
+      imports = [
+        (inputs.import-tree ./modules)
+      ];
+      perSystem =
+        { system, ... }:
+        {
+          _module.args.myconf = myconf;
+          _module.args.pkgs = import inputs.nixpkgs {
+            inherit system;
+            config.allowUnfree = true;
+            overlays = [
+              inputs.niri.overlays.niri
+              (final: prev: {
+                stable = import inputs.nixpkgs-stable {
+                  system = prev.system;
+                  config.allowUnfree = true;
+                };
+              })
+            ];
+          };
+        };
     };
 }

@@ -5,8 +5,6 @@
     {
       programs.waybar = {
         enable = true;
-        # TODO: try to nixGL wrap?
-        #package =
         settings = {
           mainBar = {
             ipc = true;
@@ -48,11 +46,11 @@
               "format-alt" = "{:%Y-%m-%d}";
             };
             "cpu" = {
-              "format" = "{usage}% ";
+              "format" = "{usage}% ";
               "tooltip" = false;
             };
             "memory" = {
-              "format" = "{used:0.1f}GiB/{total:0.1f}GiB ";
+              "format" = "{used:0.1f}GiB/{total:0.1f}GiB ";
             };
             "battery" = {
               "states" = {
@@ -62,30 +60,30 @@
               };
               "format" = "{capacity}% {icon}";
               "format-icons" = [
-                ""
-                ""
-                ""
-                ""
-                ""
+                ""
+                ""
+                ""
+                ""
+                ""
               ];
             };
             "pulseaudio" = {
               "scroll-step" = 5;
               "format" = "{volume}% {icon}  {format_source}";
-              "format-bluetooth" = "{volume}% {icon}  {format_source}";
+              "format-bluetooth" = "{volume}% {icon}  {format_source}";
               "format-source" = "Mic ON";
               "format-source-muted" = "Mic OFF";
-              "format-muted" = "";
+              "format-muted" = "";
               "format-icons" = {
-                "headphone" = "";
-                "hands-free" = "";
-                "headset" = "";
-                "phone" = "";
-                "portable" = "";
-                "car" = "";
+                "headphone" = "";
+                "hands-free" = "";
+                "headset" = "";
+                "phone" = "";
+                "portable" = "";
+                "car" = "";
                 "default" = [
-                  ""
-                  ""
+                  ""
+                  ""
                 ];
               };
               "on-click" = "pavucontrol";
@@ -98,22 +96,22 @@
             "idle_inhibitor" = {
               "format" = "{icon} ";
               "format-icons" = {
-                "activated" = "";
-                "deactivated" = "";
+                "activated" = "";
+                "deactivated" = "";
               };
             };
             "custom/notification" = {
               "tooltip" = false;
               "format" = "{icon}";
               "format-icons" = {
-                "notification" = "<span foreground='red'><sup></sup></span>";
-                "none" = "";
-                "dnd-notification" = "<span foreground='red'><sup></sup></span>";
-                "dnd-none" = "";
-                "inhibited-notification" = "<span foreground='red'><sup></sup></span>";
-                "inhibited-none" = "";
-                "dnd-inhibited-notification" = "<span foreground='red'><sup></sup></span>";
-                "dnd-inhibited-none" = "";
+                "notification" = "<span foreground='red'><sup></sup></span>";
+                "none" = "";
+                "dnd-notification" = "<span foreground='red'><sup></sup></span>";
+                "dnd-none" = "";
+                "inhibited-notification" = "<span foreground='red'><sup></sup></span>";
+                "inhibited-none" = "";
+                "dnd-inhibited-notification" = "<span foreground='red'><sup></sup></span>";
+                "dnd-inhibited-none" = "";
               };
               "return-type" = "json";
               "exec-if" = "which swaync-client";

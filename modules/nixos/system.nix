@@ -42,7 +42,7 @@
       ];
 
       imports = [
-        (if builtins.pathExists ../extra/nixos.nix then import ../extra/nixos.nix else { })
+        (if builtins.pathExists ../../extra/nixos.nix then import ../../extra/nixos.nix else { })
       ];
     };
 }

@@ -1,7 +1,7 @@
 { inputs, ... }:
 {
   flake.modules.homeManager.firefox =
-    { pkgs, ... }:
+    { config, ... }:
     {
       imports = [
         inputs.arkenfox.hmModules.arkenfox
@@ -9,6 +9,7 @@
 
       programs.firefox = {
         enable = true;
+        configPath = "${config.xdg.configHome}/mozilla/firefox";
         arkenfox = {
           enable = true;
           version = "128.0";

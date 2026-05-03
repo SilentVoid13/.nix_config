@@ -29,13 +29,13 @@
                 "jet"
               ];
             };
-            "hexis" = {
-              path = self.myconf.hexis_path;
-              devices = [
-                "faye"
-                "jet"
-              ];
-            };
+            # "hexis" = {
+            #   path = self.myconf.hexis_path;
+            #   devices = [
+            #     "faye"
+            #     "jet"
+            #   ];
+            # };
           };
         };
       };

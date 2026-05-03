@@ -50,6 +50,7 @@
           "gejiddohjgogedgjnonbofjigllpkmbf" # 1password nightly
           "hlkenndednhfkekhgcdicdfddnkalmdm" # cookie editor
           "mnjggcdmjocbbbhaepdhchncahnbgone" # sponsorblock
+          "lebiggkccaodkkmjeimmbogdedcpnmfb" # block-site
         ];
 
         initialPrefs = {

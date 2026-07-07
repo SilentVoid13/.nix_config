@@ -10,7 +10,7 @@
             font = "Iosevka Nerd Font Mono:size=14";
             selection-target = "clipboard";
           };
-          colors = {
+          "colors-dark" = {
             alpha = pkgs.lib.mkForce 0.9;
             ## Scrcery
             foreground = "d9d2c2";

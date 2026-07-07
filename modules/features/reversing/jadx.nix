@@ -5,11 +5,11 @@
     {
       packages.custom_jadx = pkgs.stdenv.mkDerivation rec {
         pname = "jadx";
-        version = "r2655.bce6611";
+        version = "r2668.aaec137";
 
         src = pkgs.fetchzip {
           url = "https://nightly.link/skylot/jadx/workflows/build-artifacts/master/jadx-${version}.zip";
-          sha256 = "sha256-E8E2UsB2DkBBWiHcDuEXpQFJ1CM9gFYwwvPdTPWzrwU=";
+          sha256 = "sha256-NJ1KHRcUN39g+6JSiwvAOMFVMX1mha6OTCZabvy6BOc=";
           stripRoot = false;
         };
 

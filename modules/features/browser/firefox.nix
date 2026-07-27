@@ -12,7 +12,7 @@
         configPath = "${config.xdg.configHome}/mozilla/firefox";
         arkenfox = {
           enable = true;
-          version = "128.0";
+          version = "144.0";
         };
         profiles = {
           "0" = {

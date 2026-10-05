@@ -9,10 +9,14 @@
     let
       tmux_sessionizer_rel = "tmux/tmux-sessionizer";
       tmux_sessionizer_abs = "${config.xdg.dataHome}/${tmux_sessionizer_rel}";
+      agent_notify = pkgs.writeShellScriptBin "agent-notify" ''
+        source ${./_files/agent-notify.sh}
+      '';
     in
     {
       home.packages = with pkgs; [
         fzf
+        agent_notify
       ];
 
       xdg = {
@@ -24,6 +28,7 @@
           '';
           executable = true;
         };
+
       };
 
       programs.tmux = {
@@ -63,6 +68,9 @@
           bind '"' split-window -c "#{pane_current_path}"
           bind % split-window -h -c "#{pane_current_path}"
           bind c new-window -c "#{pane_current_path}"
+
+          # enable mouse
+          set -g mouse on
 
           # quick style
           set -g status-style 'bg=#333333 fg=#5eacd3'

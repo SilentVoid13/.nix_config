@@ -43,7 +43,6 @@
 
             ## useful headers
             openssl.dev
-            openssl_3
             linuxHeaders
             #linux_5_15.dev
             stdenv
@@ -59,7 +58,6 @@
           export LD_LIBRARY_PATH="$LD_LIBRARY_PATH:${
             pkgs.lib.makeLibraryPath [
               pkgs.openssl
-              pkgs.openssl_3
             ]
           }"
           "$HOME/binaryninja/binaryninja" "$@"

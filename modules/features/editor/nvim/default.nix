@@ -26,6 +26,7 @@
         ./_config/oil.nix
         ./_config/comment.nix
         ./_config/todo_comments.nix
+        ./_config/markdown_syntax.nix
         #./_config/sov
         #./_config/obsidian
       ];

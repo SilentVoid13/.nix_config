@@ -30,6 +30,7 @@
         self.modules.homeManager.tmux
         self.modules.homeManager.nvim
         self.modules.homeManager.htop
+        self.modules.homeManager.herdr
 
         ## wm
         self.modules.homeManager.niri

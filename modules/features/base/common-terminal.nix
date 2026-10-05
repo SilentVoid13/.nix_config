@@ -25,10 +25,12 @@
         cloc
         trashy
         python3
+        uv
         magic-wormhole
         rogcat
         spacer
         xlsclients
+        wtype
 
         ## monitoring
         s-tui

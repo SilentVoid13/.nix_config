@@ -14,6 +14,7 @@ nixos target *args:
     sudo nixos-rebuild switch --flake "path://${PWD}#{{target}}" -L {{args}}
 update:
     nix-channel --update
+    flatpak update -y
     nix flake update
     ./scripts/update_nix_hash.sh
 home_depends target pkg:

@@ -11,7 +11,9 @@
             selection-target = "clipboard";
           };
           "colors-dark" = {
-            alpha = pkgs.lib.mkForce 0.9;
+            # transparency
+            #alpha = pkgs.lib.mkForce 0.9;
+
             ## Scrcery
             foreground = "d9d2c2";
             background = "000000";

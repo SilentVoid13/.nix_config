@@ -7,8 +7,10 @@
 
         grammarPackages = with pkgs.vimPlugins.nvim-treesitter.builtGrammars; [
           c
+          cpp
           lua
           rust
+          java
           javascript
           typescript
           python

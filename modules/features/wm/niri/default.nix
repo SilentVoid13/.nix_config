@@ -144,9 +144,6 @@
               "new"
               "-As0"
             ];
-            # "${m}+Shift+w".action.spawn = [
-            #   "${reboot_wallpaper_path}"
-            # ];
             "${m}+p".action.spawn = [
               "${pkgs.playerctl}/bin/playerctl"
               "play-pause"
@@ -226,6 +223,10 @@
             ];
             "${m}+Shift+w".action.spawn = [
               "reboot_wallpaper.sh"
+            ];
+            "${m}+Shift+r".action.spawn = [
+              "${pkgs.handy}/bin/handy"
+              "--toggle-transcription"
             ];
 
             # workspaces

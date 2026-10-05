@@ -90,6 +90,8 @@
           scpp = "scp -o PreferredAuthentications=password -o PubkeyAuthentication=no ";
           gll = "git stash && git pull && git stash pop";
           nixsf = "nix run github:nix-community/nix-index-database -- ";
+          logcrash = "adb logcat -v color -v raw -s \"DEBUG:V\"";
+          logerr = "adb logcat -v color -s \"ERROR:V\"";
         };
 
         initContent = ''

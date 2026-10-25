@@ -22,6 +22,7 @@
 
   services.fwupd.enable = true;
   services.throttled.enable = true;
+  services.upower.enable = true;
   # unsupported for this CPU apparently
   # services.thermald.enable = true;
 

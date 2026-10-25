@@ -87,6 +87,7 @@
           };
         };
         targets = {
+          firefox.profileNames = [ "0" ];
           waybar.enable = true;
           nixvim.enable = false;
           foot.enable = false;

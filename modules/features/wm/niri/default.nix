@@ -138,11 +138,15 @@
             #   "bemoji"
             #   "-t"
             # ];
+            # "${m}+Return".action.spawn = [
+            #   "${term}"
+            #   "tmux"
+            #   "new"
+            #   "-As0"
+            # ];
             "${m}+Return".action.spawn = [
               "${term}"
-              "tmux"
-              "new"
-              "-As0"
+              "herdr"
             ];
             "${m}+p".action.spawn = [
               "${pkgs.playerctl}/bin/playerctl"
@@ -306,6 +310,7 @@
             {
               open-floating = true;
               matches = [
+                # { app-id = "hexis"; }
                 { app-id = "otter-launcher"; }
                 { app-id = "pavucontrol"; }
                 { app-id = "qalculate-gtk"; }

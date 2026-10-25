@@ -126,10 +126,13 @@
 
           binds = {
             # program binds
+            # "${m}+b".action.spawn = [
+            #   # "firefox"
+            #   "brave"
+            #   "--disable-features=WaylandFractionalScaleV1"
+            # ];
             "${m}+b".action.spawn = [
-              # "firefox"
-              "brave"
-              "--disable-features=WaylandFractionalScaleV1"
+              "helium"
             ];
             "${m}+e".action.spawn = [
               "${menu}"

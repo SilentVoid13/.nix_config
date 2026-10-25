@@ -11,7 +11,6 @@
         mullvad-vpn
         onlyoffice-desktopeditors
         transmission_4-gtk
-        #chromium
         #discord
         vesktop
         wdisplays

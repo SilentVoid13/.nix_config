@@ -21,6 +21,7 @@
       self.modules.nixos.fonts
       self.modules.nixos.wayland
       self.modules.nixos.chromium
+      self.modules.nixos.brave
       self.modules.nixos.niri
       self.modules.nixos.stylix
 
@@ -67,7 +68,8 @@
                 {
                   home.stateVersion = "23.05";
                 }
-                self.modules.homeManager.chromium
+                self.modules.homeManager.brave
+                self.modules.homeManager.helium
                 self.modules.homeManager.foot
                 self.modules.homeManager.zsh
                 self.modules.homeManager.tmux

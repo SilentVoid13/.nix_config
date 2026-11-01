@@ -50,7 +50,8 @@
     };
 
     otter-launcher = {
-      url = "github:kuokuo123/otter-launcher";
+      url = "github:kuokuo123/otter-launcher/pull/40/head";
+      # url = "github:kuokuo123/otter-launcher";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
